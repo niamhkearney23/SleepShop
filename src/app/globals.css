@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-parchment text-ink font-body antialiased;
+    font-size: 17px;
+    line-height: 1.75;
+  }
+
+  ::selection {
+    background-color: #2D3E2C;
+    color: #FAF7F2;
+  }
+}
+
+/* Scroll fade-in */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
