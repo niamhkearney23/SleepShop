@@ -8,7 +8,7 @@ export function Credentials() {
           Credentials.
         </h2>
         <p className="text-ink/80">
-          Merritt is led by [Name], admitted to practice in Victoria, Australia,
+          Merritt is led by Niamh Kearney, admitted to practice in Victoria, Australia,
           with professional roots in Melbourne and Kuala Lumpur. We work
           exclusively with boutique law firms, and our engagements are structured
           around the realities of legal practice — compliance obligations,
