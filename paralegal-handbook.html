@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Paralegal Recruitment System — Handover & Operating Manual</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #555;
+    --line: #e6e6e6;
+    --bg: #ffffff;
+    --accent: #6b3f2a;
+    --accent-soft: #f6f1ec;
+    --yes: #2a7a3a;
+    --borderline: #b8860b;
+    --no: #b03030;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.55;
+    font-size: 17px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 56px 28px 96px; }
+  .firm {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: 34px;
+    margin: 0 0 8px;
+    line-height: 1.2;
+  }
+  .lede {
+    color: var(--muted);
+    font-style: italic;
+    margin: 0 0 32px;
+  }
+  h2 {
+    font-size: 22px;
+    margin: 40px 0 12px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+  }
+  h3 {
+    font-size: 16px;
+    margin: 24px 0 8px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  ul, ol { padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration: underline; }
+  a:hover { text-decoration: none; }
+  .toc {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 18px 24px;
+    margin: 24px 0 8px;
+  }
+  .toc ol { margin: 0; padding-left: 20px; }
+  .toc a { color: var(--ink); }
+  .card {
+    border: 1px solid var(--line);
+    padding: 16px 20px;
+    margin: 14px 0;
+    border-radius: 4px;
+  }
+  .card .label {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .card .name { font-weight: bold; margin-bottom: 4px; }
+  .card .url { word-break: break-all; font-family: Menlo, Consolas, monospace; font-size: 14px; }
+  .card .note { color: var(--muted); font-size: 14px; margin-top: 6px; }
+  .security {
+    background: #fff8e6;
+    border-left: 3px solid #d4a017;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 15px;
+  }
+  .flow { list-style: none; padding: 0; margin: 16px 0; }
+  .flow li {
+    display: flex;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px dotted var(--line);
+  }
+  .flow .step {
+    flex: 0 0 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    text-align: center;
+    line-height: 28px;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 8px;
+    font-size: 15px;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: #fafafa;
+  }
+  td.col { font-family: Menlo, Consolas, monospace; font-weight: bold; }
+  td.name { font-weight: bold; }
+  code {
+    font-family: Menlo, Consolas, monospace;
+    background: #f4f4f4;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  .quick {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    padding: 18px 24px;
+    margin-top: 32px;
+    border-radius: 4px;
+  }
+  .quick h3 { margin-top: 0; color: var(--accent); }
+  footer {
+    margin-top: 64px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="firm">Thomas Philip · Advocates &amp; Solicitors</div>
+  <h1>Paralegal Recruitment System</h1>
+  <p class="lede">Handover &amp; operating manual — everything you need to know to run, review, and maintain the automated paralegal application system.</p>
+
+  <div class="toc">
+    <h3 style="margin-top:0;">Contents</h3>
+    <ol>
+      <li><a href="#s1">What this system does</a></li>
+      <li><a href="#s2">Key links &amp; credentials</a></li>
+      <li><a href="#s3">The applicant flow (step by step)</a></li>
+      <li><a href="#s4">Daily tasks (you)</a></li>
+      <li><a href="#s5">Google Sheet — column reference</a></li>
+      <li><a href="#s6">Overriding an AI decision</a></li>
+      <li><a href="#s7">Updating the Calendly link</a></li>
+      <li><a href="#s8">Exporting TPAS CRM subscribers</a></li>
+      <li><a href="#s9">Troubleshooting</a></li>
+      <li><a href="#s10">Who does what</a></li>
+    </ol>
+  </div>
+
+  <h2 id="s1">1. What this system does</h2>
+  <p>When a candidate scans the QR code (or visits the link), they complete a 20-minute AI-scored assessment in their browser. Behind the scenes:</p>
+  <ul>
+    <li>Their resume is uploaded to the firm's Google Drive folder</li>
+    <li>Their answers are scored by AI (Claude) across 10 qualities out of 100</li>
+    <li>A formatted Google Doc report is auto-generated and saved</li>
+    <li>A row is added to the master Google Sheet with a link to the report</li>
+    <li>24 hours later, an automatic email is sent: Shortlist (with Calendly link), Under Review, or Polite Decline</li>
+  </ul>
+  <p>Your only manual steps: (a) review applications within the 24-hour window and override anything the AI got wrong, and (b) send the formal acceptance letter to shortlisted candidates after the screening call.</p>
+
+  <h2 id="s2">2. Key links &amp; credentials</h2>
+
+  <div class="card">
+    <div class="label">Live assessment (for candidates)</div>
+    <div class="name">Paralegal Assessment</div>
+    <div class="url"><a href="https://paralegalassessment.netlify.app">https://paralegalassessment.netlify.app</a></div>
+    <div class="note">Share this URL, the QR code, or the recruitment flow page with candidates.</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Master database</div>
+    <div class="name">Google Sheet — All Applications</div>
+    <div class="url"><a href="https://docs.google.com/spreadsheets/d/12OrO5UGRMwMFq6TsqsgKWx7wvPGSPfOZZPzAL2-8UHk/edit">https://docs.google.com/spreadsheets/d/12OrO5UGRMwMFq6TsqsgKWx7wvPGSPfOZZPzAL2-8UHk/edit</a></div>
+    <div class="note">Every submission lands here. Tab: <code>Applications</code>. Use this to review, override, or cancel auto-emails.</div>
+  </div>
+
+  <div class="card">
+    <div class="label">File storage</div>
+    <div class="name">Drive folder — Paralegal Resumes</div>
+    <div class="url"><a href="https://drive.google.com/drive/folders/1kiuD0jXwtScnjhQK2I8OyPGTdMAZv6Eh">https://drive.google.com/drive/folders/1kiuD0jXwtScnjhQK2I8OyPGTdMAZv6Eh</a></div>
+    <div class="note">Holds all uploaded resumes + auto-generated Google Doc reports.</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Backend logic</div>
+    <div class="name">Google Apps Script</div>
+    <div class="url"><a href="https://script.google.com">https://script.google.com</a> — open project "Paralegal Assessment Backend"</div>
+    <div class="note">Code that saves submissions, scores answers, sends emails. Edit here to change email templates or Calendly link.</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Google account</div>
+    <div class="name">thomasphilipcareersapplication@gmail.com</div>
+  </div>
+
+  <div class="card">
+    <div class="label">Firm reply-to address (for candidate replies)</div>
+    <div class="name">nmk@lawgistics.my</div>
+  </div>
+
+  <div class="security">
+    <strong>Security:</strong> the Google password should be kept by whoever owns recruitment (currently Niamh). If you need access, don't share the password in chat — request it directly.
+  </div>
+
+  <h2 id="s3">3. The applicant flow</h2>
+  <ol class="flow">
+    <li><span class="step">1</span><span><strong>Day 0</strong> — Candidate scans QR code or visits the link. Completes 20-minute assessment.</span></li>
+    <li><span class="step">2</span><span><strong>Day 0</strong> — They see a "Thank You" screen (no scores shown to them).</span></li>
+    <li><span class="step">3</span><span><strong>Day 0</strong> — Behind the scenes: data saves to Sheet, resume to Drive, AI scores all 10 qualities, Google Doc report generates. Email status set to <code>SCHEDULED</code> for 24h later.</span></li>
+    <li><span class="step">4</span><span><strong>Within 24h</strong> — You review in the Sheet. Override or cancel any email you disagree with.</span></li>
+    <li><span class="step">5</span><span><strong>Day 1</strong> — Auto-email sends at the scheduled time. Shortlist = Calendly link. Borderline = "under review". No = polite decline.</span></li>
+    <li><span class="step">6</span><span><strong>Day 1–3</strong> — Shortlisted candidate clicks Calendly link, books 15-min screening call.</span></li>
+    <li><span class="step">7</span><span><strong>Day 2–5</strong> — Screening call happens via Google Meet (auto-generated by Calendly). Niamh attends.</span></li>
+    <li><span class="step">8</span><span><strong>After the call</strong> — Niamh opens the Sheet, finds the row, picks <code>ACCEPT</code> or <code>REJECT</code> from the Post-Interview dropdown (column R). Diviya instantly receives an email with the candidate's details + the Report link + which letter to send.</span></li>
+    <li><span class="step">9</span><span><strong>Diviya</strong> — reads the email, sends the formal acceptance letter (with 2-week trial details) or a polite decline, then ticks the "Letter Sent" checkbox (column T) on the Sheet. The "Sent On" timestamp auto-fills so Niamh can see at a glance that the loop is closed.</span></li>
+  </ol>
+
+  <h2 id="s4">4. Daily tasks</h2>
+  <h3>Every morning (2 min)</h3>
+  <ul>
+    <li>Open the Google Sheet</li>
+    <li>Check for any new rows submitted in the last 24 hours</li>
+    <li>For each new row: skim the <strong>Decision</strong> + open the <strong>Report Link</strong> to read the AI's reasoning and the candidate's full answers</li>
+    <li>If you disagree with the AI's decision → see "Overriding an AI decision" below</li>
+  </ul>
+  <h3>Every Monday 9am (automatic)</h3>
+  <ul>
+    <li>A CSV file arrives in your inbox: <em>TPAS CRM — Subscriber Export</em></li>
+    <li>Forward the CSV to Diviya to import into the Thomas Philip CRM</li>
+    <li>Contains all candidates who ticked "Thomas Philip Advocates &amp; Solicitors CRM" during application</li>
+  </ul>
+
+  <h2 id="s5">5. Google Sheet — column reference</h2>
+  <p>The Sheet has 21 columns. Everything else (full answers, individual scores, AI feedback) is in the linked Report Doc.</p>
+  <table>
+    <thead>
+      <tr><th>Col</th><th>Name</th><th>What it contains</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="col">A</td><td class="name">Timestamp</td><td>When they submitted</td></tr>
+      <tr><td class="col">B</td><td class="name">Full Name</td><td>Preferred name they entered</td></tr>
+      <tr><td class="col">C</td><td class="name">Email</td><td>Contact email</td></tr>
+      <tr><td class="col">D</td><td class="name">Phone</td><td>Contact phone</td></tr>
+      <tr><td class="col">E</td><td class="name">Education</td><td>University + year</td></tr>
+      <tr><td class="col">F</td><td class="name">IC Name</td><td>Name on their IC (for contracts)</td></tr>
+      <tr><td class="col">G</td><td class="name">IC Number</td><td>Malaysian IC number</td></tr>
+      <tr><td class="col">H</td><td class="name">Address</td><td>Full postal address</td></tr>
+      <tr><td class="col">I</td><td class="name">Call to The Bar Newsletter</td><td>YES/NO — opted into Mathew's newsletter</td></tr>
+      <tr><td class="col">J</td><td class="name">TPAS CRM</td><td>YES/NO — opted into firm CRM</td></tr>
+      <tr><td class="col">K</td><td class="name">Resume Link</td><td>Click → opens their resume in Drive</td></tr>
+      <tr><td class="col">L</td><td class="name">Decision</td><td>YES / BORDERLINE / NO (colour-coded)</td></tr>
+      <tr><td class="col">M</td><td class="name">Total Score</td><td>Out of 100 (10 qualities × 10)</td></tr>
+      <tr><td class="col">N</td><td class="name">Time Used</td><td>How long they spent on the assessment</td></tr>
+      <tr><td class="col">O</td><td class="name">Email Status</td><td>SCHEDULED / SENT / CANCELLED</td></tr>
+      <tr><td class="col">P</td><td class="name">Send At (ISO)</td><td>When the auto-email will send</td></tr>
+      <tr><td class="col">Q</td><td class="name">Report Link</td><td>Click this to see full AI report + all answers</td></tr>
+      <tr><td class="col">R</td><td class="name">Post-Interview</td><td>Dropdown: ACCEPT or REJECT — set after Calendly screening call. Auto-emails Diviya.</td></tr>
+      <tr><td class="col">S</td><td class="name">Diviya Notified</td><td>Timestamp auto-fills once Diviya has been notified</td></tr>
+      <tr><td class="col">T</td><td class="name">Letter Sent</td><td>Checkbox — Diviya ticks when she has sent the acceptance/decline letter</td></tr>
+      <tr><td class="col">U</td><td class="name">Sent On</td><td>Timestamp auto-fills when Diviya ticks the Letter Sent checkbox</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="s6">6. Overriding an AI decision</h2>
+  <p>You have a <strong>24-hour window</strong> to override anything before the auto-email goes out. After that, the email has already sent and you'd need to email the candidate manually.</p>
+  <h3>To change a decision (e.g. No → Yes)</h3>
+  <ol>
+    <li>Open the Sheet, find the candidate's row</li>
+    <li>Click cell in <strong>Decision</strong> column (L)</li>
+    <li>Change <code>NO</code> to <code>YES</code></li>
+    <li>Leave <strong>Email Status</strong> as <code>SCHEDULED</code></li>
+    <li>The next hourly trigger (max 1 hour wait) will send the right email</li>
+  </ol>
+  <h3>To cancel an email entirely</h3>
+  <ol>
+    <li>Find the candidate's row</li>
+    <li>Change <strong>Email Status</strong> from <code>SCHEDULED</code> to <code>CANCELLED</code></li>
+    <li>No email will ever be sent for this row</li>
+  </ol>
+  <h3>To send immediately (skip the 24-hour wait)</h3>
+  <ol>
+    <li>Change <strong>Send At</strong> to a time in the past (e.g. yesterday)</li>
+    <li>Wait up to 1 hour for the next trigger</li>
+    <li>Or, to send within 30 seconds: open Apps Script → select function <code>sendAllDueNow</code> → click Run</li>
+  </ol>
+
+  <h2 id="s7">7. Updating the Calendly link</h2>
+  <p>The shortlist email currently says "a member of our team will be in touch" because Calendly hasn't been approved yet. Once it is:</p>
+  <ol>
+    <li>Get the Calendly event link (looks like <code>https://calendly.com/firm/paralegal-screening</code>)</li>
+    <li>Open Apps Script → <code>Code.gs</code></li>
+    <li>Find the line: <code>var CALENDLY_LINK = 'https://calendly.com/YOUR-LINK-HERE';</code></li>
+    <li>Replace with the real URL</li>
+    <li>Save (Cmd + S)</li>
+    <li>Click <strong>Deploy → Manage deployments → pencil icon ✏️ → Version: New version → Deploy</strong></li>
+  </ol>
+  <p>From that moment on, every shortlist email automatically includes the Calendly link.</p>
+
+  <h2 id="s8">8. Exporting TPAS CRM subscribers</h2>
+  <p>Every Monday 9am, a CSV of candidates who opted into the Thomas Philip CRM is emailed automatically to <strong>nmk@lawgistics.my</strong>. Forward this file to Diviya, who imports it into the Thomas Philip CRM.</p>
+  <h3>To export manually at any time</h3>
+  <ol>
+    <li>Open Apps Script</li>
+    <li>In the function dropdown (next to the Run button), pick <code>exportTPASSubscribersCSV</code></li>
+    <li>Click Run ▶️</li>
+    <li>The CSV is saved to the Drive folder and emailed to <strong>nmk@lawgistics.my</strong></li>
+    <li>Forward to Diviya for CRM import</li>
+  </ol>
+  <p>CSV format: <code>email, first_name, last_name</code> — standard format that works with most CRM tools.</p>
+
+  <h2 id="s9">9. Troubleshooting</h2>
+  <h3>A submission isn't showing up in the Sheet</h3>
+  <ul>
+    <li>Open Apps Script → <strong>Executions</strong> tab (4th icon on left sidebar)</li>
+    <li>Look for a recent <code>doPost</code> row</li>
+    <li>If it's green / Completed but nothing in Sheet → check tab name is exactly <code>Applications</code></li>
+    <li>If it's red / Failed → click the row to see the error message</li>
+    <li>If there's no <code>doPost</code> at all → the Netlify site isn't reaching the Apps Script. Re-deploy Apps Script as "Web app" with access set to <code>Anyone</code></li>
+  </ul>
+  <h3>Auto-emails stopped sending</h3>
+  <ul>
+    <li>Open Apps Script → <strong>Triggers</strong> tab (clock icon)</li>
+    <li>Verify <code>processPendingEmails</code> is listed and running every hour</li>
+    <li>If missing: run <code>setupAllTriggers</code> once from the editor to recreate all triggers</li>
+  </ul>
+  <h3>AI scoring returns "ERROR"</h3>
+  <ul>
+    <li>Means the Anthropic API call failed — usually an API key issue or credit limit</li>
+    <li>Check <code>console.anthropic.com</code> for credits/billing</li>
+    <li>API key lives in the assessment HTML (not the Apps Script)</li>
+  </ul>
+  <h3>Candidate reports they didn't get an email</h3>
+  <ul>
+    <li>Ask them to check spam</li>
+    <li>Check the Sheet — is <strong>Email Status</strong> <code>SENT</code> or still <code>SCHEDULED</code>?</li>
+    <li>If <code>SCHEDULED</code> → hasn't sent yet (within the 24h delay)</li>
+    <li>If <code>SENT</code> → it went out — likely in their spam folder</li>
+  </ul>
+
+  <h2 id="s10">10. Who does what</h2>
+  <table>
+    <thead>
+      <tr><th>Who</th><th>Responsibility</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="name">System (automated)</td>
+        <td>Collect submissions, score with AI, generate reports, send shortlist / borderline / reject emails</td>
+      </tr>
+      <tr>
+        <td class="name">Niamh</td>
+        <td>
+          • Attend the 15-min Calendly screening calls<br>
+          • Override any AI decision — check the Sheet daily, read the Report, decide if the answers justify the AI's call<br>
+          • Pick ACCEPT or REJECT in column R after the screening call<br>
+          • Forward the weekly TPAS CRM CSV to Diviya
+        </td>
+      </tr>
+      <tr>
+        <td class="name">Diviya</td>
+        <td>
+          • Import the TPAS CRM CSV into Thomas Philip CRM each week<br>
+          • Receive the auto-email with Niamh's post-interview decision (ACCEPT / REJECT)<br>
+          • Send the formal acceptance letter (with 2-week trial details) or polite decline<br>
+          • Tick the Letter Sent checkbox (column T) on the Sheet once sent
+        </td>
+      </tr>
+      <tr>
+        <td class="name">Mathew</td>
+        <td>Strategic oversight. Handles the Call to The Bar newsletter list separately.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="quick">
+    <h3>Quick reference card</h3>
+    <ul>
+      <li><strong>Daily (Niamh):</strong> Open Sheet → review new rows → read Reports → override any AI decision if needed</li>
+      <li><strong>Weekly (Niamh → Diviya):</strong> Forward the TPAS CRM CSV (arrives Monday 9am) to Diviya for import into Thomas Philip CRM</li>
+      <li><strong>Monthly:</strong> Check Anthropic API credits at <code>console.anthropic.com</code></li>
+    </ul>
+  </div>
+
+  <footer>
+    Thomas Philip · Paralegal Recruitment · Handover Document · 2026
+  </footer>
+
+</div>
+</body>
+</html>
