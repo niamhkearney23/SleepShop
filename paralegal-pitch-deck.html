@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Thomas Philip · Paralegal Programme</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#0B1220;
+  --ink:#111827;
+  --mid:#374151;
+  --muted:#9CA3AF;
+  --line:#E5E7EB;
+  --cream:#FAFAF8;
+  --gold:#C9973A;
+  --gold-soft:#F3E8D0;
+  --white:#fff;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--ink);background:var(--dark);overflow-x:hidden}
+
+.deck{scroll-snap-type:y mandatory;overflow-y:scroll;height:100vh}
+.slide{scroll-snap-align:start;min-height:100vh;padding:64px 8vw;display:flex;flex-direction:column;justify-content:center;position:relative}
+
+.snum{position:absolute;top:32px;right:40px;font-family:'Libre Baskerville',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+.slabel{position:absolute;top:32px;left:40px;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+
+.cover{background:var(--dark);color:var(--white);text-align:center;justify-content:center}
+.cover .firm-mark{font-family:'Libre Baskerville',serif;font-size:14px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
+.cover h1{font-family:'Libre Baskerville',serif;font-size:clamp(48px,7vw,88px);font-weight:700;line-height:1.05;margin-bottom:24px;letter-spacing:-1px}
+.cover .sub{font-size:clamp(15px,1.8vw,20px);color:rgba(255,255,255,.65);max-width:640px;margin:0 auto 40px;line-height:1.7;font-style:italic}
+.cover .divider{width:60px;height:2px;background:var(--gold);margin:0 auto 40px}
+.cover .footer-mark{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:40px}
+.scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);animation:bounce 2.5s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+.light{background:var(--cream);color:var(--ink)}
+.light .snum,.light .slabel{color:var(--muted)}
+.light .slabel{color:var(--gold)}
+.dark{background:var(--dark);color:var(--white)}
+.dark .snum{color:rgba(255,255,255,.35)}
+
+h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);font-weight:700;line-height:1.1;margin-bottom:20px;letter-spacing:-0.5px;max-width:920px}
+.dark h2.stitle{color:var(--white)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.lede{font-size:clamp(16px,2vw,22px);line-height:1.7;color:var(--mid);max-width:720px;margin-bottom:36px}
+.dark .lede{color:rgba(255,255,255,.7)}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;max-width:960px;margin-top:32px}
+.stat{padding:24px 0;border-top:2px solid var(--gold)}
+.stat .num{font-family:'Libre Baskerville',serif;font-size:clamp(38px,5vw,64px);font-weight:700;line-height:1;margin-bottom:8px;color:var(--gold)}
+.stat .lbl{font-size:14px;line-height:1.5;color:var(--mid)}
+.dark .stat .lbl{color:rgba(255,255,255,.6)}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;max-width:1100px}
+.two-col.narrow{max-width:900px}
+@media(max-width:820px){.two-col{grid-template-columns:1fr;gap:32px}}
+
+.card-list{display:flex;flex-direction:column;gap:18px;max-width:820px}
+.icard{background:var(--white);border-left:3px solid var(--gold);padding:20px 24px;border-radius:0 8px 8px 0;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.dark .icard{background:rgba(255,255,255,.04);border-left-color:var(--gold)}
+.icard h3{font-family:'Lato',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px}
+.dark .icard h3{color:var(--white)}
+.icard p{font-size:14px;line-height:1.65;color:var(--mid)}
+.dark .icard p{color:rgba(255,255,255,.7)}
+
+.pathway{max-width:960px;display:flex;flex-direction:column;gap:0;margin-top:20px}
+.pstep{display:flex;gap:24px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.1);position:relative}
+.light .pstep{border-bottom-color:var(--line)}
+.pstep:last-child{border-bottom:none}
+.pnum{width:52px;height:52px;min-width:52px;border:2px solid var(--gold);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700}
+.ptxt h3{font-family:'Libre Baskerville',serif;font-size:20px;margin-bottom:4px}
+.dark .ptxt h3{color:var(--white)}
+.ptxt p{font-size:14.5px;line-height:1.7;color:var(--mid);max-width:640px}
+.dark .ptxt p{color:rgba(255,255,255,.65)}
+
+.pull{max-width:900px}
+.pull .qmark{font-family:'Libre Baskerville',serif;font-size:120px;line-height:.5;color:var(--gold);opacity:.4;margin-bottom:-30px;display:block}
+.pull blockquote{font-family:'Libre Baskerville',serif;font-size:clamp(24px,3.5vw,40px);font-weight:400;font-style:italic;line-height:1.35;color:var(--white);margin-bottom:24px}
+.light .pull blockquote{color:var(--ink)}
+.pull cite{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-style:normal}
+
+.values{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;max-width:1000px;margin-top:16px}
+.vcell{padding:24px;background:rgba(255,255,255,.03);border-radius:10px;border:1px solid rgba(255,255,255,.08)}
+.light .vcell{background:var(--white);border-color:var(--line)}
+.vcell .vico{font-family:'Libre Baskerville',serif;font-size:26px;color:var(--gold);margin-bottom:10px;font-weight:700}
+.vcell h4{font-family:'Libre Baskerville',serif;font-size:17px;margin-bottom:6px}
+.dark .vcell h4{color:var(--white)}
+.vcell p{font-size:13.5px;line-height:1.6;color:var(--mid)}
+.dark .vcell p{color:rgba(255,255,255,.6)}
+
+.bullets{list-style:none;padding:0;max-width:760px;display:flex;flex-direction:column;gap:14px;margin-top:16px}
+.bullets li{display:flex;gap:14px;font-size:16px;line-height:1.65;color:var(--mid)}
+.dark .bullets li{color:rgba(255,255,255,.75)}
+.bullets li::before{content:'—';color:var(--gold);font-weight:700;flex-shrink:0}
+
+.mini-faq{display:grid;grid-template-columns:1fr 1fr;gap:20px 40px;max-width:1050px;margin-top:24px}
+@media(max-width:820px){.mini-faq{grid-template-columns:1fr}}
+.mfq{padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1)}
+.light .mfq{border-bottom-color:var(--line)}
+.mfq .q{font-family:'Libre Baskerville',serif;font-size:15px;font-weight:700;margin-bottom:4px;color:var(--gold)}
+.mfq .a{font-size:13.5px;line-height:1.6;color:var(--mid)}
+.dark .mfq .a{color:rgba(255,255,255,.7)}
+
+.cta{background:var(--dark);color:var(--white);text-align:center;justify-content:center}
+.cta h2.stitle{margin:0 auto 24px;color:var(--white)}
+.cta .lede{margin:0 auto 40px;color:rgba(255,255,255,.7)}
+.cta-btn{display:inline-block;background:var(--gold);color:var(--dark);padding:20px 44px;border-radius:10px;font-family:'Lato',sans-serif;font-size:17px;font-weight:900;text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:all .2s;box-shadow:0 10px 40px rgba(201,151,58,.3)}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 15px 50px rgba(201,151,58,.45)}
+.url-line{margin-top:20px;font-family:'Libre Baskerville',serif;font-size:14px;color:var(--gold);word-break:break-all}
+
+.nav-dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:10px}
+.nav-dots a{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:all .2s;display:block}
+.nav-dots a:hover{background:var(--gold);transform:scale(1.5)}
+@media(max-width:900px){.nav-dots{display:none}}
+
+@media(max-width:700px){
+  .slide{padding:80px 24px 40px}
+  .snum{top:24px;right:24px}
+  .slabel{top:24px;left:24px}
+}
+</style>
+</head>
+<body>
+<div class="deck">
+
+<section class="slide cover">
+  <div class="firm-mark">Thomas Philip · Advocates &amp; Solicitors</div>
+  <h1>The Paralegal<br>Programme.</h1>
+  <div class="divider"></div>
+  <p class="sub">A three-month structured pathway into one of Malaysia's most respected advocacy practices — for the serious few who want more than a placement.</p>
+  <div class="footer-mark">2026 Handbook</div>
+  <div class="scroll-cue">Scroll ↓</div>
+</section>
+
+<section class="slide dark">
+  <div class="slabel">01 · The Firm</div>
+  <div class="snum">02 / 15</div>
+  <div class="eyebrow">Who We Are</div>
+  <h2 class="stitle">Advocacy is what we do.</h2>
+  <p class="lede">Thomas Philip is a Malaysian civil and commercial litigation practice. Our lawyers argue before judges, examine witnesses, and run hearings — every day. This is a practice built around courtrooms, not around desks.</p>
+  <div class="stats">
+    <div class="stat"><div class="num">Civil</div><div class="lbl">&amp; commercial litigation as our core practice</div></div>
+    <div class="stat"><div class="num">Advisory</div><div class="lbl">work on complex disputes and resolution</div></div>
+    <div class="stat"><div class="num">Courts</div><div class="lbl">across Malaysia — real advocacy exposure</div></div>
+  </div>
+</section>
+
+<section class="slide light">
+  <div class="slabel">02 · Why It Exists</div>
+  <div class="snum">03 / 15</div>
+  <div class="eyebrow">The Purpose</div>
+  <h2 class="stitle">This is your audition for pupillage.</h2>
+  <p class="lede">At Thomas Philip, every pupillage candidate must first complete a paralegalship. It is not an internship. It is a three-month test of whether you can be trusted to represent this firm as a pupil.</p>
+  <div class="two-col narrow">
+    <div class="icard"><h3>For You</h3><p>A structured entry into real litigation, with real cases, real courtrooms, and real feedback. You leave with skills — pupillage offer or not.</p></div>
+    <div class="icard"><h3>For Us</h3><p>Time to see how you work — how you think, write, handle pressure, and treat the people around you. No CV shows that.</p></div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="slabel">03 · At a Glance</div>
+  <div class="snum">04 / 15</div>
+  <div class="eyebrow">The Basics</div>
+  <h2 class="stitle">The programme.</h2>
+  <div class="stats">
+    <div class="stat"><div class="num">3</div><div class="lbl">Months in total. Standard duration for every paralegal.</div></div>
+    <div class="stat"><div class="num">RM 2,000</div><div class="lbl">Monthly allowance, paid throughout the programme.</div></div>
+    <div class="stat"><div class="num">In-office</div><div class="lbl">8.30 AM – 5.30 PM. No remote work.</div></div>
+    <div class="stat"><div class="num">10</div><div class="lbl">Certifications available across AI modules and work products.</div></div>
+  </div>
+</section>
+
+<section class="slide light">
+  <div class="slabel">04 · Requirements</div>
+  <div class="snum">05 / 15</div>
+  <div class="eyebrow">The Baseline</div>
+  <h2 class="stitle">Who we're looking for.</h2>
+  <p class="lede">The baseline is clear. Everything after that comes down to attitude.</p>
+  <ul class="bullets">
+    <li>An LL.B, or having sat your final exams (you don't need to have formally graduated)</li>
+    <li>Strong written and spoken English <em>and</em> Bahasa Malaysia</li>
+    <li>Integrity, diligence, initiative, humility, and consistency — not five values on a wall, five things we actually notice</li>
+    <li>Willingness to be in the office, on time, in professional dress, every day for three months</li>
+  </ul>
+</section>
+
+<section class="slide dark">
+  <div class="slabel">05 · The Work</div>
+  <div class="snum">06 / 15</div>
+  <div class="eyebrow">Your Day</div>
+  <h2 class="stitle">What you'll actually do.</h2>
+  <p class="lede">You will report to a supervising lawyer and, depending on active matters, take work from several. Your core scope covers:</p>
+  <div class="card-list">
+    <div class="icard"><h3>Drafting</h3><p>Affidavits, writs, submissions, cause papers, and client correspondence — always reviewed, always feedback.</p></div>
+    <div class="icard"><h3>Legal Research</h3><p>Using CLJ, Lexis Nexis and our internal precedent database. Real questions from real matters.</p></div>
+    <div class="icard"><h3>Court Bundles</h3><p>Compiling, indexing, and preparing the documents that lawyers rely on in hearings.</p></div>
+    <div class="icard"><h3>Court Attendance</h3><p>Observing hearings, assisting with filing, and supporting lawyers in live proceedings when opportunities arise.</p></div>
+  </div>
+</section>
+
+<section class="slide light">
+  <div class="slabel">06 · Training</div>
+  <div class="snum">07 / 15</div>
+  <div class="eyebrow">The AI Paralegal Programme</div>
+  <h2 class="stitle">10 certifications, two tracks.</h2>
+  <p class="lede">Your progress is formally recognised. Over three months, you work toward ten certifications across two structured tracks.</p>
+  <div class="two-col">
+    <div>
+      <h3 style="font-family:'Libre Baskerville',serif;font-size:20px;margin-bottom:14px;color:var(--gold)">AI Module Certifications</h3>
+      <ul class="bullets" style="margin-top:0">
+        <li>Fact Investigation</li>
+        <li>Chronology of Documents</li>
+        <li>Evidence Analysis</li>
+        <li>Legal Research</li>
+        <li>Causes &amp; Defences</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="font-family:'Libre Baskerville',serif;font-size:20px;margin-bottom:14px;color:var(--gold)">Work Product Certifications</h3>
+      <ul class="bullets" style="margin-top:0">
+        <li>Pleadings</li>
+        <li>Applications</li>
+        <li>Affidavits</li>
+        <li>Submissions</li>
+        <li>Witness Statements</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="slide dark pull">
+  <div class="slabel">07 · The Rare Part</div>
+  <div class="snum">08 / 15</div>
+  <div class="pull">
+    <span class="qmark">"</span>
+    <blockquote>Watching lawyers argue before judges, examine witnesses, and run hearings is something few environments offer at this stage of your career.</blockquote>
+    <cite>— Real Litigation Exposure at Thomas Philip</cite>
+  </div>
+</section>
+
+<section class="slide light">
+  <div class="slabel">08 · Culture</div>
+  <div class="snum">09 / 15</div>
+  <div class="eyebrow">The Firm's Values</div>
+  <h2 class="stitle">Five things we notice.</h2>
+  <div class="values">
+    <div class="vcell"><div class="vico">I</div><h4>Integrity</h4><p>You do the right thing when nobody is watching. Confidentiality is not optional.</p></div>
+    <div class="vcell"><div class="vico">II</div><h4>Diligence</h4><p>The details matter. Precision in your drafting is precision in your thinking.</p></div>
+    <div class="vcell"><div class="vico">III</div><h4>Initiative</h4><p>Take ownership. Ask for feedback. Move things forward without being asked twice.</p></div>
+    <div class="vcell"><div class="vico">IV</div><h4>Humility</h4><p>Nobody starts knowing everything. Ask questions. Take corrections without ego.</p></div>
+    <div class="vcell"><div class="vico">V</div><h4>Consistency</h4><p>Show up on time. Deliver the same quality on day 90 as you did on day 1.</p></div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="slabel">09 · The Pathway</div>
+  <div class="snum">10 / 15</div>
+  <div class="eyebrow">Application to Pupillage</div>
+  <h2 class="stitle">Five steps in.</h2>
+  <div class="pathway">
+    <div class="pstep"><div class="pnum">1</div><div class="ptxt"><h3>Complete the Assessment</h3><p>Eight written questions under timed conditions. We assess how you think, write, and make decisions — not legal knowledge.</p></div></div>
+    <div class="pstep"><div class="pnum">2</div><div class="ptxt"><h3>Application Review</h3><p>Our hiring team reviews your responses. Shortlisted candidates are contacted for an interview.</p></div></div>
+    <div class="pstep"><div class="pnum">3</div><div class="ptxt"><h3>Interview</h3><p>A 15-minute screening call to discuss your interest in litigation and fit within the firm.</p></div></div>
+    <div class="pstep"><div class="pnum">4</div><div class="ptxt"><h3>Three-Month Paralegalship</h3><p>Hands-on work across civil and commercial litigation, dispute resolution and advisory work. Weekly supervision. Real feedback.</p></div></div>
+    <div class="pstep"><div class="pnum">5</div><div class="ptxt"><h3>Pupillage Consideration</h3><p>Decisions rest on performance, attitude, reliability, and available openings. You'll be told by the end of your second month.</p></div></div>
+  </div>
+</section>
+
+<section class="slide light">
+  <div class="slabel">10 · Assessment</div>
+  <div class="snum">11 / 15</div>
+  <div class="eyebrow">How Performance Is Judged</div>
+  <h2 class="stitle">Five criteria, no formula.</h2>
+  <p class="lede">There is no scorecard for pupillage. What we look for, in this order:</p>
+  <div class="values" style="margin-top:24px">
+    <div class="vcell"><h4>Accuracy</h4><p>Does your work hold up when checked?</p></div>
+    <div class="vcell"><h4>Attitude</h4><p>Do you treat every task as if it matters?</p></div>
+    <div class="vcell"><h4>Initiative</h4><p>Do you move things forward on your own?</p></div>
+    <div class="vcell"><h4>Teamwork</h4><p>Do people want to work with you?</p></div>
+    <div class="vcell"><h4>Reliability</h4><p>Can we trust you with tomorrow's deadline?</p></div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="slabel">11 · Practicalities</div>
+  <div class="snum">12 / 15</div>
+  <div class="eyebrow">Day-to-Day</div>
+  <h2 class="stitle">Life at the firm.</h2>
+  <div class="stats">
+    <div class="stat"><div class="num">8.30–5.30</div><div class="lbl">Standard hours. Occasional late nights for hearings or filings.</div></div>
+    <div class="stat"><div class="num">Formal</div><div class="lbl">Business attire. Every day. No exceptions.</div></div>
+    <div class="stat"><div class="num">In-office</div><div class="lbl">Full attendance. There is no remote-work option.</div></div>
+    <div class="stat"><div class="num">Minimal</div><div class="lbl">Leave, given the short three-month duration. Emergencies only.</div></div>
+  </div>
+</section>
+
+<section class="slide light">
+  <div class="slabel">12 · After</div>
+  <div class="snum">13 / 15</div>
+  <div class="eyebrow">Beyond the Programme</div>
+  <h2 class="stitle">What comes next.</h2>
+  <p class="lede">Pupillage or not, you leave with something real.</p>
+  <div class="card-list">
+    <div class="icard"><h3>Pupillage Consideration</h3><p>Decisions are made near the end of your second month, so you can plan ahead regardless of outcome.</p></div>
+    <div class="icard"><h3>References</h3><p>Satisfactory performance earns a written reference — useful anywhere you go next.</p></div>
+    <div class="icard"><h3>Reapplication</h3><p>Not selected this round? You're welcome to reapply in future — this is not a one-shot door.</p></div>
+    <div class="icard"><h3>The Skills</h3><p>Drafting, procedural knowledge, discipline under deadlines. These stay with you for the rest of your career.</p></div>
+  </div>
+</section>
+
+<section class="slide dark">
+  <div class="slabel">13 · Common Questions</div>
+  <div class="snum">14 / 15</div>
+  <div class="eyebrow">FAQ</div>
+  <h2 class="stitle">Things people ask.</h2>
+  <div class="mini-faq">
+    <div class="mfq"><div class="q">Do I need to have graduated?</div><div class="a">No — once you've sat your final exams, you can apply.</div></div>
+    <div class="mfq"><div class="q">Is the programme paid?</div><div class="a">Yes — RM 2,000 per month, throughout.</div></div>
+    <div class="mfq"><div class="q">Will I attend court?</div><div class="a">Yes, when case schedules allow — for observation or assistance.</div></div>
+    <div class="mfq"><div class="q">Who supervises me?</div><div class="a">A supervising lawyer, plus tasks from others depending on active matters.</div></div>
+    <div class="mfq"><div class="q">Can I choose my department?</div><div class="a">No — assignments are based on workload and firm needs.</div></div>
+    <div class="mfq"><div class="q">Can I work remotely?</div><div class="a">No. Office attendance is required throughout.</div></div>
+    <div class="mfq"><div class="q">Is pupillage guaranteed?</div><div class="a">No. It depends on performance and available openings.</div></div>
+    <div class="mfq"><div class="q">When will I know about pupillage?</div><div class="a">By the end of your second month.</div></div>
+  </div>
+</section>
+
+<section class="slide cta">
+  <div class="slabel">14 · Ready?</div>
+  <div class="snum">15 / 15</div>
+  <div class="firm-mark" style="font-family:'Libre Baskerville',serif;font-size:14px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:28px">Thomas Philip · Advocates &amp; Solicitors</div>
+  <h2 class="stitle">Start the assessment.</h2>
+  <p class="lede">20 minutes. 8 questions. No legal knowledge required. Just show us how you think.</p>
+  <div>
+    <a class="cta-btn" href="https://paralegalassessment.netlify.app" target="_blank">Begin Assessment →</a>
+    <div class="url-line">paralegalassessment.netlify.app</div>
+  </div>
+  <div class="footer-mark" style="margin-top:60px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35)">Thomas Philip · Paralegal Programme · 2026</div>
+</section>
+
+</div>
+
+<nav class="nav-dots">
+  <a href="#" title="1"></a><a href="#" title="2"></a><a href="#" title="3"></a><a href="#" title="4"></a><a href="#" title="5"></a>
+  <a href="#" title="6"></a><a href="#" title="7"></a><a href="#" title="8"></a><a href="#" title="9"></a><a href="#" title="10"></a>
+  <a href="#" title="11"></a><a href="#" title="12"></a><a href="#" title="13"></a><a href="#" title="14"></a><a href="#" title="15"></a>
+</nav>
+
+<script>
+  const dots = document.querySelectorAll('.nav-dots a');
+  const slides = document.querySelectorAll('.slide');
+  dots.forEach((d, i) => {
+    d.addEventListener('click', (e) => { e.preventDefault(); slides[i].scrollIntoView({ behavior: 'smooth' }); });
+  });
+  const deck = document.querySelector('.deck');
+  deck.addEventListener('scroll', () => {
+    const idx = Math.round(deck.scrollTop / window.innerHeight);
+    dots.forEach((d, i) => {
+      d.style.background = i === idx ? 'var(--gold)' : 'rgba(255,255,255,.25)';
+      d.style.transform = i === idx ? 'scale(1.5)' : 'scale(1)';
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    const idx = Math.round(deck.scrollTop / window.innerHeight);
+    if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault();
+      if (idx < slides.length - 1) slides[idx + 1].scrollIntoView({ behavior: 'smooth' });
+    } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      if (idx > 0) slides[idx - 1].scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+</script>
+
+</body>
+</html>
