@@ -8,14 +8,14 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --dark:#0B1220;
-  --ink:#111827;
-  --mid:#374151;
-  --muted:#9CA3AF;
-  --line:#E5E7EB;
-  --cream:#FAFAF8;
-  --gold:#C9973A;
-  --gold-soft:#F3E8D0;
+  --dark:#1C1917;
+  --ink:#292524;
+  --mid:#57534E;
+  --muted:#A8A29E;
+  --line:#E7E5E4;
+  --cream:#F5F1E8;
+  --accent:#7A2E3F;
+  --accent-soft:#F0E4E6;
   --white:#fff;
 }
 html{scroll-behavior:smooth}
@@ -25,95 +25,103 @@ body{font-family:'Lato',sans-serif;color:var(--ink);background:var(--dark);overf
 .slide{scroll-snap-align:start;min-height:100vh;padding:64px 8vw;display:flex;flex-direction:column;justify-content:center;position:relative}
 
 .snum{position:absolute;top:32px;right:40px;font-family:'Libre Baskerville',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
-.slabel{position:absolute;top:32px;left:40px;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold)}
+.slabel{position:absolute;top:32px;left:40px;font-family:'Lato',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent)}
 
 .cover{background:var(--dark);color:var(--white);text-align:center;justify-content:center}
-.cover .firm-mark{font-family:'Libre Baskerville',serif;font-size:14px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
+.cover .firm-mark{font-family:'Libre Baskerville',serif;font-size:14px;letter-spacing:6px;text-transform:uppercase;color:var(--accent-soft);margin-bottom:28px}
 .cover h1{font-family:'Libre Baskerville',serif;font-size:clamp(48px,7vw,88px);font-weight:700;line-height:1.05;margin-bottom:24px;letter-spacing:-1px}
-.cover .sub{font-size:clamp(15px,1.8vw,20px);color:rgba(255,255,255,.65);max-width:640px;margin:0 auto 40px;line-height:1.7;font-style:italic}
-.cover .divider{width:60px;height:2px;background:var(--gold);margin:0 auto 40px}
-.cover .footer-mark{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:40px}
-.scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);animation:bounce 2.5s infinite}
+.cover .sub{font-size:clamp(15px,1.8vw,20px);color:rgba(245,241,232,.7);max-width:640px;margin:0 auto 40px;line-height:1.7;font-style:italic}
+.cover .divider{width:60px;height:2px;background:var(--accent);margin:0 auto 40px}
+.cover .footer-mark{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,241,232,.35);margin-top:40px}
+.scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,241,232,.4);animation:bounce 2.5s infinite}
 @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
 .light{background:var(--cream);color:var(--ink)}
 .light .snum,.light .slabel{color:var(--muted)}
-.light .slabel{color:var(--gold)}
+.light .slabel{color:var(--accent)}
 .dark{background:var(--dark);color:var(--white)}
-.dark .snum{color:rgba(255,255,255,.35)}
+.dark .snum{color:rgba(245,241,232,.35)}
+.dark .slabel{color:var(--accent-soft)}
 
 h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);font-weight:700;line-height:1.1;margin-bottom:20px;letter-spacing:-0.5px;max-width:920px}
-.dark h2.stitle{color:var(--white)}
-.eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.dark h2.stitle{color:var(--cream)}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.dark .eyebrow{color:var(--accent-soft)}
 .lede{font-size:clamp(16px,2vw,22px);line-height:1.7;color:var(--mid);max-width:720px;margin-bottom:36px}
-.dark .lede{color:rgba(255,255,255,.7)}
+.dark .lede{color:rgba(245,241,232,.75)}
 
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;max-width:960px;margin-top:32px}
-.stat{padding:24px 0;border-top:2px solid var(--gold)}
-.stat .num{font-family:'Libre Baskerville',serif;font-size:clamp(38px,5vw,64px);font-weight:700;line-height:1;margin-bottom:8px;color:var(--gold)}
+.stat{padding:24px 0;border-top:2px solid var(--accent)}
+.stat .num{font-family:'Libre Baskerville',serif;font-size:clamp(38px,5vw,64px);font-weight:700;line-height:1;margin-bottom:8px;color:var(--accent)}
+.dark .stat .num{color:var(--accent-soft)}
 .stat .lbl{font-size:14px;line-height:1.5;color:var(--mid)}
-.dark .stat .lbl{color:rgba(255,255,255,.6)}
+.dark .stat .lbl{color:rgba(245,241,232,.65)}
 
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;max-width:1100px}
 .two-col.narrow{max-width:900px}
 @media(max-width:820px){.two-col{grid-template-columns:1fr;gap:32px}}
 
 .card-list{display:flex;flex-direction:column;gap:18px;max-width:820px}
-.icard{background:var(--white);border-left:3px solid var(--gold);padding:20px 24px;border-radius:0 8px 8px 0;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.dark .icard{background:rgba(255,255,255,.04);border-left-color:var(--gold)}
+.icard{background:var(--white);border-left:3px solid var(--accent);padding:20px 24px;border-radius:0 8px 8px 0;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.dark .icard{background:rgba(245,241,232,.05);border-left-color:var(--accent-soft)}
 .icard h3{font-family:'Lato',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px}
-.dark .icard h3{color:var(--white)}
+.dark .icard h3{color:var(--cream)}
 .icard p{font-size:14px;line-height:1.65;color:var(--mid)}
-.dark .icard p{color:rgba(255,255,255,.7)}
+.dark .icard p{color:rgba(245,241,232,.75)}
 
 .pathway{max-width:960px;display:flex;flex-direction:column;gap:0;margin-top:20px}
-.pstep{display:flex;gap:24px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.1);position:relative}
+.pstep{display:flex;gap:24px;align-items:flex-start;padding:20px 0;border-bottom:1px solid rgba(245,241,232,.1);position:relative}
 .light .pstep{border-bottom-color:var(--line)}
 .pstep:last-child{border-bottom:none}
-.pnum{width:52px;height:52px;min-width:52px;border:2px solid var(--gold);color:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700}
+.pnum{width:52px;height:52px;min-width:52px;border:2px solid var(--accent);color:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Libre Baskerville',serif;font-size:22px;font-weight:700}
+.dark .pnum{border-color:var(--accent-soft);color:var(--accent-soft)}
 .ptxt h3{font-family:'Libre Baskerville',serif;font-size:20px;margin-bottom:4px}
-.dark .ptxt h3{color:var(--white)}
+.dark .ptxt h3{color:var(--cream)}
 .ptxt p{font-size:14.5px;line-height:1.7;color:var(--mid);max-width:640px}
-.dark .ptxt p{color:rgba(255,255,255,.65)}
+.dark .ptxt p{color:rgba(245,241,232,.7)}
 
 .pull{max-width:900px}
-.pull .qmark{font-family:'Libre Baskerville',serif;font-size:120px;line-height:.5;color:var(--gold);opacity:.4;margin-bottom:-30px;display:block}
-.pull blockquote{font-family:'Libre Baskerville',serif;font-size:clamp(24px,3.5vw,40px);font-weight:400;font-style:italic;line-height:1.35;color:var(--white);margin-bottom:24px}
+.pull .qmark{font-family:'Libre Baskerville',serif;font-size:120px;line-height:.5;color:var(--accent-soft);opacity:.5;margin-bottom:-30px;display:block}
+.pull blockquote{font-family:'Libre Baskerville',serif;font-size:clamp(24px,3.5vw,40px);font-weight:400;font-style:italic;line-height:1.35;color:var(--cream);margin-bottom:24px}
 .light .pull blockquote{color:var(--ink)}
-.pull cite{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-style:normal}
+.pull cite{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--accent-soft);font-style:normal}
+.light .pull cite{color:var(--accent)}
 
 .values{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;max-width:1000px;margin-top:16px}
-.vcell{padding:24px;background:rgba(255,255,255,.03);border-radius:10px;border:1px solid rgba(255,255,255,.08)}
+.vcell{padding:24px;background:rgba(245,241,232,.04);border-radius:10px;border:1px solid rgba(245,241,232,.1)}
 .light .vcell{background:var(--white);border-color:var(--line)}
-.vcell .vico{font-family:'Libre Baskerville',serif;font-size:26px;color:var(--gold);margin-bottom:10px;font-weight:700}
+.vcell .vico{font-family:'Libre Baskerville',serif;font-size:26px;color:var(--accent);margin-bottom:10px;font-weight:700}
+.dark .vcell .vico{color:var(--accent-soft)}
 .vcell h4{font-family:'Libre Baskerville',serif;font-size:17px;margin-bottom:6px}
-.dark .vcell h4{color:var(--white)}
+.dark .vcell h4{color:var(--cream)}
 .vcell p{font-size:13.5px;line-height:1.6;color:var(--mid)}
-.dark .vcell p{color:rgba(255,255,255,.6)}
+.dark .vcell p{color:rgba(245,241,232,.7)}
 
 .bullets{list-style:none;padding:0;max-width:760px;display:flex;flex-direction:column;gap:14px;margin-top:16px}
 .bullets li{display:flex;gap:14px;font-size:16px;line-height:1.65;color:var(--mid)}
-.dark .bullets li{color:rgba(255,255,255,.75)}
-.bullets li::before{content:'—';color:var(--gold);font-weight:700;flex-shrink:0}
+.dark .bullets li{color:rgba(245,241,232,.8)}
+.bullets li::before{content:'—';color:var(--accent);font-weight:700;flex-shrink:0}
+.dark .bullets li::before{color:var(--accent-soft)}
 
 .mini-faq{display:grid;grid-template-columns:1fr 1fr;gap:20px 40px;max-width:1050px;margin-top:24px}
 @media(max-width:820px){.mini-faq{grid-template-columns:1fr}}
-.mfq{padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.1)}
+.mfq{padding-bottom:14px;border-bottom:1px solid rgba(245,241,232,.1)}
 .light .mfq{border-bottom-color:var(--line)}
-.mfq .q{font-family:'Libre Baskerville',serif;font-size:15px;font-weight:700;margin-bottom:4px;color:var(--gold)}
+.mfq .q{font-family:'Libre Baskerville',serif;font-size:15px;font-weight:700;margin-bottom:4px;color:var(--accent)}
+.dark .mfq .q{color:var(--accent-soft)}
 .mfq .a{font-size:13.5px;line-height:1.6;color:var(--mid)}
-.dark .mfq .a{color:rgba(255,255,255,.7)}
+.dark .mfq .a{color:rgba(245,241,232,.75)}
 
 .cta{background:var(--dark);color:var(--white);text-align:center;justify-content:center}
-.cta h2.stitle{margin:0 auto 24px;color:var(--white)}
-.cta .lede{margin:0 auto 40px;color:rgba(255,255,255,.7)}
-.cta-btn{display:inline-block;background:var(--gold);color:var(--dark);padding:20px 44px;border-radius:10px;font-family:'Lato',sans-serif;font-size:17px;font-weight:900;text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:all .2s;box-shadow:0 10px 40px rgba(201,151,58,.3)}
-.cta-btn:hover{transform:translateY(-3px);box-shadow:0 15px 50px rgba(201,151,58,.45)}
-.url-line{margin-top:20px;font-family:'Libre Baskerville',serif;font-size:14px;color:var(--gold);word-break:break-all}
+.cta h2.stitle{margin:0 auto 24px;color:var(--cream)}
+.cta .lede{margin:0 auto 40px;color:rgba(245,241,232,.75)}
+.cta-btn{display:inline-block;background:var(--accent);color:var(--cream);padding:20px 44px;border-radius:10px;font-family:'Lato',sans-serif;font-size:17px;font-weight:900;text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:all .2s;box-shadow:0 10px 40px rgba(122,46,63,.35)}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 15px 50px rgba(122,46,63,.5)}
+.url-line{margin-top:20px;font-family:'Libre Baskerville',serif;font-size:14px;color:var(--accent-soft);word-break:break-all}
 
 .nav-dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:10px}
-.nav-dots a{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:all .2s;display:block}
-.nav-dots a:hover{background:var(--gold);transform:scale(1.5)}
+.nav-dots a{width:8px;height:8px;border-radius:50%;background:rgba(245,241,232,.25);transition:all .2s;display:block}
+.nav-dots a:hover{background:var(--accent-soft);transform:scale(1.5)}
 @media(max-width:900px){.nav-dots{display:none}}
 
 @media(max-width:700px){
@@ -137,7 +145,7 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
 
 <section class="slide dark">
   <div class="slabel">01 · The Firm</div>
-  <div class="snum">02 / 15</div>
+  <div class="snum">02 / 14</div>
   <div class="eyebrow">Who We Are</div>
   <h2 class="stitle">Advocacy is what we do.</h2>
   <p class="lede">Thomas Philip is a Malaysian civil and commercial litigation practice. Our lawyers argue before judges, examine witnesses, and run hearings — every day. This is a practice built around courtrooms, not around desks.</p>
@@ -150,7 +158,7 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
 
 <section class="slide light">
   <div class="slabel">02 · Why It Exists</div>
-  <div class="snum">03 / 15</div>
+  <div class="snum">03 / 14</div>
   <div class="eyebrow">The Purpose</div>
   <h2 class="stitle">This is your audition for pupillage.</h2>
   <p class="lede">At Thomas Philip, every pupillage candidate must first complete a paralegalship. It is not an internship. It is a three-month test of whether you can be trusted to represent this firm as a pupil.</p>
@@ -162,20 +170,19 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
 
 <section class="slide dark">
   <div class="slabel">03 · At a Glance</div>
-  <div class="snum">04 / 15</div>
+  <div class="snum">04 / 14</div>
   <div class="eyebrow">The Basics</div>
   <h2 class="stitle">The programme.</h2>
   <div class="stats">
     <div class="stat"><div class="num">3</div><div class="lbl">Months in total. Standard duration for every paralegal.</div></div>
     <div class="stat"><div class="num">RM 2,000</div><div class="lbl">Monthly allowance, paid throughout the programme.</div></div>
     <div class="stat"><div class="num">In-office</div><div class="lbl">8.30 AM – 5.30 PM. No remote work.</div></div>
-    <div class="stat"><div class="num">10</div><div class="lbl">Certifications available across AI modules and work products.</div></div>
   </div>
 </section>
 
 <section class="slide light">
   <div class="slabel">04 · Requirements</div>
-  <div class="snum">05 / 15</div>
+  <div class="snum">05 / 14</div>
   <div class="eyebrow">The Baseline</div>
   <h2 class="stitle">Who we're looking for.</h2>
   <p class="lede">The baseline is clear. Everything after that comes down to attitude.</p>
@@ -189,7 +196,7 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
 
 <section class="slide dark">
   <div class="slabel">05 · The Work</div>
-  <div class="snum">06 / 15</div>
+  <div class="snum">06 / 14</div>
   <div class="eyebrow">Your Day</div>
   <h2 class="stitle">What you'll actually do.</h2>
   <p class="lede">You will report to a supervising lawyer and, depending on active matters, take work from several. Your core scope covers:</p>
@@ -201,39 +208,9 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
   </div>
 </section>
 
-<section class="slide light">
-  <div class="slabel">06 · Training</div>
-  <div class="snum">07 / 15</div>
-  <div class="eyebrow">The AI Paralegal Programme</div>
-  <h2 class="stitle">10 certifications, two tracks.</h2>
-  <p class="lede">Your progress is formally recognised. Over three months, you work toward ten certifications across two structured tracks.</p>
-  <div class="two-col">
-    <div>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:20px;margin-bottom:14px;color:var(--gold)">AI Module Certifications</h3>
-      <ul class="bullets" style="margin-top:0">
-        <li>Fact Investigation</li>
-        <li>Chronology of Documents</li>
-        <li>Evidence Analysis</li>
-        <li>Legal Research</li>
-        <li>Causes &amp; Defences</li>
-      </ul>
-    </div>
-    <div>
-      <h3 style="font-family:'Libre Baskerville',serif;font-size:20px;margin-bottom:14px;color:var(--gold)">Work Product Certifications</h3>
-      <ul class="bullets" style="margin-top:0">
-        <li>Pleadings</li>
-        <li>Applications</li>
-        <li>Affidavits</li>
-        <li>Submissions</li>
-        <li>Witness Statements</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="slide dark pull">
-  <div class="slabel">07 · The Rare Part</div>
-  <div class="snum">08 / 15</div>
+<section class="slide light pull">
+  <div class="slabel">06 · The Rare Part</div>
+  <div class="snum">07 / 14</div>
   <div class="pull">
     <span class="qmark">"</span>
     <blockquote>Watching lawyers argue before judges, examine witnesses, and run hearings is something few environments offer at this stage of your career.</blockquote>
@@ -241,9 +218,9 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
   </div>
 </section>
 
-<section class="slide light">
-  <div class="slabel">08 · Culture</div>
-  <div class="snum">09 / 15</div>
+<section class="slide dark">
+  <div class="slabel">07 · Culture</div>
+  <div class="snum">08 / 14</div>
   <div class="eyebrow">The Firm's Values</div>
   <h2 class="stitle">Five things we notice.</h2>
   <div class="values">
@@ -255,23 +232,22 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
   </div>
 </section>
 
-<section class="slide dark">
-  <div class="slabel">09 · The Pathway</div>
-  <div class="snum">10 / 15</div>
+<section class="slide light">
+  <div class="slabel">08 · The Pathway</div>
+  <div class="snum">09 / 14</div>
   <div class="eyebrow">Application to Pupillage</div>
-  <h2 class="stitle">Five steps in.</h2>
+  <h2 class="stitle">Four steps in.</h2>
   <div class="pathway">
     <div class="pstep"><div class="pnum">1</div><div class="ptxt"><h3>Complete the Assessment</h3><p>Eight written questions under timed conditions. We assess how you think, write, and make decisions — not legal knowledge.</p></div></div>
-    <div class="pstep"><div class="pnum">2</div><div class="ptxt"><h3>Application Review</h3><p>Our hiring team reviews your responses. Shortlisted candidates are contacted for an interview.</p></div></div>
-    <div class="pstep"><div class="pnum">3</div><div class="ptxt"><h3>Interview</h3><p>A 15-minute screening call to discuss your interest in litigation and fit within the firm.</p></div></div>
-    <div class="pstep"><div class="pnum">4</div><div class="ptxt"><h3>Three-Month Paralegalship</h3><p>Hands-on work across civil and commercial litigation, dispute resolution and advisory work. Weekly supervision. Real feedback.</p></div></div>
-    <div class="pstep"><div class="pnum">5</div><div class="ptxt"><h3>Pupillage Consideration</h3><p>Decisions rest on performance, attitude, reliability, and available openings. You'll be told by the end of your second month.</p></div></div>
+    <div class="pstep"><div class="pnum">2</div><div class="ptxt"><h3>We'll Contact You</h3><p>Once you've submitted, we'll be in touch about next steps — including an interview if you're shortlisted.</p></div></div>
+    <div class="pstep"><div class="pnum">3</div><div class="ptxt"><h3>Three-Month Paralegalship</h3><p>Hands-on work across civil and commercial litigation, dispute resolution and advisory work. Weekly supervision. Real feedback.</p></div></div>
+    <div class="pstep"><div class="pnum">4</div><div class="ptxt"><h3>Pupillage Consideration</h3><p>Decisions rest on performance, attitude, reliability, and available openings. You'll be told by the end of your second month.</p></div></div>
   </div>
 </section>
 
-<section class="slide light">
-  <div class="slabel">10 · Assessment</div>
-  <div class="snum">11 / 15</div>
+<section class="slide dark">
+  <div class="slabel">09 · Assessment</div>
+  <div class="snum">10 / 14</div>
   <div class="eyebrow">How Performance Is Judged</div>
   <h2 class="stitle">Five criteria, no formula.</h2>
   <p class="lede">There is no scorecard for pupillage. What we look for, in this order:</p>
@@ -284,9 +260,9 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
   </div>
 </section>
 
-<section class="slide dark">
-  <div class="slabel">11 · Practicalities</div>
-  <div class="snum">12 / 15</div>
+<section class="slide light">
+  <div class="slabel">10 · Practicalities</div>
+  <div class="snum">11 / 14</div>
   <div class="eyebrow">Day-to-Day</div>
   <h2 class="stitle">Life at the firm.</h2>
   <div class="stats">
@@ -297,9 +273,9 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
   </div>
 </section>
 
-<section class="slide light">
-  <div class="slabel">12 · After</div>
-  <div class="snum">13 / 15</div>
+<section class="slide dark">
+  <div class="slabel">11 · After</div>
+  <div class="snum">12 / 14</div>
   <div class="eyebrow">Beyond the Programme</div>
   <h2 class="stitle">What comes next.</h2>
   <p class="lede">Pupillage or not, you leave with something real.</p>
@@ -311,9 +287,9 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
   </div>
 </section>
 
-<section class="slide dark">
-  <div class="slabel">13 · Common Questions</div>
-  <div class="snum">14 / 15</div>
+<section class="slide light">
+  <div class="slabel">12 · Common Questions</div>
+  <div class="snum">13 / 14</div>
   <div class="eyebrow">FAQ</div>
   <h2 class="stitle">Things people ask.</h2>
   <div class="mini-faq">
@@ -329,16 +305,16 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
 </section>
 
 <section class="slide cta">
-  <div class="slabel">14 · Ready?</div>
-  <div class="snum">15 / 15</div>
-  <div class="firm-mark" style="font-family:'Libre Baskerville',serif;font-size:14px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:28px">Thomas Philip · Advocates &amp; Solicitors</div>
+  <div class="slabel">13 · Ready?</div>
+  <div class="snum">14 / 14</div>
+  <div class="firm-mark" style="font-family:'Libre Baskerville',serif;font-size:14px;letter-spacing:6px;text-transform:uppercase;color:var(--accent-soft);margin-bottom:28px">Thomas Philip · Advocates &amp; Solicitors</div>
   <h2 class="stitle">Start the assessment.</h2>
   <p class="lede">20 minutes. 8 questions. No legal knowledge required. Just show us how you think.</p>
   <div>
     <a class="cta-btn" href="https://paralegalassessment.netlify.app" target="_blank">Begin Assessment →</a>
     <div class="url-line">paralegalassessment.netlify.app</div>
   </div>
-  <div class="footer-mark" style="margin-top:60px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35)">Thomas Philip · Paralegal Programme · 2026</div>
+  <div class="footer-mark" style="margin-top:60px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(245,241,232,.35)">Thomas Philip · Paralegal Programme · 2026</div>
 </section>
 
 </div>
@@ -346,7 +322,7 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
 <nav class="nav-dots">
   <a href="#" title="1"></a><a href="#" title="2"></a><a href="#" title="3"></a><a href="#" title="4"></a><a href="#" title="5"></a>
   <a href="#" title="6"></a><a href="#" title="7"></a><a href="#" title="8"></a><a href="#" title="9"></a><a href="#" title="10"></a>
-  <a href="#" title="11"></a><a href="#" title="12"></a><a href="#" title="13"></a><a href="#" title="14"></a><a href="#" title="15"></a>
+  <a href="#" title="11"></a><a href="#" title="12"></a><a href="#" title="13"></a><a href="#" title="14"></a>
 </nav>
 
 <script>
@@ -359,7 +335,7 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
   deck.addEventListener('scroll', () => {
     const idx = Math.round(deck.scrollTop / window.innerHeight);
     dots.forEach((d, i) => {
-      d.style.background = i === idx ? 'var(--gold)' : 'rgba(255,255,255,.25)';
+      d.style.background = i === idx ? '#F0E4E6' : 'rgba(245,241,232,.25)';
       d.style.transform = i === idx ? 'scale(1.5)' : 'scale(1)';
     });
   });
