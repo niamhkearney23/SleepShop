@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paralegal Recruitment Automation — Thomas Philip</title>
 <style>
   :root {
@@ -29,6 +30,7 @@
     font-family: Georgia, 'Times New Roman', serif;
     color: var(--ink);
     overflow: hidden;
+    -webkit-text-size-adjust: 100%;
   }
 
   .deck {
@@ -45,7 +47,8 @@
     justify-content: center;
     padding: 6vh 8vw;
     background: var(--cream);
-    overflow: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .slide.active { display: flex; }
@@ -65,38 +68,35 @@
   }
 
   .slide h1 {
-    font-size: 56px;
+    font-size: clamp(32px, 5vw, 56px);
     font-weight: normal;
     line-height: 1.1;
     margin: 0 0 20px;
     color: var(--navy);
   }
-
   .slide.dark h1 { color: #ffffff; }
 
   .slide h2 {
-    font-size: 40px;
+    font-size: clamp(24px, 3.5vw, 40px);
     font-weight: normal;
     line-height: 1.15;
     margin: 0 0 28px;
     color: var(--navy);
   }
-
   .slide.dark h2 { color: #ffffff; }
 
   .slide h3 {
-    font-size: 22px;
+    font-size: clamp(16px, 1.8vw, 22px);
     font-weight: normal;
     margin: 0 0 16px;
     color: var(--navy);
   }
 
   .slide p, .slide li {
-    font-size: 20px;
+    font-size: clamp(15px, 1.6vw, 20px);
     line-height: 1.55;
     color: var(--ink);
   }
-
   .slide.dark p, .slide.dark li { color: #e5e0d5; }
 
   .slide ul {
@@ -104,12 +104,10 @@
     list-style: none;
     margin: 0;
   }
-
   .slide ul li {
     position: relative;
     padding: 8px 0 8px 26px;
   }
-
   .slide ul li::before {
     content: '';
     position: absolute;
@@ -127,131 +125,194 @@
     margin: 20px 0 28px;
   }
 
-  .slide.dark .divider { background: var(--gold); }
-
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 40px;
   }
-
   .three-col {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
+    gap: 24px;
+  }
+  .four-col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 
   .card {
     background: #ffffff;
     border: 1px solid #e5e0d5;
     border-top: 3px solid var(--gold);
-    padding: 24px 26px;
+    padding: 22px 24px;
     border-radius: 4px;
   }
-
   .card h3 {
-    font-size: 18px;
-    letter-spacing: 1px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     color: var(--gold);
-    margin: 0 0 10px;
+    margin: 0 0 8px;
     font-family: -apple-system, system-ui, sans-serif;
     font-weight: 600;
   }
-
   .card p {
-    font-size: 16px;
+    font-size: 15px;
     margin: 0;
+    line-height: 1.5;
   }
 
-  .stat {
-    text-align: center;
-  }
-
+  .stat { text-align: center; }
   .stat .big {
-    font-size: 84px;
+    font-size: clamp(48px, 7vw, 84px);
     color: var(--gold);
     line-height: 1;
     margin: 0 0 8px;
   }
-
   .stat .lbl {
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--muted);
     font-family: -apple-system, system-ui, sans-serif;
   }
+  .slide.dark .stat .lbl { color: #aaa; }
 
   .tag {
     display: inline-block;
     padding: 4px 12px;
     border-radius: 3px;
-    font-size: 13px;
+    font-size: 12px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-family: -apple-system, system-ui, sans-serif;
     margin-right: 8px;
+    font-weight: 600;
   }
   .tag.green { background: var(--green-bg); color: var(--green); }
   .tag.amber { background: var(--amber-bg); color: var(--amber); }
   .tag.red   { background: var(--red-bg);   color: var(--red);   }
+  .tag.gold  { background: var(--gold);    color: #fff;         }
 
   .flow {
     display: flex;
-    align-items: stretch;
     gap: 0;
     margin-top: 20px;
     flex-wrap: wrap;
   }
   .flow .step {
     flex: 1 1 0;
-    min-width: 150px;
+    min-width: 140px;
     background: #ffffff;
     border: 1px solid #e5e0d5;
-    padding: 18px 16px;
+    padding: 16px 14px;
     text-align: center;
-    position: relative;
   }
-  .flow .step + .step { border-left: none; }
   .flow .step .n {
     font-family: -apple-system, system-ui, sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 2px;
     color: var(--gold);
     text-transform: uppercase;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    font-weight: 600;
   }
   .flow .step strong {
     font-family: Georgia, serif;
-    font-size: 16px;
+    font-size: 15px;
     color: var(--navy);
     font-weight: normal;
     display: block;
     margin-bottom: 4px;
   }
   .flow .step span {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .email-preview {
+    background: #ffffff;
+    border: 1px solid #e5e0d5;
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  .email-preview .from {
+    font-family: -apple-system, system-ui, sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+  .email-preview .subj {
+    font-weight: bold;
+    color: var(--navy);
+    margin-bottom: 14px;
+    font-size: 15px;
+  }
+  .email-preview .body p { margin: 0 0 10px; font-size: 14px; color: var(--ink); }
+  .email-preview .btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-family: -apple-system, system-ui, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin: 8px 0;
+  }
+
+  .questions-list {
+    counter-reset: q;
+  }
+  .questions-list li {
+    counter-increment: q;
+    padding: 6px 0 6px 40px;
+    position: relative;
+    font-size: 15px;
+  }
+  .questions-list li::before {
+    content: 'Q' counter(q);
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 30px;
+    font-family: -apple-system, system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    font-weight: 600;
+    background: none;
+    height: auto;
   }
 
   .footer {
     position: fixed;
-    bottom: 20px;
+    bottom: 14px;
     left: 0;
     right: 0;
     display: flex;
     justify-content: space-between;
-    padding: 0 8vw;
+    padding: 0 24px;
     font-family: -apple-system, system-ui, sans-serif;
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: var(--muted);
     pointer-events: none;
+    z-index: 5;
   }
-
-  .slide.dark ~ .footer { color: #aaa; }
+  .footer.dark-mode { color: #888; }
 
   .brand {
     font-family: -apple-system, system-ui, sans-serif;
@@ -263,36 +324,69 @@
   }
 
   .sub {
-    font-size: 22px;
+    font-size: clamp(16px, 2vw, 22px);
     color: #e5e0d5;
     font-style: italic;
   }
 
-  .nav {
+  .nav-arrow {
     position: fixed;
-    bottom: 16px;
-    right: 16px;
-    display: flex;
-    gap: 6px;
-    z-index: 10;
-  }
-  .nav button {
-    background: rgba(255,255,255,0.15);
-    color: #ffffff;
-    border: 1px solid rgba(255,255,255,0.3);
-    width: 36px;
-    height: 36px;
-    border-radius: 4px;
-    font-size: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(184,149,84,0.4);
+    color: var(--gold);
+    font-size: 22px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-family: -apple-system, system-ui, sans-serif;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 10;
+    user-select: none;
   }
-  .nav button:hover { background: rgba(255,255,255,0.3); }
+  .nav-arrow:hover {
+    background: var(--gold);
+    color: #fff;
+    transform: translateY(-50%) scale(1.05);
+  }
+  .nav-arrow.prev { left: 20px; }
+  .nav-arrow.next { right: 20px; }
 
-  .slide:not(.dark) ~ .nav button {
-    background: rgba(15,23,32,0.1);
+  .light-bg .nav-arrow {
+    background: rgba(15,23,32,0.05);
     color: var(--navy);
-    border-color: rgba(15,23,32,0.2);
+    border-color: rgba(184,149,84,0.6);
+  }
+
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: var(--gold);
+    z-index: 20;
+    transition: width 0.3s ease;
+  }
+
+  @media (max-width: 768px) {
+    .slide { padding: 60px 20px 80px; justify-content: flex-start; padding-top: 60px; }
+    .two-col, .three-col, .four-col { grid-template-columns: 1fr; gap: 16px; }
+    .flow { flex-direction: column; }
+    .flow .step { min-width: 100%; }
+    .nav-arrow { width: 44px; height: 44px; font-size: 18px; }
+    .nav-arrow.prev { left: 10px; }
+    .nav-arrow.next { right: 10px; }
+    .footer { font-size: 9px; padding: 0 12px; }
+    .email-preview { padding: 16px 18px; font-size: 13px; max-height: none; }
+    .kicker { font-size: 10px; margin-bottom: 12px; }
+    .divider { margin: 14px 0 20px; }
   }
 
   @media print {
@@ -302,15 +396,17 @@
       display: flex !important;
       position: relative;
       width: 100%;
-      height: 100vh;
+      min-height: 100vh;
       page-break-after: always;
       break-after: page;
     }
-    .nav, .footer { display: none; }
+    .nav-arrow, .footer, .progress { display: none; }
   }
 </style>
 </head>
 <body>
+
+<div class="progress" id="progress"></div>
 
 <div class="deck">
 
@@ -319,8 +415,8 @@
     <div class="brand">Thomas Philip</div>
     <div style="font-size:20px;color:#ffffff;margin-bottom:32px;">Advocates &amp; Solicitors</div>
     <div class="divider"></div>
-    <h1 style="font-size:64px;">Paralegal Recruitment<br>Automation</h1>
-    <div class="sub">An end-to-end hiring pipeline — applications in, offers out, zero admin drag.</div>
+    <h1 style="font-size:clamp(36px,6vw,64px);">Paralegal Recruitment<br>Automation</h1>
+    <div class="sub">Applications in. Offers out.</div>
     <div style="margin-top:60px;font-family:-apple-system,sans-serif;font-size:12px;letter-spacing:2px;color:#888;text-transform:uppercase;">Internal briefing · April 2026</div>
   </section>
 
@@ -330,11 +426,11 @@
     <h2>Recruitment eats billable hours.</h2>
     <div class="divider"></div>
     <ul>
-      <li>Every CV is read manually, often twice.</li>
-      <li>No structured way to compare candidates on judgement or attitude.</li>
-      <li>Shortlisting, scheduling, and reply emails all live in separate inboxes.</li>
+      <li>Time wasted reading through every CV manually.</li>
+      <li>Time wasted drafting and sending individual reply emails.</li>
+      <li>No consistent way to compare candidates on judgement, attitude, or written skill.</li>
       <li>Candidates wait days — sometimes weeks — for a decision.</li>
-      <li>The careers team spends hours per week on admin that a system could handle.</li>
+      <li>Scheduling, follow-ups, and offer letters scattered across inboxes.</li>
     </ul>
   </section>
 
@@ -344,250 +440,322 @@
     <h2>One link. One pipeline. One source of truth.</h2>
     <div class="divider"></div>
     <div class="flow">
-      <div class="step"><div class="n">01</div><strong>Apply</strong><span>Candidate completes online assessment</span></div>
-      <div class="step"><div class="n">02</div><strong>Assess</strong><span>AI scores across 10 dimensions</span></div>
+      <div class="step"><div class="n">01</div><strong>Apply</strong><span>Candidate completes 8-question assessment</span></div>
+      <div class="step"><div class="n">02</div><strong>AI Scores</strong><span>Answers rated across 10 dimensions</span></div>
       <div class="step"><div class="n">03</div><strong>Review</strong><span>24-hour human override window</span></div>
-      <div class="step"><div class="n">04</div><strong>Respond</strong><span>Automatic personalised email</span></div>
-      <div class="step"><div class="n">05</div><strong>Screen</strong><span>Calendly call with Niamh</span></div>
-      <div class="step"><div class="n">06</div><strong>Decide</strong><span>Diviya sends formal letter</span></div>
+      <div class="step"><div class="n">04</div><strong>Reply</strong><span>Personalised email sent automatically</span></div>
+      <div class="step"><div class="n">05</div><strong>Screen</strong><span>Zoom call booked via Calendly</span></div>
+      <div class="step"><div class="n">06</div><strong>Offer</strong><span>Auto-email to send offer letter</span></div>
     </div>
-    <p style="margin-top:40px;color:#e5e0d5;">A candidate goes from clicking a link to a screening call in under 48 hours. Partners touch the process only where their judgement is actually needed.</p>
+    <p style="margin-top:30px;color:#e5e0d5;">A candidate goes from clicking a link to a screening call in under 48 hours.</p>
   </section>
 
-  <!-- 4. Candidate journey -->
+  <!-- 4. How candidates reach the form -->
   <section class="slide">
-    <div class="kicker">Candidate experience</div>
-    <h2>What they see.</h2>
+    <div class="kicker">Getting candidates in</div>
+    <h2>Three routes to the assessment.</h2>
     <div class="divider"></div>
-    <div class="two-col">
-      <ul>
-        <li><strong>One public link</strong> — shared on the website, LinkedIn, or direct.</li>
-        <li><strong>8 structured questions</strong> — about themselves, judgement scenarios, written exercises.</li>
-        <li><strong>CV upload</strong> — stored securely in the firm's Drive.</li>
-        <li><strong>Instant confirmation</strong> — "We've received your application."</li>
-        <li><strong>24 hours later</strong> — a personalised decision email arrives.</li>
-      </ul>
-      <div>
-        <div class="card">
-          <h3>Three outcomes</h3>
-          <p style="margin-bottom:14px;"><span class="tag green">Yes</span> Invite to 15-min screening call via Calendly.</p>
-          <p style="margin-bottom:14px;"><span class="tag amber">Borderline</span> Senior review, decision within 7 days.</p>
-          <p><span class="tag red">No</span> Polite decline, encouragement to reapply.</p>
-        </div>
+    <div class="three-col">
+      <div class="card">
+        <h3>QR Code</h3>
+        <p>Printed on flyers, at university career fairs, on business cards. Scan and apply on the spot.</p>
+      </div>
+      <div class="card">
+        <h3>Website Link</h3>
+        <p>Direct link on the Thomas Philip careers page. Also shareable on LinkedIn and via email.</p>
+      </div>
+      <div class="card">
+        <h3>Auto-Reply</h3>
+        <p>Anyone who emails the firm asking about paralegal roles gets an instant auto-reply with the link.</p>
+      </div>
+    </div>
+    <p style="margin-top:24px;color:var(--muted);font-size:15px;">One assessment. Same standard. However they find us.</p>
+  </section>
+
+  <!-- 5. Auto-reply email template -->
+  <section class="slide">
+    <div class="kicker">Sample email</div>
+    <h2>Auto-reply for paralegal enquiries.</h2>
+    <div class="divider"></div>
+    <div class="email-preview">
+      <div class="from">From: careers@thomasphilip.com.my</div>
+      <div class="subj">Re: Paralegal Application — Next Step</div>
+      <div class="body">
+        <p>Dear applicant,</p>
+        <p>Thank you for your interest in a paralegal role at Thomas Philip Advocates &amp; Solicitors.</p>
+        <p>To move your application forward, please complete our short online assessment. It takes about 45 minutes and covers eight questions on your background, thinking, and written skills. You will also be asked to upload your CV.</p>
+        <p><a class="btn" href="#">Begin the Assessment →</a></p>
+        <p>Once submitted, you will receive a personalised response within 24 hours.</p>
+        <p>If you have any questions, please reply directly to this email.</p>
+        <p>Yours sincerely,<br><em>Thomas Philip Advocates &amp; Solicitors</em></p>
       </div>
     </div>
   </section>
 
-  <!-- 5. AI scoring -->
+  <!-- 6. The 8 questions -->
   <section class="slide">
     <div class="kicker">Inside the assessment</div>
-    <h2>Ten quality scores. One recommendation.</h2>
+    <h2>Eight questions. Plus an FAQ.</h2>
     <div class="divider"></div>
-    <div class="three-col">
-      <div class="card"><h3>Critical Thinking</h3><p>Logic, structure, and reasoning in written answers.</p></div>
-      <div class="card"><h3>Written Communication</h3><p>Clarity, tone, and professionalism.</p></div>
-      <div class="card"><h3>Judgement</h3><p>Handling of ambiguous, high-pressure scenarios.</p></div>
-      <div class="card"><h3>Self-Awareness</h3><p>Honest reflection on strengths and gaps.</p></div>
-      <div class="card"><h3>Attitude &amp; Motivation</h3><p>Why law, why this firm, what drives them.</p></div>
-      <div class="card"><h3>Innovation</h3><p>Creative problem-solving, resourcefulness.</p></div>
-      <div class="card"><h3>Attention to Detail</h3><p>Spelling, grammar, factual precision.</p></div>
-      <div class="card"><h3>Time Management</h3><p>How they handle competing deadlines.</p></div>
-      <div class="card"><h3>Resilience</h3><p>Response to setbacks and feedback.</p></div>
-    </div>
-    <p style="margin-top:26px;font-size:16px;color:var(--muted);">Plus <strong>Professional Integrity</strong> — scored separately. Every candidate receives a total out of 100 with a written rationale.</p>
+    <ul class="questions-list">
+      <li>About the candidate — hobbies, interests, spare time.</li>
+      <li>A situation when something went wrong and how they handled it.</li>
+      <li>How they would triage three urgent tasks arriving at once.</li>
+      <li>A Friday 4:45 PM scenario — pressure and judgement.</li>
+      <li>What they think a paralegal actually does day-to-day.</li>
+      <li>Rewriting a poorly-written client email.</li>
+      <li>A client wants to sue — a critical-thinking scenario.</li>
+      <li>Anything else they want the firm to know.</li>
+    </ul>
+    <p style="margin-top:20px;color:var(--muted);font-size:15px;">A built-in FAQ answers common candidate questions before they submit — what happens next, how long it takes, whether they can save and return.</p>
   </section>
 
-  <!-- 6. 24-hour safety window -->
+  <!-- 7. AI scoring -->
+  <section class="slide">
+    <div class="kicker">How the AI works</div>
+    <h2>Every answer, scored consistently.</h2>
+    <div class="divider"></div>
+    <div class="two-col">
+      <div>
+        <p style="margin-bottom:16px;"><strong>The AI reads only the eight answers the candidate submits.</strong> Nothing else. It scores them on:</p>
+        <ul style="font-size:15px;">
+          <li>Critical Thinking</li>
+          <li>Written Communication</li>
+          <li>Judgement</li>
+          <li>Self-Awareness</li>
+          <li>Attitude &amp; Motivation</li>
+          <li>Innovation</li>
+          <li>Attention to Detail</li>
+          <li>Time Management</li>
+          <li>Resilience</li>
+          <li>Professional Integrity</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card">
+          <h3>Total out of 100</h3>
+          <p style="margin-bottom:14px;"><span class="tag red">Below 60</span> Automatic rejection email.</p>
+          <p><span class="tag green">Above 60</span> Automatic acceptance with a booking link for a screening call.</p>
+        </div>
+        <p style="margin-top:18px;color:var(--muted);font-size:14px;">Every score is visible in the Google Sheet, along with a written rationale — strengths, concerns, and recommendation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Acceptance email -->
+  <section class="slide">
+    <div class="kicker">If they score above 60</div>
+    <h2>Acceptance email.</h2>
+    <div class="divider"></div>
+    <div class="email-preview">
+      <div class="from">From: Thomas Philip Advocates &amp; Solicitors</div>
+      <div class="subj">Thomas Philip: You've Been Shortlisted</div>
+      <div class="body">
+        <p>Dear [Candidate Name],</p>
+        <p>Thank you for completing the paralegal assessment. We were impressed with your application and would like to invite you to the next stage.</p>
+        <p><strong>Next step: a 15-minute screening call</strong></p>
+        <p>Please book a time that suits you using the link below:</p>
+        <p><a class="btn" href="#">Book Your Screening Call →</a></p>
+        <p>Available Monday to Friday. Once you book, you will receive a confirmation email with the video call link.</p>
+        <p>If we decide to proceed after the screening call, our team will be in touch with a formal acceptance and details of the 2-week trial.</p>
+        <p>Yours sincerely,<br><em>Thomas Philip Advocates &amp; Solicitors</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Rejection email -->
+  <section class="slide">
+    <div class="kicker">If they score below 60</div>
+    <h2>Decline email.</h2>
+    <div class="divider"></div>
+    <div class="email-preview">
+      <div class="from">From: Thomas Philip Advocates &amp; Solicitors</div>
+      <div class="subj">Thomas Philip: Your Paralegal Application</div>
+      <div class="body">
+        <p>Dear [Candidate Name],</p>
+        <p>Thank you for taking the time to complete the paralegal assessment at Thomas Philip. We appreciate the effort you put into your application.</p>
+        <p>After careful review, we regret to inform you that we are unable to offer you a place on the paralegal programme at this time.</p>
+        <p>Please don't take this as a reflection on your potential. There are always more strong candidates than positions available. We encourage you to continue developing your skills and experience, and you are welcome to reapply in the future should new opportunities arise.</p>
+        <p>We wish you every success in your legal journey.</p>
+        <p>Yours sincerely,<br><em>Thomas Philip Advocates &amp; Solicitors</em></p>
+      </div>
+    </div>
+    <p style="margin-top:12px;color:var(--muted);font-size:14px;text-align:center;">Rejected candidates receive this one email and the process ends there.</p>
+  </section>
+
+  <!-- 10. 24-hour safety net -->
   <section class="slide dark">
     <div class="kicker">The safety net</div>
-    <h2>Nothing goes out for 24 hours.</h2>
+    <h2>Nothing sends for 24 hours.</h2>
     <div class="divider"></div>
     <div class="two-col">
       <ul>
-        <li>Every submission lands in the Applications sheet <strong>immediately</strong>.</li>
-        <li>The candidate email is marked <em>SCHEDULED</em> — not sent.</li>
-        <li>Niamh has a full day to override the AI's call.</li>
-        <li>To cancel: change one cell. That's it.</li>
-        <li>To send early: update the timestamp and run the queue.</li>
+        <li>Every submission lands in the Google Sheet <strong>immediately</strong>.</li>
+        <li>The candidate's email is queued as <em>SCHEDULED</em> — not yet sent.</li>
+        <li>We have a full day to override any decision.</li>
+        <li>To override: type a single word in one column of the sheet.</li>
+        <li>To send earlier: change the scheduled time to now.</li>
+        <li>To send immediately: run the queue with one click.</li>
       </ul>
       <div>
         <div class="card" style="background:#1a2530;border-color:#2a3540;">
-          <h3 style="color:var(--gold);">Why this matters</h3>
-          <p style="color:#e5e0d5;">AI gets most decisions right. The 24-hour window means <strong>partners remain in control of every single rejection and every single offer</strong>. No embarrassing auto-emails. No missed unicorns.</p>
+          <h3 style="color:var(--gold);">In practice</h3>
+          <p style="color:#e5e0d5;">The AI is right most of the time. The 24-hour window means <strong>a human always has the final say</strong>. No embarrassing auto-emails, no rushed decisions.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 7. Firm workflow -->
-  <section class="slide">
-    <div class="kicker">Behind the scenes</div>
-    <h2>One sheet. Everything connected.</h2>
-    <div class="divider"></div>
-    <ul>
-      <li><strong>Applications sheet</strong> — every submission, colour-coded by decision (green / amber / red).</li>
-      <li><strong>Candidate report</strong> — formatted Google Doc auto-generated per submission with all answers, scores, and AI rationale.</li>
-      <li><strong>Resume</strong> — uploaded PDF saved to the firm's Drive folder, renamed with the candidate's name, linked from the sheet.</li>
-      <li><strong>Calendly</strong> — candidates self-book screening calls; Google Meet or Zoom link auto-generated.</li>
-      <li><strong>Audit trail</strong> — every status change, decision, and email is timestamped.</li>
-    </ul>
-  </section>
-
-  <!-- 8. Post-interview -->
+  <!-- 11. Behind the scenes -->
   <section class="slide">
     <div class="kicker">After the screening call</div>
-    <h2>Niamh decides. Diviya is notified automatically.</h2>
+    <h2>Zoom → Sheet → Offer letter.</h2>
     <div class="divider"></div>
     <div class="flow">
-      <div class="step"><div class="n">01</div><strong>15-min call</strong><span>Niamh speaks to the candidate on Meet / Zoom</span></div>
-      <div class="step"><div class="n">02</div><strong>Dropdown</strong><span>Niamh selects ACCEPT or REJECT in column R</span></div>
-      <div class="step"><div class="n">03</div><strong>Email fires</strong><span>Diviya receives the candidate's details and next step</span></div>
-      <div class="step"><div class="n">04</div><strong>Letter sent</strong><span>Diviya ticks the box; timestamp recorded</span></div>
+      <div class="step"><div class="n">01</div><strong>15-min call</strong><span>Zoom link comes from the Calendly booking</span></div>
+      <div class="step"><div class="n">02</div><strong>Click a cell</strong><span>In the Google Sheet, select ACCEPT or REJECT</span></div>
+      <div class="step"><div class="n">03</div><strong>Email fires</strong><span>diviya@thomasphilip receives the candidate's details</span></div>
+      <div class="step"><div class="n">04</div><strong>Letter sent</strong><span>Offer or decline letter sent — all info already in sheet</span></div>
     </div>
-    <p style="margin-top:30px;">No Slack messages to chase. No "did you send that email?" No candidate left in limbo.</p>
+    <p style="margin-top:26px;">No back and forth. Every field the offer letter needs is already in the Google Sheet — name, IC, address, contact, decision, timestamp.</p>
   </section>
 
-  <!-- 9. Data capture -->
+  <!-- 12. Data capture -->
   <section class="slide">
     <div class="kicker">Unseen benefit</div>
-    <h2>Every applicant grows the firm.</h2>
+    <h2>Every applicant grows the CRM.</h2>
     <div class="divider"></div>
     <div class="two-col">
       <ul>
-        <li>Opt-in checkboxes for <strong>Call to The Bar newsletter</strong> and <strong>Thomas Philip CRM</strong>.</li>
-        <li>Weekly CSV export automatically emailed for Beehiiv import.</li>
-        <li>No duplicates, cleanly formatted, ready to upload.</li>
+        <li>Optional opt-in tickbox: <strong>subscribe to the Thomas Philip CRM</strong>.</li>
+        <li>Every Monday morning, a fresh CSV of new subscribers is automatically emailed to the firm.</li>
+        <li>No duplicates, cleanly formatted, ready for import.</li>
         <li>Every candidate — hired or not — becomes a potential future subscriber, client, or referrer.</li>
       </ul>
       <div>
         <div class="stat">
-          <div class="big">100%</div>
-          <div class="lbl">Opt-in capture rate</div>
+          <div class="big">Every<br>Monday</div>
+          <div class="lbl">Fresh CSV delivered</div>
         </div>
-        <p style="text-align:center;font-size:16px;color:var(--muted);margin-top:20px;">At zero additional cost per applicant.</p>
       </div>
     </div>
   </section>
 
-  <!-- 10. What we save -->
-  <section class="slide dark">
-    <div class="kicker">The impact</div>
-    <h2>Faster decisions. Better candidates. Less admin.</h2>
-    <div class="divider"></div>
-    <div class="three-col">
-      <div class="stat">
-        <div class="big">24h</div>
-        <div class="lbl">Reply turnaround</div>
-      </div>
-      <div class="stat">
-        <div class="big">~6h</div>
-        <div class="lbl">Partner hours saved per hire</div>
-      </div>
-      <div class="stat">
-        <div class="big">10</div>
-        <div class="lbl">Quality dimensions scored</div>
-      </div>
-    </div>
-    <p style="margin-top:40px;color:#e5e0d5;text-align:center;font-size:18px;">Every candidate is assessed on the same ten dimensions, by the same standard, in the same timeframe. The process is faster, fairer, and fully auditable.</p>
-  </section>
-
-  <!-- 11. Tech & cost -->
+  <!-- 13. Data privacy -->
   <section class="slide">
-    <div class="kicker">Under the hood</div>
-    <h2>Built on tools the firm already uses.</h2>
-    <div class="divider"></div>
-    <div class="three-col">
-      <div class="card"><h3>Front end</h3><p>Netlify (hosted form)</p></div>
-      <div class="card"><h3>Backend</h3><p>Google Apps Script</p></div>
-      <div class="card"><h3>Storage</h3><p>Google Sheets &amp; Drive</p></div>
-      <div class="card"><h3>Email</h3><p>Gmail (firm address)</p></div>
-      <div class="card"><h3>Scheduling</h3><p>Calendly free tier</p></div>
-      <div class="card"><h3>Video</h3><p>Google Meet / Zoom free</p></div>
-    </div>
-    <div style="margin-top:40px;text-align:center;">
-      <div class="big" style="font-size:72px;color:var(--gold);">£0 / month</div>
-      <div class="lbl">ongoing running cost</div>
-    </div>
-  </section>
-
-  <!-- 12. Risks -->
-  <section class="slide">
-    <div class="kicker">Risks &amp; mitigations</div>
-    <h2>What could go wrong — and why it won't.</h2>
+    <div class="kicker">Data privacy</div>
+    <h2>Everything stays in the firm's Google Workspace.</h2>
     <div class="divider"></div>
     <div class="two-col">
+      <ul>
+        <li>All submissions, resumes, and reports live inside the firm's own Google Sheets and Drive.</li>
+        <li>The <strong>only</strong> information the AI ever reads is the candidate's answers to the eight questions.</li>
+        <li>The AI does not see the resume, the IC number, the address, or the phone.</li>
+        <li>No third-party database, no external CRM, no data leaves the firm's Google Workspace.</li>
+      </ul>
       <div>
-        <div class="card" style="margin-bottom:16px;">
-          <h3>AI misjudges a candidate</h3>
-          <p>24-hour human review; every decision can be overridden in one click.</p>
-        </div>
         <div class="card">
-          <h3>Candidate data privacy</h3>
-          <p>All data stays inside the firm's own Google Workspace. No third-party database.</p>
-        </div>
-      </div>
-      <div>
-        <div class="card" style="margin-bottom:16px;">
-          <h3>System downtime</h3>
-          <p>Form submissions retry automatically; sheet entries are atomic. Zero data loss seen in testing.</p>
-        </div>
-        <div class="card">
-          <h3>Partners don't trust it</h3>
-          <p>Pilot one recruitment cycle. Every row, score, and email is visible. Full transparency.</p>
+          <h3>One source of truth</h3>
+          <p>It looks like a lot of moving parts, but every route — assessment, review, email, interview, offer — leads back to the same Google Sheet. If it's not in the sheet, it didn't happen.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 13. Go-live -->
+  <!-- 14. Impact -->
   <section class="slide dark">
-    <div class="kicker">Go-live plan</div>
-    <h2>Three weeks from sign-off to public launch.</h2>
+    <div class="kicker">The impact</div>
+    <h2>Faster decisions. Fairer process.</h2>
     <div class="divider"></div>
-    <div class="flow">
-      <div class="step"><div class="n">Week 1</div><strong>Internal test</strong><span>Team applies using the live form. Verify every step.</span></div>
-      <div class="step"><div class="n">Week 2</div><strong>Soft launch</strong><span>Invite one small cohort. Monitor for edge cases.</span></div>
-      <div class="step"><div class="n">Week 3</div><strong>Public launch</strong><span>Website, LinkedIn, direct outreach.</span></div>
-      <div class="step"><div class="n">Ongoing</div><strong>Review</strong><span>Weekly pipeline read-out to the partnership.</span></div>
+    <div style="text-align:center;">
+      <div class="stat">
+        <div class="big">24 hours</div>
+        <div class="lbl">Reply turnaround from submission</div>
+      </div>
+      <p style="margin-top:40px;color:#e5e0d5;font-size:18px;max-width:640px;margin-left:auto;margin-right:auto;">Time from application to a screening call depends only on when the candidate books their slot — usually within a few days. Every candidate is assessed on the same standard, in the same timeframe.</p>
     </div>
-    <p style="margin-top:40px;color:#e5e0d5;">Nothing in this plan is reversible in the wrong direction. At any point we can pause the queue, edit a template, or go back to manual — without losing a single application.</p>
   </section>
 
-  <!-- 14. Questions -->
+  <!-- 15. Tools & costs -->
+  <section class="slide">
+    <div class="kicker">Tools &amp; running cost</div>
+    <h2>Almost entirely free.</h2>
+    <div class="divider"></div>
+    <div class="four-col" style="margin-bottom:26px;">
+      <div class="card"><h3>Zoom</h3><p>Free tier</p></div>
+      <div class="card"><h3>Gmail</h3><p>Included in Workspace</p></div>
+      <div class="card"><h3>Calendly</h3><p>Free tier</p></div>
+      <div class="card"><h3>Google Apps Script</h3><p>Included in Workspace</p></div>
+      <div class="card"><h3>Google Sheets</h3><p>Included in Workspace</p></div>
+      <div class="card"><h3>Google Drive</h3><p>Included in Workspace</p></div>
+      <div class="card" style="border-top-color:var(--navy);"><h3 style="color:var(--navy);">Netlify Hosting</h3><p><strong>RM 0 / month</strong><br>(free tier)</p></div>
+      <div class="card" style="border-top-color:var(--navy);"><h3 style="color:var(--navy);">Claude AI</h3><p><strong>~RM 0.05 per applicant</strong><br>(pay-as-you-go)</p></div>
+    </div>
+    <p style="text-align:center;font-size:16px;color:var(--muted);">100 applicants ≈ RM 5 in AI cost. Everything else, free.</p>
+  </section>
+
+  <!-- 16. Future -->
+  <section class="slide dark">
+    <div class="kicker">What's next</div>
+    <h2>Future upgrades.</h2>
+    <div class="divider"></div>
+    <div class="three-col">
+      <div class="card" style="background:#1a2530;border-color:#2a3540;">
+        <h3>Auto Offer Letter</h3>
+        <p style="color:#e5e0d5;">Once ACCEPT is clicked after the interview, the offer letter is generated and sent automatically — no drafting needed.</p>
+      </div>
+      <div class="card" style="background:#1a2530;border-color:#2a3540;">
+        <h3>Resume Summary</h3>
+        <p style="color:#e5e0d5;">AI reads the full uploaded CV and writes a two-line summary attached to the row, so reviewers can scan the pipeline at a glance.</p>
+      </div>
+      <div class="card" style="background:#1a2530;border-color:#2a3540;">
+        <h3>WhatsApp Override</h3>
+        <p style="color:#e5e0d5;">Every AI decision sends a WhatsApp to a partner — reply "accept" or "reject" to override before the 24-hour email goes out.</p>
+      </div>
+    </div>
+    <p style="margin-top:30px;color:#e5e0d5;">All optional. All addable without breaking anything already running.</p>
+  </section>
+
+  <!-- 17. Questions -->
   <section class="slide dark">
     <div class="brand">Thomas Philip</div>
     <div class="divider"></div>
-    <h1 style="font-size:80px;">Questions?</h1>
+    <h1 style="font-size:clamp(48px,8vw,80px);">Questions?</h1>
     <div style="margin-top:40px;">
-      <p style="color:#e5e0d5;font-size:22px;margin-bottom:10px;">Ready to sign off on the acceptance and decline email templates?</p>
-      <p style="color:#e5e0d5;font-size:22px;">Happy to walk through the live system right now.</p>
+      <p style="color:#e5e0d5;font-size:clamp(16px,2vw,22px);margin-bottom:10px;">Ready to sign off on the acceptance and decline templates?</p>
+      <p style="color:#e5e0d5;font-size:clamp(16px,2vw,22px);">Happy to walk through the live system now.</p>
     </div>
-    <div style="margin-top:80px;font-family:-apple-system,sans-serif;font-size:12px;letter-spacing:2px;color:#888;text-transform:uppercase;">nmk@lawgistics.my  ·  div@thomasphilip.com.my</div>
   </section>
 
 </div>
 
-<div class="footer">
+<div class="footer" id="footer">
   <div>Thomas Philip · Advocates &amp; Solicitors</div>
-  <div id="pageIndicator">01 / 14</div>
+  <div id="pageIndicator">01 / 17</div>
 </div>
 
-<div class="nav">
-  <button onclick="prev()" aria-label="Previous slide">‹</button>
-  <button onclick="next()" aria-label="Next slide">›</button>
-</div>
+<button class="nav-arrow prev" onclick="prev()" aria-label="Previous slide">‹</button>
+<button class="nav-arrow next" onclick="next()" aria-label="Next slide">›</button>
 
 <script>
   const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
   let i = 0;
 
   function show(n) {
     slides[i].classList.remove('active');
-    i = Math.max(0, Math.min(slides.length - 1, n));
+    i = Math.max(0, Math.min(total - 1, n));
     slides[i].classList.add('active');
     document.getElementById('pageIndicator').textContent =
-      String(i + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
-    document.body.style.background = slides[i].classList.contains('dark') ? '#0F1720' : '#F5F3EF';
+      String(i + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0');
+
+    const isDark = slides[i].classList.contains('dark');
+    document.body.style.background = isDark ? '#0F1720' : '#F5F3EF';
+    document.body.classList.toggle('light-bg', !isDark);
+    document.getElementById('footer').classList.toggle('dark-mode', isDark);
+    document.getElementById('progress').style.width = ((i + 1) / total * 100) + '%';
+
+    slides[i].scrollTop = 0;
   }
 
   function next() { show(i + 1); }
@@ -597,8 +765,23 @@
     if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); next(); }
     else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); prev(); }
     else if (e.key === 'Home') { show(0); }
-    else if (e.key === 'End') { show(slides.length - 1); }
+    else if (e.key === 'End') { show(total - 1); }
   });
+
+  // Touch swipe for mobile
+  let touchStartX = 0, touchStartY = 0;
+  document.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    const dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) next(); else prev();
+    }
+  }, { passive: true });
 
   show(0);
 </script>
