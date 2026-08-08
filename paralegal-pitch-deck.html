@@ -125,15 +125,55 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
 @media(max-width:900px){.nav-dots{display:none}}
 
 @media(max-width:700px){
-  .slide{padding:80px 24px 40px}
-  .snum{top:24px;right:24px}
-  .slabel{top:24px;left:24px}
+  .slide{padding:80px 20px 40px;min-height:100vh;justify-content:flex-start;padding-top:96px}
+  .snum{top:20px;right:20px;font-size:11px}
+  .slabel{top:20px;left:20px;font-size:10px;letter-spacing:2px}
+  .cover{justify-content:center;padding-top:80px}
+  .cover .firm-mark{font-size:11px;letter-spacing:4px}
+  .cover .sub{font-size:14px;line-height:1.6}
+  .stats{gap:20px;margin-top:20px}
+  .stat{padding:16px 0}
+  .stat .num{font-size:32px}
+  .stat .lbl{font-size:13px}
+  h2.stitle{font-size:28px;line-height:1.15;margin-bottom:16px}
+  .eyebrow{margin-bottom:12px}
+  .lede{font-size:15px;line-height:1.6;margin-bottom:24px}
+  .pull blockquote{font-size:22px;line-height:1.3}
+  .pull .qmark{font-size:80px}
+  .pnum{width:40px;height:40px;min-width:40px;font-size:16px}
+  .ptxt h3{font-size:17px}
+  .ptxt p{font-size:13.5px}
+  .values{gap:14px;grid-template-columns:1fr}
+  .vcell{padding:16px 18px}
+  .vcell h4{font-size:15px}
+  .vcell p{font-size:13px}
+  .card-list{gap:12px}
+  .icard{padding:16px 18px}
+  .bullets{gap:10px}
+  .bullets li{font-size:14.5px;line-height:1.55}
+  .mini-faq{gap:14px}
+  .mfq .q{font-size:14px}
+  .mfq .a{font-size:13px}
+  .cta-btn{padding:16px 28px;font-size:15px}
+  .cover h1{font-size:44px;line-height:1.1}
+  .scroll-cue{bottom:20px;font-size:9px}
 }
 </style>
 </head>
 <body>
 <div class="deck">
 
+<!--
+  ═══════════════════════════════════════════════════════════════════════
+  COVER SLIDE — TO ADD A REAL LOGO
+  ═══════════════════════════════════════════════════════════════════════
+  Replace the .firm-mark div below with an <img> tag pointing to your logo file.
+  Example:
+    <img src="thomas-philip-logo.svg" alt="Thomas Philip" style="height:48px;margin-bottom:28px"/>
+
+  Drop the logo file in the same folder as this HTML before deploying.
+  ═══════════════════════════════════════════════════════════════════════
+-->
 <section class="slide cover">
   <div class="firm-mark">Thomas Philip · Advocates &amp; Solicitors</div>
   <h1>The Paralegal<br>Programme.</h1>
@@ -208,13 +248,26 @@ h2.stitle{font-family:'Libre Baskerville',serif;font-size:clamp(36px,5vw,58px);f
   </div>
 </section>
 
+<!--
+  ═══════════════════════════════════════════════════════════════════════
+  TESTIMONIAL SLIDE — REPLACE WITH A REAL QUOTE
+  ═══════════════════════════════════════════════════════════════════════
+  Ask Mathew (or a past paralegal) for one sentence about the programme.
+  When you have it, replace the blockquote text and the cite line below.
+
+  Example format:
+    <blockquote>"Real quote from the person, in their own words."</blockquote>
+    <cite>— Person's Name, Their Role</cite>
+
+  Until you have a real quote, this slide stays as an unattributed statement.
+  ═══════════════════════════════════════════════════════════════════════
+-->
 <section class="slide light pull">
   <div class="slabel">06 · The Rare Part</div>
   <div class="snum">07 / 14</div>
   <div class="pull">
     <span class="qmark">"</span>
-    <blockquote>Watching lawyers argue before judges, examine witnesses, and run hearings is something few environments offer at this stage of your career.</blockquote>
-    <cite>— Real Litigation Exposure at Thomas Philip</cite>
+    <blockquote>Watching lawyers argue before judges, examine witnesses, and run hearings is not something most legal environments offer at this stage of a career.</blockquote>
   </div>
 </section>
 
