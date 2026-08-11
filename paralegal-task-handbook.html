@@ -3,359 +3,849 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Thomas Philip · Intern &amp; Paralegal Task Handbook</title>
+<title>Thomas Philip · Paralegal Handbook</title>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  :root{
-    --dark:#1C1917;--ink:#292524;--mid:#57534E;--muted:#A8A29E;
-    --line:#E7E5E4;--cream:#F5F1E8;--paper:#FFFEFA;
-    --accent:#7A2E3F;--accent-soft:#F0E4E6;
-    --good:#166534;--bad:#991B1B;
-  }
-  html{scroll-behavior:smooth}
-  body{font-family:'Lato',sans-serif;color:var(--ink);background:var(--cream);line-height:1.6;font-size:16px}
-  .wrap{max-width:820px;margin:0 auto;padding:56px 28px 96px}
-  .firm{font-family:'Libre Baskerville',serif;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-  h1{font-family:'Libre Baskerville',serif;font-size:38px;font-weight:700;line-height:1.15;margin-bottom:12px;letter-spacing:-0.5px}
-  .lede{font-size:16px;color:var(--mid);font-style:italic;margin-bottom:36px;line-height:1.7}
-  h2{font-family:'Libre Baskerville',serif;font-size:26px;font-weight:700;margin:56px 0 14px;padding-top:28px;border-top:1px solid var(--line);letter-spacing:-0.3px}
-  h2 .num{color:var(--accent);margin-right:12px}
-  h3{font-family:'Lato',sans-serif;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin:26px 0 10px}
-  h4{font-family:'Libre Baskerville',serif;font-size:17px;font-weight:700;margin:20px 0 8px}
-  p{margin-bottom:14px}
-  a{color:var(--accent);text-decoration:underline}
-  a:hover{text-decoration:none}
-  code{font-family:Menlo,Consolas,monospace;background:var(--accent-soft);padding:1px 6px;border-radius:3px;font-size:14px;color:var(--accent)}
-  ul,ol{padding-left:22px;margin-bottom:16px}
-  li{margin-bottom:6px}
-  .toc{background:var(--paper);border-left:3px solid var(--accent);padding:22px 26px;margin:20px 0 12px;border-radius:0 6px 6px 0}
-  .toc h3{margin-top:0;font-size:11px}
-  .toc ol{margin:8px 0 0;padding-left:20px}
-  .toc a{color:var(--ink)}
-  .template{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 26px;margin:14px 0 20px;font-family:'Libre Baskerville',serif;font-size:14.5px;line-height:1.9}
-  .template .tlbl{display:block;font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
-  .template em{color:var(--muted)}
-  .dd{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
-  @media(max-width:640px){.dd{grid-template-columns:1fr}}
-  .do,.dont{padding:16px 18px;border-radius:6px;font-size:14px;line-height:1.6}
-  .do{background:#F0FDF4;border-left:3px solid var(--good)}
-  .dont{background:#FEF2F2;border-left:3px solid var(--bad)}
-  .do .h,.dont .h{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:8px;display:block}
-  .do .h{color:var(--good)}
-  .dont .h{color:var(--bad)}
-  .do ul,.dont ul{margin:0;padding-left:18px}
-  .do li,.dont li{margin-bottom:4px}
-  .callout{background:#FFF9EC;border:1px solid #F3D68A;border-left:3px solid #D4A017;border-radius:6px;padding:16px 20px;margin:16px 0;font-size:14px;color:#78350F;line-height:1.65}
-  .callout strong{color:#92400E}
-  .callout .clbl{display:block;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#92400E;margin-bottom:6px}
-  .checklist{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:18px 22px;margin:16px 0}
-  .checklist .clbl{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
-  .checklist ul{list-style:none;padding:0;margin:0}
-  .checklist li{padding-left:28px;position:relative;margin-bottom:8px;font-size:14.5px;line-height:1.55}
-  .checklist li::before{content:'\2610';position:absolute;left:0;top:-2px;color:var(--accent);font-size:16px;font-weight:700}
-  .example{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 26px;margin:18px 0}
-  .example .elbl{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
-  .example h4{margin-top:0;font-size:15px;font-family:'Lato',sans-serif;font-weight:700;text-transform:none;letter-spacing:0}
-  .example p{font-size:14.5px;line-height:1.7}
-  .example p:last-child{margin-bottom:0}
-  .placeholder{border:1px dashed var(--muted);border-radius:6px;padding:14px 18px;margin:14px 0;font-size:13px;color:var(--muted);line-height:1.6;font-style:italic}
-  .placeholder::before{content:'\270E ';color:var(--accent);font-style:normal}
-  footer{margin-top:80px;padding-top:20px;border-top:1px solid var(--line);text-align:center;font-family:'Lato',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
-  @media(max-width:600px){
-    .wrap{padding:40px 20px 60px}
-    h1{font-size:28px}
-    h2{font-size:22px;margin-top:44px}
-  }
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#1C1917;--ink:#292524;--mid:#57534E;--muted:#A8A29E;
+  --line:#E7E5E4;--cream:#F5F1E8;--paper:#FFFEFA;--surface:#FAFAF6;
+  --accent:#7A2E3F;--accent-hover:#5F2431;--accent-soft:#F0E4E6;--accent-line:#E8D5D9;
+  --good:#166534;--good-soft:#F0FDF4;--bad:#991B1B;--bad-soft:#FEF2F2;
+  --sidebar-w:280px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--ink);background:var(--cream);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.sidebar{position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);background:var(--dark);color:#fff;padding:32px 0;overflow-y:auto;z-index:50;display:flex;flex-direction:column}
+.sb-brand{padding:0 28px 24px;border-bottom:1px solid rgba(240,228,230,.1);margin-bottom:18px}
+.sb-firm{font-family:'Libre Baskerville',serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent-soft);margin-bottom:6px}
+.sb-title{font-family:'Libre Baskerville',serif;font-size:19px;line-height:1.25;color:#fff;font-weight:700}
+.sb-title a{color:#fff;text-decoration:none;display:block}
+.sb-search{padding:0 20px 18px}
+.sb-search input{width:100%;background:rgba(240,228,230,.06);border:1px solid rgba(240,228,230,.12);border-radius:6px;padding:9px 12px;color:#fff;font-family:'Lato',sans-serif;font-size:13px;outline:none;transition:all .15s}
+.sb-search input::placeholder{color:rgba(240,228,230,.4)}
+.sb-search input:focus{background:rgba(240,228,230,.1);border-color:var(--accent-soft)}
+.sb-nav{list-style:none;padding:0 12px;flex:1}
+.sb-nav li{margin-bottom:2px}
+.sb-nav a{display:flex;align-items:center;gap:10px;padding:9px 16px;color:rgba(240,228,230,.7);font-size:14px;border-radius:6px;transition:all .15s;text-decoration:none}
+.sb-nav a:hover{background:rgba(240,228,230,.05);color:#fff;text-decoration:none}
+.sb-nav a.active{background:var(--accent);color:#fff;font-weight:700}
+.sb-nav .num{font-family:'Libre Baskerville',serif;font-size:11px;opacity:.55;min-width:16px}
+.sb-nav a.active .num{opacity:1}
+.sb-nav .check{margin-left:auto;font-size:12px;opacity:0;transition:opacity .15s}
+.sb-nav li.visited a .check{opacity:.6}
+.sb-nav a.active .check{opacity:1}
+.sb-foot{padding:16px 28px 0;border-top:1px solid rgba(240,228,230,.1);margin-top:16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,228,230,.35)}
+.sb-companion{margin:12px 20px 0;padding:14px 16px;background:rgba(240,228,230,.05);border:1px solid rgba(240,228,230,.1);border-radius:6px}
+.sb-companion .lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,228,230,.4);margin-bottom:4px}
+.sb-companion a{font-size:13px;color:#fff;text-decoration:none;display:block}
+.sb-companion a:hover{color:var(--accent-soft);text-decoration:none}
+
+.mob-header{display:none;position:sticky;top:0;background:var(--dark);color:#fff;padding:14px 18px;z-index:60;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(240,228,230,.1)}
+.mob-brand{font-family:'Libre Baskerville',serif;font-size:14px}
+.mob-menu-btn{background:none;border:none;color:#fff;padding:8px;cursor:pointer;display:flex;flex-direction:column;gap:4px}
+.mob-menu-btn span{display:block;width:22px;height:2px;background:#fff;transition:all .2s}
+.mob-menu-btn.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.mob-menu-btn.open span:nth-child(2){opacity:0}
+.mob-menu-btn.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:40;display:none}
+
+.main{margin-left:var(--sidebar-w);min-height:100vh}
+.topbar{position:sticky;top:0;background:rgba(245,241,232,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:14px 44px;z-index:20;display:flex;align-items:center;gap:16px}
+.crumb{font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;font-weight:700}
+.crumb .sep{margin:0 8px;opacity:.5}
+.crumb .cur{color:var(--accent)}
+.progress{margin-left:auto;font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
+.content{max-width:760px;margin:0 auto;padding:56px 44px 96px}
+.section{display:none;animation:fadeIn .3s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h1{font-family:'Libre Baskerville',serif;font-size:42px;font-weight:700;line-height:1.1;margin-bottom:12px;letter-spacing:-0.5px;color:var(--ink)}
+.lede{font-size:17px;color:var(--mid);line-height:1.7;margin-bottom:36px;font-style:italic}
+h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;line-height:1.2;margin:44px 0 14px;letter-spacing:-0.3px}
+h3{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent);margin:32px 0 12px}
+h4{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;margin:22px 0 8px}
+p{margin-bottom:14px}
+ul,ol{padding-left:22px;margin-bottom:16px}
+li{margin-bottom:8px;line-height:1.65}
+strong{color:var(--ink)}
+code{font-family:Menlo,Consolas,monospace;background:var(--accent-soft);padding:1px 6px;border-radius:3px;font-size:14px;color:var(--accent)}
+
+.template{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 26px;margin:18px 0 22px;font-family:'Libre Baskerville',serif;font-size:14.5px;line-height:1.95}
+.template .tlbl{display:block;font-family:'Lato',sans-serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--accent-line)}
+.template em{color:var(--muted);font-style:italic}
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+@media(max-width:640px){.dd{grid-template-columns:1fr}}
+.do,.dont{padding:18px 20px;border-radius:6px;font-size:14px;line-height:1.6}
+.do{background:var(--good-soft);border-left:3px solid var(--good)}
+.dont{background:var(--bad-soft);border-left:3px solid var(--bad)}
+.do .h,.dont .h{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;display:block}
+.do .h{color:var(--good)}
+.dont .h{color:var(--bad)}
+.do ul,.dont ul{margin:0;padding-left:18px}
+.do li,.dont li{margin-bottom:5px}
+.callout{background:#FFF9EC;border:1px solid #F3D68A;border-left:3px solid #D4A017;border-radius:6px;padding:18px 22px;margin:18px 0;font-size:14.5px;color:#78350F;line-height:1.65}
+.callout strong{color:#92400E}
+.callout .clbl{display:block;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#92400E;margin-bottom:8px}
+.checklist{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:20px 24px;margin:18px 0}
+.checklist .clbl{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block;padding-bottom:10px;border-bottom:1px solid var(--accent-line)}
+.checklist ul{list-style:none;padding:0;margin:0}
+.checklist li{padding-left:30px;position:relative;margin-bottom:10px;font-size:14.5px;line-height:1.55}
+.checklist li::before{content:'\2610';position:absolute;left:0;top:-2px;color:var(--accent);font-size:16px;font-weight:700}
+.example{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:24px 28px;margin:20px 0}
+.example .elbl{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:14px;display:block}
+.example h4{margin-top:0;font-size:15px;font-family:'Lato',sans-serif;font-weight:700;text-transform:none;letter-spacing:0;line-height:1.5}
+.example p{font-size:14.5px;line-height:1.7}
+.example p:last-child{margin-bottom:0}
+.placeholder{border:1px dashed var(--muted);border-radius:6px;padding:14px 18px;margin:14px 0;font-size:13px;color:var(--muted);line-height:1.6;font-style:italic;background:var(--surface)}
+.placeholder::before{content:'\270E ';color:var(--accent);font-style:normal;margin-right:4px}
+
+.home-hero{padding:32px 0 40px;border-bottom:1px solid var(--line);margin-bottom:40px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:24px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 24px;cursor:pointer;transition:all .2s;text-decoration:none;color:var(--ink);display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(122,46,63,.08);text-decoration:none}
+.card-num{font-family:'Libre Baskerville',serif;font-size:12px;color:var(--accent);font-weight:700;margin-bottom:8px;letter-spacing:1px}
+.card h3{font-family:'Libre Baskerville',serif;font-size:17px;font-weight:700;color:var(--ink);margin:0 0 6px;text-transform:none;letter-spacing:0}
+.card p{font-size:13px;color:var(--mid);margin:0;line-height:1.55}
+.ground-rules{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:26px 30px;margin-top:32px}
+.ground-rules h3{margin-top:0;margin-bottom:14px}
+.ground-rules ul{margin:0;padding-left:20px}
+.ground-rules li{font-size:14.5px;color:var(--mid);margin-bottom:8px}
+
+/* Quiz */
+.quiz{background:linear-gradient(180deg,#FFFEF8,var(--paper));border:1px solid var(--accent-line);border-radius:10px;padding:26px 30px;margin:44px 0 0;position:relative}
+.quiz-lbl{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.quiz h3{margin-top:0;margin-bottom:8px;color:var(--ink);text-transform:none;letter-spacing:0;font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700}
+.quiz-intro{font-size:14px;color:var(--mid);margin-bottom:20px;font-style:italic}
+.q{margin-bottom:24px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.q:last-of-type{border-bottom:none;padding-bottom:0;margin-bottom:16px}
+.q-prompt{font-size:15px;font-weight:700;margin-bottom:12px;color:var(--ink);line-height:1.5}
+.q-prompt .qnum{color:var(--accent);margin-right:8px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:#fff;border:1.5px solid var(--line);border-radius:6px;cursor:pointer;transition:all .15s;font-size:14px;line-height:1.5}
+.opt:hover:not(.locked){border-color:var(--accent);background:#FFFBF0}
+.opt input{margin-top:3px;accent-color:var(--accent);flex-shrink:0}
+.opt.locked{cursor:default}
+.opt.correct{background:var(--good-soft);border-color:var(--good)}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.opt.right-answer{background:var(--good-soft);border-color:var(--good)}
+.opt-tag{margin-left:auto;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;flex-shrink:0}
+.opt.correct .opt-tag,.opt.right-answer .opt-tag{color:var(--good)}
+.opt.wrong .opt-tag{color:var(--bad)}
+.q-explain{margin-top:12px;padding:12px 14px;background:var(--surface);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;font-size:13.5px;line-height:1.6;color:var(--mid);display:none}
+.q-explain.show{display:block}
+.q-explain strong{color:var(--ink)}
+.quiz-actions{display:flex;gap:10px;align-items:center;margin-top:8px}
+.btn{padding:10px 22px;border-radius:6px;font-family:'Lato',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .15s;letter-spacing:0.5px}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover:not(:disabled){background:var(--accent-hover)}
+.btn-primary:disabled{opacity:.4;cursor:not-allowed}
+.btn-ghost{background:transparent;color:var(--mid);border:1px solid var(--line)}
+.btn-ghost:hover{background:var(--surface);color:var(--ink)}
+.quiz-score{margin-left:auto;font-family:'Libre Baskerville',serif;font-size:15px;color:var(--accent);font-weight:700}
+.quiz-score.hidden{display:none}
+
+.pager{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:60px;padding-top:32px;border-top:1px solid var(--line)}
+.pager a{display:flex;flex-direction:column;padding:14px 20px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);transition:all .2s;background:var(--paper);flex:1;max-width:280px}
+.pager a:hover{border-color:var(--accent);transform:translateY(-1px);text-decoration:none}
+.pager a.next{text-align:right;margin-left:auto}
+.pager .plbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.pager .ptitle{font-family:'Libre Baskerville',serif;font-size:15px;color:var(--ink);font-weight:700}
+.pager a.disabled{opacity:.35;pointer-events:none}
+mark{background:#FFF176;color:var(--ink);padding:0 2px;border-radius:2px}
+
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%);transition:transform .25s ease;width:min(320px,85vw)}
+  .sidebar.open{transform:translateX(0);box-shadow:0 10px 40px rgba(0,0,0,.3)}
+  .scrim.open{display:block}
+  .mob-header{display:flex}
+  .main{margin-left:0}
+  .topbar{padding:12px 20px}
+  .content{padding:32px 20px 60px}
+  h1{font-size:30px}
+  h2{font-size:22px}
+  .lede{font-size:15px}
+  .cards{grid-template-columns:1fr}
+  .pager{flex-direction:column;align-items:stretch}
+  .pager a{max-width:100%}
+  .pager a.next{text-align:left;margin-left:0}
+  .quiz{padding:20px 22px}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-<div class="firm">Thomas Philip &middot; Advocates &amp; Solicitors</div>
-<h1>Intern &amp; Paralegal<br>Task Handbook</h1>
-<p class="lede">Practical guidance on the tasks you will handle most often &mdash; how to prepare a legal research note, translate documents, draft standard papers, and know when to escalate. Refer back to this whenever you're unsure how to start.</p>
-
-<div class="toc">
-  <h3>Contents</h3>
-  <ol>
-    <li><a href="#s1">How to use this handbook</a></li>
-    <li><a href="#s2">Legal research notes</a></li>
-    <li><a href="#s3">Translations</a></li>
-    <li><a href="#s4">Drafting basics</a></li>
-    <li><a href="#s5">Court bundles</a></li>
-    <li><a href="#s6">Correspondence</a></li>
-    <li><a href="#s7">Escalation &amp; feedback</a></li>
-  </ol>
+<div class="scrim" id="scrim"></div>
+<div class="mob-header">
+  <div class="mob-brand">Paralegal Handbook</div>
+  <button class="mob-menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
 </div>
 
-<h2 id="s1"><span class="num">1.</span>How to use this handbook</h2>
-<p>This handbook covers the day-to-day tasks you'll be given during your paralegalship. It is not a legal textbook &mdash; it is a working guide. Refer to the relevant section before starting a task, and read the "common mistakes" at the end of each section before you submit your work.</p>
-<p>If a task falls outside what's covered here, ask your supervising lawyer first. Never guess your way through a task that has legal or procedural consequences.</p>
-<h3>Ground rules</h3>
-<ul>
-  <li><strong>Always ask if unclear.</strong> There is no penalty for a question. There is a penalty for a mistake that could have been avoided.</li>
-  <li><strong>Check everything twice.</strong> Names, dates, case numbers, party references &mdash; sloppy detail work costs the firm real time.</li>
-  <li><strong>Confidentiality is not negotiable.</strong> Do not discuss client matters outside the office. Do not put client information into public tools (e.g. free online translators, ChatGPT).</li>
-  <li><strong>Deadlines are commitments.</strong> If you cannot meet one, flag it early &mdash; never on the day.</li>
-</ul>
-
-<h2 id="s2"><span class="num">2.</span>Legal research notes</h2>
-<p>A legal research note is a written summary that answers a specific legal question for a lawyer. It is not an essay. It is a structured document a lawyer can read in 3&ndash;5 minutes to make a decision.</p>
-<h3>Before you start</h3>
-<p>Get the following from the lawyer assigning the task:</p>
-<ul>
-  <li>The <strong>exact question</strong> to research (write it down verbatim)</li>
-  <li>The <strong>context</strong> &mdash; what matter is this for, what's the deadline</li>
-  <li>The <strong>scope</strong> &mdash; how deep, e.g. "quick check" vs "full memo"</li>
-  <li>The <strong>format expected</strong> &mdash; short note vs formal memo</li>
-</ul>
-<div class="callout"><span class="clbl">Rule</span>If you are given a vague question ("look into unfair dismissal"), do not start research until you've asked what specifically is being decided. A wrong question wastes hours.</div>
-<h3>Structure &mdash; the IRAC format</h3>
-<p>Every research note should follow this four-part structure. Even short notes.</p>
-<div class="template">
-  <span class="tlbl">Standard Research Note Template</span>
-  <strong>To:</strong> [Lawyer's Name]<br>
-  <strong>From:</strong> [Your Name]<br>
-  <strong>Date:</strong> [Date]<br>
-  <strong>Matter:</strong> [Client / File Reference]<br>
-  <strong>Question:</strong> [The exact question you were asked to research]<br><br>
-  <strong>ISSUE</strong><br>
-  <em>State the legal question in one or two sentences. What are we trying to find out?</em><br><br>
-  <strong>RULE</strong><br>
-  <em>Set out the relevant law: statute (section, subsection), case law (citation, principle), or procedure. Cite everything. Do not paraphrase without citation.</em><br><br>
-  <strong>APPLICATION</strong><br>
-  <em>Apply the rule to the facts of the matter. This is where you show your thinking. Weigh the arguments both ways.</em><br><br>
-  <strong>CONCLUSION</strong><br>
-  <em>Give the lawyer your best answer to the question. If the answer is "it depends," say what it depends on.</em>
-</div>
-<h3>Sources</h3>
-<ul>
-  <li><strong>CLJ Law</strong> &mdash; primary source for Malaysian case law and statutes</li>
-  <li><strong>LexisNexis</strong> &mdash; secondary source; useful for commentary and cross-jurisdictional research</li>
-  <li><strong>Firm precedent database</strong> &mdash; check first whether a similar research note has already been done. Do not duplicate work.</li>
-</ul>
-<div class="callout"><span class="clbl">Do not use</span>Free online legal blogs, unofficial case summaries, or general search engines as your <em>primary</em> source. They may point you in the right direction, but every proposition in your note must trace back to a citable statute or reported case.</div>
-<h3>Worked example (short form)</h3>
-<div class="example">
-  <span class="elbl">Example</span>
-  <h4>Question: Can a director of a Malaysian company be personally liable for a company debt if they signed the contract in their personal capacity?</h4>
-  <p><strong>ISSUE:</strong> Whether Mr X, a director who signed a supply contract without indicating his representative capacity, is personally liable to the supplier for the RM 45,000 unpaid balance.</p>
-  <p><strong>RULE:</strong> Section 20 of the Companies Act 2016 recognises the separate legal personality of a company. However, an individual who contracts in their own name, without disclosing that they act on behalf of a company, may be personally liable &mdash; see <em>Kelner v Baxter</em> (1866) LR 2 CP 174 (applied in Malaysia in [placeholder &mdash; check local authority]).</p>
-  <p><strong>APPLICATION:</strong> The contract in our matter is signed "Mr X" with no reference to the company. The company's name does not appear in the header or the signature block. On the facts, this points strongly toward personal capacity. However, the supplier's invoices were addressed to the company &mdash; this may support an argument that both parties understood it was a company contract.</p>
-  <p><strong>CONCLUSION:</strong> There is a real risk Mr X will be found personally liable on the contract as drafted. Recommend defence focus on the parties' course of dealing (invoices to company, payments from company account) to establish the supplier knew he acted for the company.</p>
-</div>
-<h3>Common mistakes</h3>
-<div class="dd">
-  <div class="do"><span class="h">Do</span>
-    <ul>
-      <li>Answer the question that was asked</li>
-      <li>Cite every proposition</li>
-      <li>Show both sides of a close argument</li>
-      <li>Keep it to 2 pages unless asked otherwise</li>
-      <li>Read your note out loud before submitting</li>
-    </ul>
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <div class="sb-firm">Thomas Philip</div>
+    <div class="sb-title"><a href="#home">Paralegal Handbook</a></div>
   </div>
-  <div class="dont"><span class="h">Don't</span>
-    <ul>
-      <li>Copy-paste headnotes without reading the case</li>
-      <li>Bury the conclusion at the end of a wall of text</li>
-      <li>Give an opinion on facts the lawyer didn't ask about</li>
-      <li>Use "clearly" or "obviously" &mdash; the law rarely is</li>
-      <li>Send a first draft without proofreading</li>
-    </ul>
-  </div>
-</div>
-
-<h2 id="s3"><span class="num">3.</span>Translations</h2>
-<p>Most of your translation work will be between <strong>English and Bahasa Malaysia</strong> &mdash; usually court documents, exhibits, correspondence, or witness statements. Translation errors in legal documents have consequences: cases have been lost on mistranslated single words.</p>
-<div class="callout"><span class="clbl">Golden rule</span>Legal translation is not general translation. Your job is <strong>accuracy</strong>, not readability. If a source sentence is awkward, your translation should be equally awkward &mdash; do not "improve" it. The court needs to see what was said, not what should have been said.</div>
-<h3>Before you start</h3>
-<ol>
-  <li>Confirm the <strong>direction</strong> (EN &rarr; BM or BM &rarr; EN)</li>
-  <li>Confirm the <strong>purpose</strong> &mdash; is this for filing, for internal reference, or for the client? Filed translations need to be sworn/certified.</li>
-  <li>Check whether a <strong>certified translator</strong> is needed. If the document is going to court as an exhibit and requires certification, we cannot do it internally &mdash; a certified translator must be engaged. Ask your supervising lawyer.</li>
-  <li>Read the <strong>entire document</strong> before you begin. Context changes translation.</li>
-</ol>
-<h3>Process</h3>
-<ol>
-  <li><strong>First pass &mdash; literal.</strong> Translate sentence by sentence, staying close to the source structure. Do not paraphrase.</li>
-  <li><strong>Second pass &mdash; accuracy check.</strong> Read source and translation side by side. Every word, every date, every name.</li>
-  <li><strong>Third pass &mdash; reading pass.</strong> Read only the translation out loud. Where it doesn't flow, check the source again &mdash; did you miss something, or was the source itself unclear?</li>
-  <li><strong>Format.</strong> Present bilingually where possible: source on left, translation on right, or paragraph by paragraph.</li>
-</ol>
-<h3>What you can and cannot use</h3>
-<div class="dd">
-  <div class="do"><span class="h">Allowed</span>
-    <ul>
-      <li>Bilingual legal dictionaries (Kamus Dewan, Malaysian Legal Dictionary)</li>
-      <li>Firm's internal glossary of standard terms</li>
-      <li>Reference to previous certified translations in the firm's files</li>
-      <li>Asking a bilingual colleague to sense-check</li>
-    </ul>
-  </div>
-  <div class="dont"><span class="h">Not allowed</span>
-    <ul>
-      <li>Google Translate, DeepL, or any free online translator with client content</li>
-      <li>ChatGPT, Claude, or any public AI tool with client content</li>
-      <li>Machine translation "cleaned up" and passed off as your own work</li>
-      <li>Guessing a term you don't know &mdash; always check</li>
-    </ul>
-  </div>
-</div>
-<div class="callout"><span class="clbl">Why not free AI translators</span>Pasting client documents into free online tools breaches confidentiality &mdash; that content is stored, indexed, and used to train models. Even redacted text can leak facts. If the firm approves specific paid, enterprise-grade tools in future, this section will be updated.</div>
-<h3>Terminology consistency</h3>
-<p>Within a single document, translate the same term the same way, every time. "Perjanjian" is always "Agreement", not sometimes "Contract" and sometimes "Agreement". Keep a running glossary as you work. Add new terms to the firm's shared glossary when you encounter them.</p>
-<div class="placeholder">Add the firm's shared glossary location here (e.g. Google Doc, shared drive folder).</div>
-<h3>When to escalate</h3>
-<ul>
-  <li>Any term where you're not 100% confident of the equivalent</li>
-  <li>Ambiguous phrasing in the source that changes meaning depending on interpretation</li>
-  <li>Cultural/religious/customary references without a direct equivalent</li>
-  <li>Anything that will be filed in court and needs certification</li>
-</ul>
-<h3>Common mistakes</h3>
-<div class="dd">
-  <div class="do"><span class="h">Do</span>
-    <ul>
-      <li>Translate what the source says, not what it should say</li>
-      <li>Keep names, addresses, and case numbers exactly as-is</li>
-      <li>Preserve original formatting (paragraphs, numbering)</li>
-      <li>Flag uncertain terms with a note to the lawyer</li>
-    </ul>
-  </div>
-  <div class="dont"><span class="h">Don't</span>
-    <ul>
-      <li>Skip words you don't know &mdash; mark them and ask</li>
-      <li>Change dates from DD/MM/YYYY to MM/DD/YYYY (or vice versa) without confirming</li>
-      <li>Translate proper nouns (person or company names)</li>
-      <li>Send a translation without a second-pass proofread</li>
-    </ul>
-  </div>
-</div>
-
-<h2 id="s4"><span class="num">4.</span>Drafting basics</h2>
-<p>You will draft affidavits, letters, and cause papers. Everything you draft will be reviewed &mdash; but the more polished your draft, the more you'll be trusted with substantive work.</p>
-<h3>Before you draft</h3>
-<ul>
-  <li>Look at <strong>2&ndash;3 recent examples</strong> of the same type of document from the firm's files</li>
-  <li>Confirm the <strong>parties</strong>, <strong>court</strong>, and <strong>suit number</strong></li>
-  <li>Read any <strong>related documents</strong> &mdash; the pleadings, previous affidavits, correspondence</li>
-</ul>
-<h3>Universal rules</h3>
-<ul>
-  <li><strong>One idea per paragraph.</strong> Long paragraphs get skimmed.</li>
-  <li><strong>Number every paragraph</strong> for affidavits and submissions.</li>
-  <li><strong>Refer to parties consistently</strong> &mdash; "the Plaintiff" throughout, not sometimes by name.</li>
-  <li><strong>Dates in full</strong> &mdash; "3 October 2026", not "3/10/26".</li>
-  <li><strong>Currency in full</strong> &mdash; "RM 45,000.00", not "45k".</li>
-  <li><strong>Never use contractions</strong> in legal documents. "Do not", not "don't".</li>
-</ul>
-<div class="placeholder">Add links to the firm's standard precedent templates here.</div>
-<h3>Common mistakes</h3>
-<div class="dd">
-  <div class="do"><span class="h">Do</span>
-    <ul>
-      <li>Match the style of similar past documents</li>
-      <li>Read the whole document once end-to-end after drafting</li>
-      <li>Check every case citation and statute reference</li>
-    </ul>
-  </div>
-  <div class="dont"><span class="h">Don't</span>
-    <ul>
-      <li>Draft from memory &mdash; always work from a template</li>
-      <li>Skip the proofread because "it will be reviewed anyway"</li>
-      <li>Use bold, italic, or underline for emphasis in cause papers</li>
-    </ul>
-  </div>
-</div>
-
-<h2 id="s5"><span class="num">5.</span>Court bundles</h2>
-<p>A court bundle is the physical (or digital) file of documents a lawyer takes to a hearing. Getting a bundle wrong is a fast way to embarrass the firm in open court.</p>
-<h3>Standard preparation checklist</h3>
-<div class="checklist">
-  <span class="clbl">Court Bundle Checklist</span>
-  <ul>
-    <li>All documents are in <strong>chronological order</strong> (unless the lawyer specifies otherwise)</li>
-    <li>Every page is <strong>numbered</strong>, top-right corner, in order (1, 2, 3&hellip; not restarted per document)</li>
-    <li>An <strong>index</strong> is at the front, listing each document, its date, and its page number</li>
-    <li>Tab dividers separate each document</li>
-    <li>All copies are legible &mdash; no faint or cut-off pages</li>
-    <li>Exhibits are marked correctly (P1, P2 for Plaintiff; D1, D2 for Defendant)</li>
-    <li><strong>Multiple copies</strong> prepared: one for the judge, one for the court file, one for opposing counsel, one for our own use</li>
-    <li>Bundles are <strong>ready 24 hours before</strong> the hearing (not the morning of)</li>
+  <div class="sb-search"><input type="text" id="search" placeholder="Search the handbook..." autocomplete="off"/></div>
+  <ul class="sb-nav" id="nav">
+    <li><a href="#home" data-section="home"><span class="num">—</span>Home<span class="check">✓</span></a></li>
+    <li><a href="#s1" data-section="s1"><span class="num">1</span>How to use this handbook<span class="check">✓</span></a></li>
+    <li><a href="#s2" data-section="s2"><span class="num">2</span>Legal research notes<span class="check">✓</span></a></li>
+    <li><a href="#s3" data-section="s3"><span class="num">3</span>Translations<span class="check">✓</span></a></li>
+    <li><a href="#s4" data-section="s4"><span class="num">4</span>Drafting basics<span class="check">✓</span></a></li>
+    <li><a href="#s5" data-section="s5"><span class="num">5</span>Court bundles<span class="check">✓</span></a></li>
+    <li><a href="#s6" data-section="s6"><span class="num">6</span>Correspondence<span class="check">✓</span></a></li>
+    <li><a href="#s7" data-section="s7"><span class="num">7</span>Escalation &amp; feedback<span class="check">✓</span></a></li>
   </ul>
-</div>
-<div class="callout"><span class="clbl">Rule</span>If a document is missing, tell the lawyer as soon as you know &mdash; never the night before. A missing exhibit found the day before is a problem. Found the morning of is a crisis.</div>
-
-<h2 id="s6"><span class="num">6.</span>Correspondence</h2>
-<p>You may be asked to draft emails or letters to clients, court staff, opposing counsel, or service providers. Everything you send in the firm's name reflects on the firm.</p>
-<h3>Rules for all correspondence</h3>
-<ul>
-  <li><strong>Get sign-off before sending.</strong> Unless the lawyer has explicitly told you otherwise, always show the draft to your supervising lawyer first.</li>
-  <li><strong>Tone: formal and professional.</strong> No slang, no emojis, no casual sign-offs.</li>
-  <li><strong>Short is better than long.</strong> If it can be said in three sentences, do not use six.</li>
-  <li><strong>Reply-all with care.</strong> Check who is on the thread before hitting send.</li>
-</ul>
-<h3>Standard letter template</h3>
-<div class="template">
-  <span class="tlbl">Standard Client Letter</span>
-  Dear Mr / Ms [Surname],<br><br>
-  <strong>[Subject line &mdash; bold, one line, specific]</strong><br><br>
-  We refer to [the specific matter / previous correspondence / meeting].<br><br>
-  [Body: state the purpose in one paragraph. State any facts or updates in the second. State what you need from the client or what happens next in the third.]<br><br>
-  Should you have any questions, please do not hesitate to contact us.<br><br>
-  Yours faithfully,<br><br>
-  <strong>THOMAS PHILIP</strong><br>
-  Advocates &amp; Solicitors
-</div>
-<h3>Common mistakes</h3>
-<div class="dd">
-  <div class="do"><span class="h">Do</span>
-    <ul>
-      <li>Read the whole email out loud before sending</li>
-      <li>Check the recipient's name and title</li>
-      <li>Attach files <em>before</em> writing the email body</li>
-      <li>Use "Yours faithfully" / "Yours sincerely" correctly</li>
-    </ul>
+  <div class="sb-companion">
+    <div class="lbl">Companion Site</div>
+    <a href="intern-handbook.html">Intern Handbook →</a>
   </div>
-  <div class="dont"><span class="h">Don't</span>
-    <ul>
-      <li>Send confidential information to a personal email address</li>
-      <li>Use "Hey" or "Hi" as an opening for external correspondence</li>
-      <li>End with "Thanks!" or "Cheers"</li>
-      <li>Assume the lawyer will catch your typos</li>
-    </ul>
+  <div class="sb-foot">2026 · v1.0</div>
+</aside>
+
+<main class="main">
+  <div class="topbar">
+    <div class="crumb">
+      <span>Paralegal Handbook</span>
+      <span class="sep">›</span>
+      <span class="cur" id="crumbCur">Home</span>
+    </div>
+    <div class="progress" id="progress">0 / 7 read</div>
   </div>
-</div>
 
-<h2 id="s7"><span class="num">7.</span>Escalation &amp; feedback</h2>
-<h3>When to escalate to your supervising lawyer</h3>
-<ul>
-  <li>Any task where you're <strong>unclear about the scope</strong> &mdash; before you start, not after two hours</li>
-  <li>Any <strong>conflicting instruction</strong> from two different lawyers</li>
-  <li>Anything you've <strong>drafted that involves a novel legal issue</strong> &mdash; flag it, don't hide it</li>
-  <li>Any <strong>error you've made</strong> &mdash; flag it immediately, not tomorrow</li>
-  <li>Any <strong>deadline you cannot meet</strong> &mdash; flag it early, propose a solution</li>
-</ul>
-<div class="callout"><span class="clbl">Rule</span>A mistake flagged early is a fixable problem. A mistake hidden is a professional failing. This firm can handle honest errors. It cannot handle concealment.</div>
-<h3>How to receive feedback</h3>
-<ul>
-  <li>Take notes when a lawyer explains a correction &mdash; don't rely on memory</li>
-  <li>Ask clarifying questions <em>then</em>, not the next time you make the same mistake</li>
-  <li>Keep a personal running log of feedback and check it before starting similar tasks</li>
-  <li>Don't take corrections personally &mdash; the work is being improved, not you</li>
-</ul>
-<h3>How to ask for feedback</h3>
-<p>Don't wait to be told how you're doing. Once every two weeks, ask your supervising lawyer:</p>
-<ul>
-  <li>"Is there anything I've done recently that I should do differently?"</li>
-  <li>"Is there work I could be taking on that I'm not?"</li>
-  <li>"Where would you like to see me improve over the next two weeks?"</li>
-</ul>
+  <div class="content">
 
-<footer>Thomas Philip &middot; Intern &amp; Paralegal Task Handbook &middot; 2026</footer>
+  <section class="section active" id="home">
+    <div class="home-hero">
+      <div class="eyebrow">Thomas Philip · Advocates &amp; Solicitors</div>
+      <h1>Paralegal Handbook</h1>
+      <p class="lede">Practical guidance on the tasks you'll handle most often as a paralegal — how to prepare a legal research note, translate documents, draft standard papers, and know when to escalate. Every section ends with a short self-test so you can check what stuck.</p>
+    </div>
+    <h2>Pick a section</h2>
+    <div class="cards">
+      <a class="card" href="#s2"><div class="card-num">01</div><h3>Legal research notes</h3><p>IRAC structure, sources, worked example, common mistakes.</p></a>
+      <a class="card" href="#s3"><div class="card-num">02</div><h3>Translations</h3><p>Accuracy over readability, 3-pass process, escalation.</p></a>
+      <a class="card" href="#s4"><div class="card-num">03</div><h3>Drafting basics</h3><p>Universal rules for affidavits, letters, cause papers.</p></a>
+      <a class="card" href="#s5"><div class="card-num">04</div><h3>Court bundles</h3><p>Ready-to-print preparation checklist.</p></a>
+      <a class="card" href="#s6"><div class="card-num">05</div><h3>Correspondence</h3><p>Letter template, tone, sign-off protocol.</p></a>
+      <a class="card" href="#s7"><div class="card-num">06</div><h3>Escalation &amp; feedback</h3><p>When to flag, how to receive corrections.</p></a>
+    </div>
+    <div class="ground-rules">
+      <h3>Ground rules for everything</h3>
+      <ul>
+        <li><strong>Always ask if unclear.</strong> There is no penalty for a question. There is a penalty for a mistake that could have been avoided.</li>
+        <li><strong>Check everything twice.</strong> Names, dates, case numbers, party references — sloppy detail work costs the firm real time.</li>
+        <li><strong>Confidentiality is not negotiable.</strong> Do not discuss client matters outside the office. Do not put client information into public tools (Google Translate, ChatGPT).</li>
+        <li><strong>Deadlines are commitments.</strong> If you cannot meet one, flag it early — never on the day.</li>
+      </ul>
+    </div>
+  </section>
 
-</div>
+  <section class="section" id="s1">
+    <div class="eyebrow">Section 1</div>
+    <h1>How to use this handbook</h1>
+    <p class="lede">This handbook covers the day-to-day tasks you'll be given during your paralegalship. It is not a legal textbook — it is a working guide.</p>
+    <h3>How to read it</h3>
+    <p>Refer to the relevant section <em>before</em> starting a task. Read the "common mistakes" at the end of each section before you submit your work. Take the self-test at the end of each section — you can retry as many times as you want.</p>
+    <p>If a task falls outside what's covered here, ask your supervising lawyer first. Never guess your way through a task that has legal or procedural consequences.</p>
+    <h3>Ground rules</h3>
+    <ul>
+      <li><strong>Always ask if unclear.</strong> There is no penalty for a question.</li>
+      <li><strong>Check everything twice.</strong> Names, dates, case numbers, party references.</li>
+      <li><strong>Confidentiality is not negotiable.</strong> Do not discuss client matters outside the office.</li>
+      <li><strong>Deadlines are commitments.</strong> Flag issues early, never on the day.</li>
+    </ul>
+  </section>
+
+  <section class="section" id="s2">
+    <div class="eyebrow">Section 2</div>
+    <h1>Legal research notes</h1>
+    <p class="lede">A legal research note is a written summary that answers a specific legal question for a lawyer. It is not an essay. It is a structured document a lawyer can read in 3–5 minutes to make a decision.</p>
+    <h3>Before you start</h3>
+    <p>Get the following from the lawyer assigning the task:</p>
+    <ul>
+      <li>The <strong>exact question</strong> to research (write it down verbatim)</li>
+      <li>The <strong>context</strong> — what matter, what's the deadline</li>
+      <li>The <strong>scope</strong> — quick check vs full memo</li>
+      <li>The <strong>format expected</strong></li>
+    </ul>
+    <div class="callout"><span class="clbl">Rule</span>If you are given a vague question, do not start research until you've asked what specifically is being decided. A wrong question wastes hours.</div>
+    <h3>Structure — the IRAC format</h3>
+    <div class="template">
+      <span class="tlbl">Standard Research Note Template</span>
+      <strong>To:</strong> [Lawyer's Name]<br>
+      <strong>From:</strong> [Your Name]<br>
+      <strong>Date:</strong> [Date]<br>
+      <strong>Matter:</strong> [Client / File Reference]<br>
+      <strong>Question:</strong> [The exact question asked]<br><br>
+      <strong>ISSUE</strong> — <em>The legal question in one or two sentences.</em><br><br>
+      <strong>RULE</strong> — <em>The relevant law: statute, case law, or procedure. Cite everything.</em><br><br>
+      <strong>APPLICATION</strong> — <em>Apply the rule to the facts. Weigh both sides.</em><br><br>
+      <strong>CONCLUSION</strong> — <em>Your best answer. If "it depends," say what on.</em>
+    </div>
+    <h3>Sources</h3>
+    <ul>
+      <li><strong>CLJ Law</strong> — primary source for Malaysian case law and statutes</li>
+      <li><strong>LexisNexis</strong> — secondary source; commentary and cross-jurisdictional research</li>
+      <li><strong>Firm precedent database</strong> — check first whether similar work has been done</li>
+    </ul>
+    <div class="callout"><span class="clbl">Do not use</span>Free legal blogs or general search engines as your <em>primary</em> source. Every proposition must trace back to a citable statute or reported case.</div>
+    <h3>Worked example</h3>
+    <div class="example">
+      <span class="elbl">Example</span>
+      <h4>Question: Can a director of a Malaysian company be personally liable for a company debt if they signed the contract in their personal capacity?</h4>
+      <p><strong>ISSUE:</strong> Whether Mr X, a director who signed a supply contract without indicating his representative capacity, is personally liable for the RM 45,000 balance.</p>
+      <p><strong>RULE:</strong> Section 20 of the Companies Act 2016 recognises the separate legal personality of a company. However, an individual who contracts in their own name may be personally liable — see <em>Kelner v Baxter</em> (1866) LR 2 CP 174.</p>
+      <p><strong>APPLICATION:</strong> The contract is signed "Mr X" with no reference to the company. However, supplier invoices were addressed to the company — arguable both parties understood it was a company contract.</p>
+      <p><strong>CONCLUSION:</strong> Real risk of personal liability. Recommend defence focus on the parties' course of dealing.</p>
+    </div>
+    <h3>Common mistakes</h3>
+    <div class="dd">
+      <div class="do"><span class="h">Do</span><ul><li>Answer the question that was asked</li><li>Cite every proposition</li><li>Show both sides of a close argument</li><li>Keep it to 2 pages unless asked otherwise</li></ul></div>
+      <div class="dont"><span class="h">Don't</span><ul><li>Copy-paste headnotes without reading the case</li><li>Bury the conclusion at the end</li><li>Use "clearly" or "obviously"</li><li>Send a first draft without proofreading</li></ul></div>
+    </div>
+
+    <div class="quiz" data-quiz="s2">
+      <div class="quiz-lbl">Self-test</div>
+      <h3>Check what stuck</h3>
+      <p class="quiz-intro">4 questions. Answer, then click Check.</p>
+
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q1.</span>A lawyer says "look into unfair dismissal" and walks off. What should you do?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s2q1"/><span>Start researching unfair dismissal broadly</span></label>
+          <label class="opt"><input type="radio" name="s2q1"/><span>Go back and ask what specifically is being decided</span></label>
+          <label class="opt"><input type="radio" name="s2q1"/><span>Ask a colleague what they think the question means</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct answer: Go back and ask.</strong> A vague question wastes hours. Confirm the exact question, context, scope, and deadline before starting.</div>
+      </div>
+
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q2.</span>Which of these is the correct order of the IRAC structure?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s2q2"/><span>Introduction, Research, Analysis, Citation</span></label>
+          <label class="opt"><input type="radio" name="s2q2"/><span>Issue, Rule, Application, Citation</span></label>
+          <label class="opt"><input type="radio" name="s2q2"/><span>Issue, Rule, Application, Conclusion</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct answer: Issue, Rule, Application, Conclusion.</strong> IRAC is the standard structure for a legal research note.</div>
+      </div>
+
+      <div class="q" data-answer="a">
+        <div class="q-prompt"><span class="qnum">Q3.</span>What is the primary source of Malaysian case law you should use?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s2q3"/><span>CLJ Law</span></label>
+          <label class="opt"><input type="radio" name="s2q3"/><span>A legal blog you found via Google</span></label>
+          <label class="opt"><input type="radio" name="s2q3"/><span>LexisNexis only</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct answer: CLJ Law.</strong> It's your primary source for Malaysian case law and statutes. LexisNexis is a good secondary source.</div>
+      </div>
+
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q4.</span>Your research points strongly to one conclusion, but there's a decent counter-argument. What do you do?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s2q4"/><span>Only present the stronger side to keep the note clean</span></label>
+          <label class="opt"><input type="radio" name="s2q4"/><span>Show both sides in the Application, then give your best answer in the Conclusion</span></label>
+          <label class="opt"><input type="radio" name="s2q4"/><span>Say the answer is "it depends" and leave it open</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct answer: Show both sides, then conclude.</strong> A lawyer needs to see the full picture to make a decision. Hiding the counter-argument is a disservice.</div>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkQuiz('s2')">Check answers</button>
+        <button class="btn btn-ghost" onclick="resetQuiz('s2')">Reset</button>
+        <div class="quiz-score hidden" id="score-s2"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s3">
+    <div class="eyebrow">Section 3</div>
+    <h1>Translations</h1>
+    <p class="lede">Most of your translation work will be between English and Bahasa Malaysia. Translation errors in legal documents have consequences: cases have been lost on mistranslated single words.</p>
+    <div class="callout"><span class="clbl">Golden rule</span>Legal translation is not general translation. Your job is <strong>accuracy</strong>, not readability. If a source sentence is awkward, your translation should be equally awkward — do not "improve" it.</div>
+    <h3>Before you start</h3>
+    <ol>
+      <li>Confirm the <strong>direction</strong> (EN → BM or BM → EN)</li>
+      <li>Confirm the <strong>purpose</strong> — filing, internal, or client-facing?</li>
+      <li>Check whether a <strong>certified translator</strong> is needed. Court exhibits requiring certification cannot be done internally.</li>
+      <li>Read the <strong>entire document</strong> before you begin.</li>
+    </ol>
+    <h3>The 3-pass process</h3>
+    <ol>
+      <li><strong>Literal.</strong> Translate sentence by sentence, staying close to the source.</li>
+      <li><strong>Accuracy check.</strong> Read source and translation side by side. Every word, every date, every name.</li>
+      <li><strong>Reading pass.</strong> Read the translation out loud.</li>
+    </ol>
+    <h3>What you can and cannot use</h3>
+    <div class="dd">
+      <div class="do"><span class="h">Allowed</span><ul><li>Bilingual legal dictionaries</li><li>Firm's internal glossary</li><li>Previous certified translations in the firm's files</li><li>Bilingual colleagues to sense-check</li></ul></div>
+      <div class="dont"><span class="h">Not allowed</span><ul><li>Google Translate, DeepL, or any free translator with client content</li><li>ChatGPT, Claude, or any public AI with client content</li><li>Machine translation "cleaned up" and passed off as your work</li><li>Guessing a term you don't know</li></ul></div>
+    </div>
+    <div class="callout"><span class="clbl">Why not free AI translators</span>Pasting client documents into free online tools breaches confidentiality — that content is stored, indexed, and used to train models. Even redacted text can leak facts.</div>
+    <h3>Terminology consistency</h3>
+    <p>Within a document, translate the same term the same way every time. "Perjanjian" is always "Agreement", not sometimes "Contract".</p>
+    <div class="placeholder">Add the firm's shared glossary location here.</div>
+    <h3>When to escalate</h3>
+    <ul>
+      <li>Any term where you're not 100% confident</li>
+      <li>Ambiguous phrasing that changes meaning depending on interpretation</li>
+      <li>Cultural/religious/customary references without a direct equivalent</li>
+      <li>Anything for court that needs certification</li>
+    </ul>
+
+    <div class="quiz" data-quiz="s3">
+      <div class="quiz-lbl">Self-test</div>
+      <h3>Check what stuck</h3>
+      <p class="quiz-intro">4 questions.</p>
+
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q1.</span>What is the golden rule of legal translation?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s3q1"/><span>Readability over accuracy — the translation should sound natural</span></label>
+          <label class="opt"><input type="radio" name="s3q1"/><span>Accuracy over readability — if the source is awkward, so is the translation</span></label>
+          <label class="opt"><input type="radio" name="s3q1"/><span>Speed — get the first draft done fast, polish later</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct answer: Accuracy over readability.</strong> The court needs to see what was actually said, not an improved version.</div>
+      </div>
+
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q2.</span>A client's witness statement in Bahasa Malaysia needs translating for internal review. Which tool can you use?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s3q2"/><span>Google Translate — quick and free</span></label>
+          <label class="opt"><input type="radio" name="s3q2"/><span>ChatGPT — better quality than Google</span></label>
+          <label class="opt"><input type="radio" name="s3q2"/><span>Bilingual legal dictionary and the firm's glossary</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct answer: Bilingual legal dictionary and the firm's glossary.</strong> Client content in free online AI/translators breaches confidentiality — the content is stored and used to train models.</div>
+      </div>
+
+      <div class="q" data-answer="a">
+        <div class="q-prompt"><span class="qnum">Q3.</span>You're translating a contract and encounter "Perjanjian" three times. What do you do?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s3q3"/><span>Translate it the same way each time (e.g. always "Agreement")</span></label>
+          <label class="opt"><input type="radio" name="s3q3"/><span>Vary between "Agreement" and "Contract" for readability</span></label>
+          <label class="opt"><input type="radio" name="s3q3"/><span>Ask a colleague which sounds better each time</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct answer: Same each time.</strong> Terminology consistency matters in legal documents — different words can imply different legal meanings.</div>
+      </div>
+
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q4.</span>An exhibit will be filed in court and requires certified translation. What do you do?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s3q4"/><span>Translate it yourself carefully and mark it "certified"</span></label>
+          <label class="opt"><input type="radio" name="s3q4"/><span>Translate it, then ask a lawyer to sign it off as certified</span></label>
+          <label class="opt"><input type="radio" name="s3q4"/><span>Escalate — a certified translator must be engaged externally</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct answer: Escalate.</strong> Certified translations for court cannot be done internally. Ask your supervising lawyer to engage a certified translator.</div>
+      </div>
+
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkQuiz('s3')">Check answers</button>
+        <button class="btn btn-ghost" onclick="resetQuiz('s3')">Reset</button>
+        <div class="quiz-score hidden" id="score-s3"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s4">
+    <div class="eyebrow">Section 4</div>
+    <h1>Drafting basics</h1>
+    <p class="lede">You will draft affidavits, letters, and cause papers. Everything you draft will be reviewed — but the more polished your draft, the more you'll be trusted with substantive work.</p>
+    <h3>Before you draft</h3>
+    <ul>
+      <li>Look at <strong>2–3 recent examples</strong> of the same type of document from the firm's files</li>
+      <li>Confirm the <strong>parties</strong>, <strong>court</strong>, and <strong>suit number</strong></li>
+      <li>Read any <strong>related documents</strong></li>
+    </ul>
+    <h3>Universal rules</h3>
+    <ul>
+      <li><strong>One idea per paragraph.</strong></li>
+      <li><strong>Number every paragraph</strong> for affidavits and submissions.</li>
+      <li><strong>Refer to parties consistently</strong> — "the Plaintiff" throughout.</li>
+      <li><strong>Dates in full</strong> — "3 October 2026", not "3/10/26".</li>
+      <li><strong>Currency in full</strong> — "RM 45,000.00", not "45k".</li>
+      <li><strong>Never use contractions.</strong> "Do not", not "don't".</li>
+    </ul>
+    <div class="placeholder">Add links to the firm's standard precedent templates here.</div>
+
+    <div class="quiz" data-quiz="s4">
+      <div class="quiz-lbl">Self-test</div>
+      <h3>Check what stuck</h3>
+      <p class="quiz-intro">3 questions.</p>
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q1.</span>How should a date appear in an affidavit?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s4q1"/><span>3/10/2026</span></label>
+          <label class="opt"><input type="radio" name="s4q1"/><span>3 October 2026</span></label>
+          <label class="opt"><input type="radio" name="s4q1"/><span>Oct 3, 26</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: 3 October 2026.</strong> Full dates in words, never shorthand or ambiguous formats.</div>
+      </div>
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q2.</span>How should you refer to the same party throughout a submission?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s4q2"/><span>Vary between name and role to keep it readable</span></label>
+          <label class="opt"><input type="radio" name="s4q2"/><span>Always by first name</span></label>
+          <label class="opt"><input type="radio" name="s4q2"/><span>Consistently — always "the Plaintiff" or always by name, not both</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Consistently.</strong> Switching between "the Plaintiff" and the party's name creates ambiguity.</div>
+      </div>
+      <div class="q" data-answer="a">
+        <div class="q-prompt"><span class="qnum">Q3.</span>Before drafting a new affidavit, what should you do first?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s4q3"/><span>Look at 2–3 recent examples of the same document type from the firm's files</span></label>
+          <label class="opt"><input type="radio" name="s4q3"/><span>Draft it from memory — you'll fix issues in review</span></label>
+          <label class="opt"><input type="radio" name="s4q3"/><span>Search online for a template</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Look at 2–3 recent examples.</strong> Never draft from memory. The firm's precedents establish the format and language expected.</div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkQuiz('s4')">Check answers</button>
+        <button class="btn btn-ghost" onclick="resetQuiz('s4')">Reset</button>
+        <div class="quiz-score hidden" id="score-s4"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s5">
+    <div class="eyebrow">Section 5</div>
+    <h1>Court bundles</h1>
+    <p class="lede">A court bundle is the physical (or digital) file of documents a lawyer takes to a hearing. Getting a bundle wrong is a fast way to embarrass the firm in open court.</p>
+    <h3>Preparation checklist</h3>
+    <div class="checklist">
+      <span class="clbl">Court Bundle Checklist</span>
+      <ul>
+        <li>All documents in <strong>chronological order</strong></li>
+        <li>Every page <strong>numbered</strong>, top-right, in sequence</li>
+        <li>An <strong>index</strong> at the front (document, date, page)</li>
+        <li>Tab dividers between documents</li>
+        <li>All copies legible</li>
+        <li>Exhibits marked correctly (P1, P2 for Plaintiff; D1, D2 for Defendant)</li>
+        <li><strong>Multiple copies</strong>: judge, court file, opposing counsel, own use</li>
+        <li>Ready <strong>24 hours before</strong> the hearing</li>
+      </ul>
+    </div>
+    <div class="callout"><span class="clbl">Rule</span>Missing document? Tell the lawyer as soon as you know. The day before is a problem. The morning of is a crisis.</div>
+
+    <div class="quiz" data-quiz="s5">
+      <div class="quiz-lbl">Self-test</div>
+      <h3>Check what stuck</h3>
+      <p class="quiz-intro">3 questions.</p>
+      <div class="q" data-answer="a">
+        <div class="q-prompt"><span class="qnum">Q1.</span>How should pages be numbered in a court bundle?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s5q1"/><span>Continuously (1, 2, 3...) across the whole bundle</span></label>
+          <label class="opt"><input type="radio" name="s5q1"/><span>Restart at 1 for each document</span></label>
+          <label class="opt"><input type="radio" name="s5q1"/><span>Only number the important pages</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Continuously.</strong> Pages run 1, 2, 3… across the whole bundle. Restarting per document breaks the index.</div>
+      </div>
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q2.</span>When should the bundle be ready?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s5q2"/><span>The morning of the hearing</span></label>
+          <label class="opt"><input type="radio" name="s5q2"/><span>24 hours before the hearing</span></label>
+          <label class="opt"><input type="radio" name="s5q2"/><span>Whenever the lawyer asks for it</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: 24 hours before.</strong> Anything found missing on the morning of is a crisis. Give yourself and the lawyer buffer.</div>
+      </div>
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q3.</span>You realise the day before the hearing that an exhibit is missing. What do you do?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s5q3"/><span>Wait until tomorrow morning to tell the lawyer — you might find it overnight</span></label>
+          <label class="opt"><input type="radio" name="s5q3"/><span>Print a placeholder page and hope no one notices</span></label>
+          <label class="opt"><input type="radio" name="s5q3"/><span>Tell the lawyer immediately</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Tell the lawyer immediately.</strong> A missing exhibit found the day before is a problem to solve. Hidden until the morning of, it's a crisis.</div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkQuiz('s5')">Check answers</button>
+        <button class="btn btn-ghost" onclick="resetQuiz('s5')">Reset</button>
+        <div class="quiz-score hidden" id="score-s5"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s6">
+    <div class="eyebrow">Section 6</div>
+    <h1>Correspondence</h1>
+    <p class="lede">You may be asked to draft emails or letters to clients, court staff, opposing counsel, or service providers. Everything you send in the firm's name reflects on the firm.</p>
+    <h3>Rules for all correspondence</h3>
+    <ul>
+      <li><strong>Get sign-off before sending.</strong> Show the draft to your supervising lawyer.</li>
+      <li><strong>Tone: formal and professional.</strong> No slang, no emojis.</li>
+      <li><strong>Short is better than long.</strong></li>
+      <li><strong>Reply-all with care.</strong></li>
+    </ul>
+    <h3>Standard letter template</h3>
+    <div class="template">
+      <span class="tlbl">Standard Client Letter</span>
+      Dear Mr / Ms [Surname],<br><br>
+      <strong>[Subject line — bold, specific]</strong><br><br>
+      We refer to [the matter / previous correspondence].<br><br>
+      [Body: purpose in paragraph one, facts in two, next steps in three.]<br><br>
+      Should you have any questions, please do not hesitate to contact us.<br><br>
+      Yours faithfully,<br><br>
+      <strong>THOMAS PHILIP</strong><br>
+      Advocates &amp; Solicitors
+    </div>
+
+    <div class="quiz" data-quiz="s6">
+      <div class="quiz-lbl">Self-test</div>
+      <h3>Check what stuck</h3>
+      <p class="quiz-intro">3 questions.</p>
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q1.</span>Before sending a letter to a client, what should you do?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s6q1"/><span>Send it — the lawyer will follow up if there's an issue</span></label>
+          <label class="opt"><input type="radio" name="s6q1"/><span>Cc the lawyer so they see it after it goes out</span></label>
+          <label class="opt"><input type="radio" name="s6q1"/><span>Get the supervising lawyer to sign off on the draft first</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Get sign-off first.</strong> Unless a lawyer has explicitly told you otherwise, always show them the draft before sending.</div>
+      </div>
+      <div class="q" data-answer="a">
+        <div class="q-prompt"><span class="qnum">Q2.</span>How should you sign off a formal client letter?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s6q2"/><span>"Yours faithfully" (or "Yours sincerely" if you know the recipient's name)</span></label>
+          <label class="opt"><input type="radio" name="s6q2"/><span>"Thanks!"</span></label>
+          <label class="opt"><input type="radio" name="s6q2"/><span>"Cheers"</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: "Yours faithfully" / "Yours sincerely".</strong> Formal correspondence uses formal sign-offs. Never "Thanks!" or "Cheers".</div>
+      </div>
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q3.</span>You're about to hit "Reply all" on an email thread. What should you check first?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s6q3"/><span>That your response is spelled correctly</span></label>
+          <label class="opt"><input type="radio" name="s6q3"/><span>Who is on the thread — some content may not be for everyone</span></label>
+          <label class="opt"><input type="radio" name="s6q3"/><span>Whether the lawyer needs to see it first</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Who is on the thread.</strong> Reply-all can accidentally send privileged content to the opposing side. Always check the recipient list.</div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkQuiz('s6')">Check answers</button>
+        <button class="btn btn-ghost" onclick="resetQuiz('s6')">Reset</button>
+        <div class="quiz-score hidden" id="score-s6"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s7">
+    <div class="eyebrow">Section 7</div>
+    <h1>Escalation &amp; feedback</h1>
+    <p class="lede">Knowing when to escalate is a professional skill. So is knowing how to receive corrections without defensiveness.</p>
+    <h3>When to escalate</h3>
+    <ul>
+      <li>Any task where you're <strong>unclear about the scope</strong> — before you start, not after two hours</li>
+      <li><strong>Conflicting instructions</strong> from two lawyers</li>
+      <li>Anything you've drafted involving a <strong>novel legal issue</strong></li>
+      <li>Any <strong>error you've made</strong> — flag it immediately</li>
+      <li>Any <strong>deadline you cannot meet</strong> — flag it early, propose a solution</li>
+    </ul>
+    <div class="callout"><span class="clbl">Rule</span>A mistake flagged early is a fixable problem. A mistake hidden is a professional failing.</div>
+    <h3>How to receive feedback</h3>
+    <ul>
+      <li>Take notes when a lawyer explains a correction</li>
+      <li>Ask clarifying questions <em>then</em>, not the next time you make the same mistake</li>
+      <li>Keep a personal running log of feedback</li>
+      <li>Don't take corrections personally — the work is being improved, not you</li>
+    </ul>
+    <h3>How to ask for feedback</h3>
+    <p>Once every two weeks, ask your supervising lawyer:</p>
+    <ul>
+      <li>"Is there anything I've done recently that I should do differently?"</li>
+      <li>"Is there work I could be taking on that I'm not?"</li>
+      <li>"Where would you like to see me improve over the next two weeks?"</li>
+    </ul>
+
+    <div class="quiz" data-quiz="s7">
+      <div class="quiz-lbl">Self-test</div>
+      <h3>Check what stuck</h3>
+      <p class="quiz-intro">3 questions.</p>
+      <div class="q" data-answer="a">
+        <div class="q-prompt"><span class="qnum">Q1.</span>You realise you've made a mistake on a document that went to a lawyer yesterday. What do you do?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s7q1"/><span>Tell the lawyer immediately</span></label>
+          <label class="opt"><input type="radio" name="s7q1"/><span>Fix it quietly and hope nobody notices</span></label>
+          <label class="opt"><input type="radio" name="s7q1"/><span>Wait until you're asked about it</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Tell immediately.</strong> An error flagged early is a fixable problem. Hidden, it's a professional failing.</div>
+      </div>
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q2.</span>Two lawyers give you conflicting instructions on the same file. What do you do?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s7q2"/><span>Do the more senior lawyer's version</span></label>
+          <label class="opt"><input type="radio" name="s7q2"/><span>Split the difference and hope both are satisfied</span></label>
+          <label class="opt"><input type="radio" name="s7q2"/><span>Escalate — ask both which takes priority before you act</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Escalate.</strong> Never try to reconcile conflicting instructions on your own. Ask which takes priority.</div>
+      </div>
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q3.</span>A lawyer gives you a sharp correction. What's the best response?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="s7q3"/><span>Defend your original approach</span></label>
+          <label class="opt"><input type="radio" name="s7q3"/><span>Take notes, ask clarifying questions, log it for next time</span></label>
+          <label class="opt"><input type="radio" name="s7q3"/><span>Wait a day and check with a colleague whether the lawyer was right</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Take notes, ask, log.</strong> Corrections are the fastest way to learn. Don't take them personally.</div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkQuiz('s7')">Check answers</button>
+        <button class="btn btn-ghost" onclick="resetQuiz('s7')">Reset</button>
+        <div class="quiz-score hidden" id="score-s7"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pager" id="pager"></div>
+
+  </div>
+</main>
+
+<script>
+const SECTIONS = [
+  {id:'home',title:'Home'},
+  {id:'s1',  title:'How to use this handbook'},
+  {id:'s2',  title:'Legal research notes'},
+  {id:'s3',  title:'Translations'},
+  {id:'s4',  title:'Drafting basics'},
+  {id:'s5',  title:'Court bundles'},
+  {id:'s6',  title:'Correspondence'},
+  {id:'s7',  title:'Escalation & feedback'}
+];
+const visited = new Set();
+
+function go(id){
+  if(!SECTIONS.find(s => s.id === id)) id = 'home';
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.sb-nav a').forEach(a => a.classList.remove('active'));
+  const link = document.querySelector('.sb-nav a[data-section="'+id+'"]');
+  if(link){link.classList.add('active'); link.parentElement.classList.add('visited');}
+  document.getElementById('crumbCur').textContent = SECTIONS.find(s => s.id === id).title;
+  if(id !== 'home') visited.add(id);
+  document.getElementById('progress').textContent = visited.size + ' / 7 read';
+  const idx = SECTIONS.findIndex(s => s.id === id);
+  const prev = SECTIONS[idx - 1], next = SECTIONS[idx + 1];
+  let html = '';
+  if(prev) html += '<a href="#'+prev.id+'"><span class="plbl">← Previous</span><span class="ptitle">'+prev.title+'</span></a>';
+  else html += '<a class="disabled"><span class="plbl">← Previous</span><span class="ptitle">—</span></a>';
+  if(next) html += '<a class="next" href="#'+next.id+'"><span class="plbl">Next →</span><span class="ptitle">'+next.title+'</span></a>';
+  else html += '<a class="next disabled"><span class="plbl">Next →</span><span class="ptitle">—</span></a>';
+  document.getElementById('pager').innerHTML = html;
+  closeMobile();
+  window.scrollTo(0, 0);
+  const s = document.getElementById('search');
+  if(s.value){ s.value=''; clearHighlights(); }
+}
+
+function checkQuiz(id){
+  const quiz = document.querySelector('.quiz[data-quiz="'+id+'"]');
+  const qs = quiz.querySelectorAll('.q');
+  const letters = ['a','b','c','d'];
+  let correct = 0;
+  qs.forEach(q => {
+    const answer = q.dataset.answer;
+    const opts = q.querySelectorAll('.opt');
+    opts.forEach(o => o.classList.add('locked'));
+    let selected = -1;
+    q.querySelectorAll('input').forEach((inp, i) => { if(inp.checked) selected = i; });
+    opts.forEach((opt, i) => {
+      opt.classList.remove('correct','wrong','right-answer');
+      let tag = opt.querySelector('.opt-tag');
+      if(tag) tag.remove();
+      const letter = letters[i];
+      if(letter === answer){
+        if(selected === i){
+          opt.classList.add('correct');
+          const t = document.createElement('span'); t.className='opt-tag'; t.textContent='Correct'; opt.appendChild(t);
+        } else {
+          opt.classList.add('right-answer');
+          const t = document.createElement('span'); t.className='opt-tag'; t.textContent='Answer'; opt.appendChild(t);
+        }
+      } else if(selected === i){
+        opt.classList.add('wrong');
+        const t = document.createElement('span'); t.className='opt-tag'; t.textContent='Wrong'; opt.appendChild(t);
+      }
+    });
+    if(letters[selected] === answer) correct++;
+    q.querySelector('.q-explain').classList.add('show');
+  });
+  const scoreEl = document.getElementById('score-'+id);
+  scoreEl.textContent = correct + ' / ' + qs.length + ' correct';
+  scoreEl.classList.remove('hidden');
+}
+function resetQuiz(id){
+  const quiz = document.querySelector('.quiz[data-quiz="'+id+'"]');
+  quiz.querySelectorAll('.opt').forEach(o => {
+    o.classList.remove('locked','correct','wrong','right-answer');
+    const tag = o.querySelector('.opt-tag'); if(tag) tag.remove();
+  });
+  quiz.querySelectorAll('input').forEach(i => i.checked = false);
+  quiz.querySelectorAll('.q-explain').forEach(e => e.classList.remove('show'));
+  document.getElementById('score-'+id).classList.add('hidden');
+}
+
+function clearHighlights(){
+  document.querySelectorAll('mark').forEach(m => {
+    const p = m.parentNode; p.replaceChild(document.createTextNode(m.textContent), m); p.normalize();
+  });
+  document.querySelectorAll('.sb-nav li').forEach(l => l.style.display = '');
+}
+function highlightIn(node, term){
+  if(node.nodeType === 3){
+    const t = node.nodeValue, l = t.toLowerCase(), i = l.indexOf(term);
+    if(i === -1) return false;
+    const before = document.createTextNode(t.substring(0, i));
+    const mark = document.createElement('mark'); mark.textContent = t.substring(i, i+term.length);
+    const after = document.createTextNode(t.substring(i+term.length));
+    const p = node.parentNode;
+    p.insertBefore(before, node); p.insertBefore(mark, node); p.insertBefore(after, node); p.removeChild(node);
+    highlightIn(after, term);
+    return true;
+  }
+  if(node.nodeType !== 1) return false;
+  if(['SCRIPT','STYLE','MARK','INPUT'].includes(node.tagName)) return false;
+  let found = false;
+  Array.from(node.childNodes).forEach(c => { if(highlightIn(c, term)) found = true; });
+  return found;
+}
+document.getElementById('search').addEventListener('input', e => {
+  const term = e.target.value.trim().toLowerCase();
+  clearHighlights();
+  if(!term) return;
+  document.querySelectorAll('.section').forEach(sec => {
+    const matched = highlightIn(sec, term);
+    const link = document.querySelector('.sb-nav a[data-section="'+sec.id+'"]');
+    if(link) link.parentElement.style.display = matched ? '' : 'none';
+  });
+});
+
+function closeMobile(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('scrim').classList.remove('open');
+  document.getElementById('menuBtn').classList.remove('open');
+}
+document.getElementById('menuBtn').addEventListener('click', () => {
+  const open = document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('scrim').classList.toggle('open', open);
+  document.getElementById('menuBtn').classList.toggle('open', open);
+});
+document.getElementById('scrim').addEventListener('click', closeMobile);
+
+function fromHash(){ go((location.hash || '#home').slice(1)); }
+window.addEventListener('hashchange', fromHash);
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    if(SECTIONS.find(s => s.id === id)){ e.preventDefault(); location.hash = '#' + id; }
+  });
+});
+fromHash();
+</script>
 </body>
 </html>

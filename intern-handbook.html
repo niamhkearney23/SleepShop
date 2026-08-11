@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Thomas Philip · Intern Handbook</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#1C1917;--ink:#292524;--mid:#57534E;--muted:#A8A29E;
+  --line:#E7E5E4;--cream:#F5F1E8;--paper:#FFFEFA;--surface:#FAFAF6;
+  --accent:#7A2E3F;--accent-hover:#5F2431;--accent-soft:#F0E4E6;--accent-line:#E8D5D9;
+  --good:#166534;--good-soft:#F0FDF4;--bad:#991B1B;--bad-soft:#FEF2F2;
+  --sidebar-w:280px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Lato',sans-serif;color:var(--ink);background:var(--cream);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.sidebar{position:fixed;top:0;left:0;bottom:0;width:var(--sidebar-w);background:var(--dark);color:#fff;padding:32px 0;overflow-y:auto;z-index:50;display:flex;flex-direction:column}
+.sb-brand{padding:0 28px 24px;border-bottom:1px solid rgba(240,228,230,.1);margin-bottom:18px}
+.sb-firm{font-family:'Libre Baskerville',serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent-soft);margin-bottom:6px}
+.sb-title{font-family:'Libre Baskerville',serif;font-size:19px;line-height:1.25;color:#fff;font-weight:700}
+.sb-title a{color:#fff;text-decoration:none;display:block}
+.sb-search{padding:0 20px 18px}
+.sb-search input{width:100%;background:rgba(240,228,230,.06);border:1px solid rgba(240,228,230,.12);border-radius:6px;padding:9px 12px;color:#fff;font-family:'Lato',sans-serif;font-size:13px;outline:none;transition:all .15s}
+.sb-search input::placeholder{color:rgba(240,228,230,.4)}
+.sb-search input:focus{background:rgba(240,228,230,.1);border-color:var(--accent-soft)}
+.sb-nav{list-style:none;padding:0 12px;flex:1}
+.sb-nav li{margin-bottom:2px}
+.sb-nav a{display:flex;align-items:center;gap:10px;padding:9px 16px;color:rgba(240,228,230,.7);font-size:14px;border-radius:6px;transition:all .15s;text-decoration:none}
+.sb-nav a:hover{background:rgba(240,228,230,.05);color:#fff;text-decoration:none}
+.sb-nav a.active{background:var(--accent);color:#fff;font-weight:700}
+.sb-nav .num{font-family:'Libre Baskerville',serif;font-size:11px;opacity:.55;min-width:16px}
+.sb-nav a.active .num{opacity:1}
+.sb-nav .check{margin-left:auto;font-size:12px;opacity:0;transition:opacity .15s}
+.sb-nav li.visited a .check{opacity:.6}
+.sb-nav a.active .check{opacity:1}
+.sb-foot{padding:16px 28px 0;border-top:1px solid rgba(240,228,230,.1);margin-top:16px;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,228,230,.35)}
+.sb-companion{margin:12px 20px 0;padding:14px 16px;background:rgba(240,228,230,.05);border:1px solid rgba(240,228,230,.1);border-radius:6px}
+.sb-companion .lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,228,230,.4);margin-bottom:4px}
+.sb-companion a{font-size:13px;color:#fff;text-decoration:none;display:block}
+.sb-companion a:hover{color:var(--accent-soft);text-decoration:none}
+
+.mob-header{display:none;position:sticky;top:0;background:var(--dark);color:#fff;padding:14px 18px;z-index:60;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(240,228,230,.1)}
+.mob-brand{font-family:'Libre Baskerville',serif;font-size:14px}
+.mob-menu-btn{background:none;border:none;color:#fff;padding:8px;cursor:pointer;display:flex;flex-direction:column;gap:4px}
+.mob-menu-btn span{display:block;width:22px;height:2px;background:#fff;transition:all .2s}
+.mob-menu-btn.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.mob-menu-btn.open span:nth-child(2){opacity:0}
+.mob-menu-btn.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:40;display:none}
+
+.main{margin-left:var(--sidebar-w);min-height:100vh}
+.topbar{position:sticky;top:0;background:rgba(245,241,232,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:14px 44px;z-index:20;display:flex;align-items:center;gap:16px}
+.crumb{font-size:12px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;font-weight:700}
+.crumb .sep{margin:0 8px;opacity:.5}
+.crumb .cur{color:var(--accent)}
+.progress{margin-left:auto;font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
+.content{max-width:760px;margin:0 auto;padding:56px 44px 96px}
+.section{display:none;animation:fadeIn .3s ease}
+.section.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h1{font-family:'Libre Baskerville',serif;font-size:42px;font-weight:700;line-height:1.1;margin-bottom:12px;letter-spacing:-0.5px;color:var(--ink)}
+.lede{font-size:17px;color:var(--mid);line-height:1.7;margin-bottom:36px;font-style:italic}
+h2{font-family:'Libre Baskerville',serif;font-size:28px;font-weight:700;line-height:1.2;margin:44px 0 14px;letter-spacing:-0.3px}
+h3{font-family:'Lato',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent);margin:32px 0 12px}
+h4{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;margin:22px 0 8px}
+p{margin-bottom:14px}
+ul,ol{padding-left:22px;margin-bottom:16px}
+li{margin-bottom:8px;line-height:1.65}
+strong{color:var(--ink)}
+
+.dd{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+@media(max-width:640px){.dd{grid-template-columns:1fr}}
+.do,.dont{padding:18px 20px;border-radius:6px;font-size:14px;line-height:1.6}
+.do{background:var(--good-soft);border-left:3px solid var(--good)}
+.dont{background:var(--bad-soft);border-left:3px solid var(--bad)}
+.do .h,.dont .h{font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;display:block}
+.do .h{color:var(--good)}
+.dont .h{color:var(--bad)}
+.do ul,.dont ul{margin:0;padding-left:18px}
+.do li,.dont li{margin-bottom:5px}
+.callout{background:#FFF9EC;border:1px solid #F3D68A;border-left:3px solid #D4A017;border-radius:6px;padding:18px 22px;margin:18px 0;font-size:14.5px;color:#78350F;line-height:1.65}
+.callout strong{color:#92400E}
+.callout .clbl{display:block;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#92400E;margin-bottom:8px}
+
+.home-hero{padding:32px 0 40px;border-bottom:1px solid var(--line);margin-bottom:40px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-top:24px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:22px 24px;cursor:pointer;transition:all .2s;text-decoration:none;color:var(--ink);display:block}
+.card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(122,46,63,.08);text-decoration:none}
+.card-num{font-family:'Libre Baskerville',serif;font-size:12px;color:var(--accent);font-weight:700;margin-bottom:8px;letter-spacing:1px}
+.card h3{font-family:'Libre Baskerville',serif;font-size:17px;font-weight:700;color:var(--ink);margin:0 0 6px;text-transform:none;letter-spacing:0}
+.card p{font-size:13px;color:var(--mid);margin:0;line-height:1.55}
+.ground-rules{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:26px 30px;margin-top:32px}
+.ground-rules h3{margin-top:0;margin-bottom:14px}
+.ground-rules ul{margin:0;padding-left:20px}
+.ground-rules li{font-size:14.5px;color:var(--mid);margin-bottom:8px}
+
+.quiz{background:linear-gradient(180deg,#FFFEF8,var(--paper));border:1px solid var(--accent-line);border-radius:10px;padding:26px 30px;margin:44px 0 0;position:relative}
+.quiz-lbl{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.quiz h3{margin-top:0;margin-bottom:8px;color:var(--ink);text-transform:none;letter-spacing:0;font-family:'Libre Baskerville',serif;font-size:20px;font-weight:700}
+.quiz-intro{font-size:14px;color:var(--mid);margin-bottom:20px;font-style:italic}
+.q{margin-bottom:24px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.q:last-of-type{border-bottom:none;padding-bottom:0;margin-bottom:16px}
+.q-prompt{font-size:15px;font-weight:700;margin-bottom:12px;color:var(--ink);line-height:1.5}
+.q-prompt .qnum{color:var(--accent);margin-right:8px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:#fff;border:1.5px solid var(--line);border-radius:6px;cursor:pointer;transition:all .15s;font-size:14px;line-height:1.5}
+.opt:hover:not(.locked){border-color:var(--accent);background:#FFFBF0}
+.opt input{margin-top:3px;accent-color:var(--accent);flex-shrink:0}
+.opt.locked{cursor:default}
+.opt.correct{background:var(--good-soft);border-color:var(--good)}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad)}
+.opt.right-answer{background:var(--good-soft);border-color:var(--good)}
+.opt-tag{margin-left:auto;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;flex-shrink:0}
+.opt.correct .opt-tag,.opt.right-answer .opt-tag{color:var(--good)}
+.opt.wrong .opt-tag{color:var(--bad)}
+.q-explain{margin-top:12px;padding:12px 14px;background:var(--surface);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;font-size:13.5px;line-height:1.6;color:var(--mid);display:none}
+.q-explain.show{display:block}
+.q-explain strong{color:var(--ink)}
+.quiz-actions{display:flex;gap:10px;align-items:center;margin-top:8px}
+.btn{padding:10px 22px;border-radius:6px;font-family:'Lato',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border:none;transition:all .15s;letter-spacing:0.5px}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover:not(:disabled){background:var(--accent-hover)}
+.btn-ghost{background:transparent;color:var(--mid);border:1px solid var(--line)}
+.btn-ghost:hover{background:var(--surface);color:var(--ink)}
+.quiz-score{margin-left:auto;font-family:'Libre Baskerville',serif;font-size:15px;color:var(--accent);font-weight:700}
+.quiz-score.hidden{display:none}
+
+.pager{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:60px;padding-top:32px;border-top:1px solid var(--line)}
+.pager a{display:flex;flex-direction:column;padding:14px 20px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);transition:all .2s;background:var(--paper);flex:1;max-width:280px}
+.pager a:hover{border-color:var(--accent);transform:translateY(-1px);text-decoration:none}
+.pager a.next{text-align:right;margin-left:auto}
+.pager .plbl{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.pager .ptitle{font-family:'Libre Baskerville',serif;font-size:15px;color:var(--ink);font-weight:700}
+.pager a.disabled{opacity:.35;pointer-events:none}
+mark{background:#FFF176;color:var(--ink);padding:0 2px;border-radius:2px}
+
+@media(max-width:900px){
+  .sidebar{transform:translateX(-100%);transition:transform .25s ease;width:min(320px,85vw)}
+  .sidebar.open{transform:translateX(0);box-shadow:0 10px 40px rgba(0,0,0,.3)}
+  .scrim.open{display:block}
+  .mob-header{display:flex}
+  .main{margin-left:0}
+  .topbar{padding:12px 20px}
+  .content{padding:32px 20px 60px}
+  h1{font-size:30px}
+  h2{font-size:22px}
+  .lede{font-size:15px}
+  .cards{grid-template-columns:1fr}
+  .pager{flex-direction:column;align-items:stretch}
+  .pager a{max-width:100%}
+  .pager a.next{text-align:left;margin-left:0}
+  .quiz{padding:20px 22px}
+}
+</style>
+</head>
+<body>
+
+<div class="scrim" id="scrim"></div>
+<div class="mob-header">
+  <div class="mob-brand">Intern Handbook</div>
+  <button class="mob-menu-btn" id="menuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+
+<aside class="sidebar" id="sidebar">
+  <div class="sb-brand">
+    <div class="sb-firm">Thomas Philip</div>
+    <div class="sb-title"><a href="#home">Intern Handbook</a></div>
+  </div>
+  <div class="sb-search"><input type="text" id="search" placeholder="Search the handbook..." autocomplete="off"/></div>
+  <ul class="sb-nav" id="nav">
+    <li><a href="#home" data-section="home"><span class="num">—</span>Home<span class="check">✓</span></a></li>
+    <li><a href="#s1" data-section="s1"><span class="num">1</span>What to expect<span class="check">✓</span></a></li>
+    <li><a href="#s2" data-section="s2"><span class="num">2</span>Office etiquette<span class="check">✓</span></a></li>
+    <li><a href="#s3" data-section="s3"><span class="num">3</span>Taking notes &amp; observing<span class="check">✓</span></a></li>
+    <li><a href="#s4" data-section="s4"><span class="num">4</span>Basic admin tasks<span class="check">✓</span></a></li>
+    <li><a href="#s5" data-section="s5"><span class="num">5</span>Confidentiality<span class="check">✓</span></a></li>
+    <li><a href="#s6" data-section="s6"><span class="num">6</span>Asking questions &amp; learning<span class="check">✓</span></a></li>
+    <li><a href="#s7" data-section="s7"><span class="num">7</span>Making the most of it<span class="check">✓</span></a></li>
+  </ul>
+  <div class="sb-companion">
+    <div class="lbl">Companion Site</div>
+    <a href="paralegal-task-handbook.html">Paralegal Handbook →</a>
+  </div>
+  <div class="sb-foot">2026 · v1.0</div>
+</aside>
+
+<main class="main">
+  <div class="topbar">
+    <div class="crumb">
+      <span>Intern Handbook</span>
+      <span class="sep">›</span>
+      <span class="cur" id="crumbCur">Home</span>
+    </div>
+    <div class="progress" id="progress">0 / 7 read</div>
+  </div>
+
+  <div class="content">
+
+  <section class="section active" id="home">
+    <div class="home-hero">
+      <div class="eyebrow">Thomas Philip · Advocates &amp; Solicitors</div>
+      <h1>Intern Handbook</h1>
+      <p class="lede">A guide to your internship at Thomas Philip. You're here to observe, learn, and support — not to run legal work independently. This handbook explains what's expected of you and how to make the most of your time here. Every section ends with a short self-test.</p>
+    </div>
+    <h2>Pick a section</h2>
+    <div class="cards">
+      <a class="card" href="#s1"><div class="card-num">01</div><h3>What to expect</h3><p>Your role, what you will and won't be doing.</p></a>
+      <a class="card" href="#s2"><div class="card-num">02</div><h3>Office etiquette</h3><p>Dress code, hours, phones, communication.</p></a>
+      <a class="card" href="#s3"><div class="card-num">03</div><h3>Taking notes &amp; observing</h3><p>Court observation, meeting notes, learning by watching.</p></a>
+      <a class="card" href="#s4"><div class="card-num">04</div><h3>Basic admin tasks</h3><p>Filing, photocopying, bundle assistance.</p></a>
+      <a class="card" href="#s5"><div class="card-num">05</div><h3>Confidentiality</h3><p>The one rule you cannot break.</p></a>
+      <a class="card" href="#s6"><div class="card-num">06</div><h3>Asking questions &amp; learning</h3><p>How to make lawyers want to teach you.</p></a>
+      <a class="card" href="#s7"><div class="card-num">07</div><h3>Making the most of it</h3><p>Turning weeks into a career foundation.</p></a>
+    </div>
+    <div class="ground-rules">
+      <h3>Ground rules for interns</h3>
+      <ul>
+        <li><strong>You're here to learn, not to prove yourself.</strong> No one expects you to know how to draft an affidavit on day one.</li>
+        <li><strong>Watch first, then ask.</strong> Observe how the lawyers work before asking questions.</li>
+        <li><strong>Confidentiality is absolute.</strong> Nothing you see or hear leaves the office. Not to family. Not to friends. Not on social media.</li>
+        <li><strong>Show up on time, every day.</strong> The single simplest way to make a good impression.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="s1">
+    <div class="eyebrow">Section 1</div>
+    <h1>What to expect</h1>
+    <p class="lede">Interns at Thomas Philip are here for a defined observation-and-support period — typically shorter and more structured than a paralegalship. Your role is to learn how a litigation practice actually works, not to produce independent legal work.</p>
+
+    <h3>What you will do</h3>
+    <ul>
+      <li>Observe lawyers in court and in client meetings (when appropriate)</li>
+      <li>Sit in on internal case discussions and strategy sessions</li>
+      <li>Assist paralegals with basic administrative tasks — filing, photocopying, bundle assembly</li>
+      <li>Take notes during observations and share them with your supervising lawyer</li>
+      <li>Ask questions and read materials suggested by lawyers</li>
+    </ul>
+
+    <h3>What you won't (yet) do</h3>
+    <ul>
+      <li>Draft affidavits, submissions, or cause papers</li>
+      <li>Conduct independent legal research for filing</li>
+      <li>Translate documents that will go to court</li>
+      <li>Speak with clients on the firm's behalf</li>
+      <li>Send correspondence in the firm's name</li>
+    </ul>
+    <p>If any of these tasks are offered to you, treat them as an opportunity to shadow the paralegal or lawyer doing them — not as tasks you complete alone.</p>
+
+    <div class="callout"><span class="clbl">Rule</span>If in doubt about whether a task is within your scope, ask before starting. It is always better to check than to overstep.</div>
+  </section>
+
+  <section class="section" id="s2">
+    <div class="eyebrow">Section 2</div>
+    <h1>Office etiquette</h1>
+    <p class="lede">How you present and conduct yourself matters. Interns are noticed; the small things are how you build a reputation.</p>
+
+    <h3>Dress code</h3>
+    <p>Formal business attire, every day. No exceptions unless a lawyer tells you otherwise.</p>
+    <ul>
+      <li><strong>Men:</strong> long-sleeve shirt, tie, formal trousers, formal shoes.</li>
+      <li><strong>Women:</strong> formal blouse/shirt, formal trousers or skirt (knee length or longer), closed formal shoes.</li>
+      <li>Nothing loud, distracting, or overly casual.</li>
+    </ul>
+
+    <h3>Hours</h3>
+    <p>8.30 AM – 5.30 PM, in-office. Arrive 5–10 minutes early. Do not leave before 5.30 unless a lawyer tells you to.</p>
+    <p>Some days will run late — hearings, filings, urgent matters. This is normal. Stay unless told otherwise.</p>
+
+    <h3>Phones</h3>
+    <p>Keep your phone on silent. Personal use should be minimal during work hours — ideally only on breaks or if genuinely urgent. Never scroll social media at your desk.</p>
+
+    <h3>Communication style</h3>
+    <ul>
+      <li>Address lawyers professionally — use their preferred name/title. Ask if unsure.</li>
+      <li>Speak clearly. Do not mumble.</li>
+      <li>If you don't understand something someone said, ask them to repeat — do not pretend to understand.</li>
+      <li>Emails and messages inside the firm should still be formal. No "hey", no emojis.</li>
+    </ul>
+
+    <h3>Breaks and moving around</h3>
+    <ul>
+      <li>Lunch is a genuine break. Take it, but stick to a reasonable time (typically 1 hour).</li>
+      <li>If you step out for anything else during work hours, let your supervising lawyer or a colleague know.</li>
+    </ul>
+
+    <div class="quiz" data-quiz="s2">
+      <div class="quiz-lbl">Self-test</div>
+      <h3>Check what stuck</h3>
+      <p class="quiz-intro">3 questions.</p>
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q1.</span>You arrive at 8:30 AM exactly. Is that fine?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i2q1"/><span>Yes — you're right on time</span></label>
+          <label class="opt"><input type="radio" name="i2q1"/><span>Aim to arrive 5–10 minutes early instead</span></label>
+          <label class="opt"><input type="radio" name="i2q1"/><span>You should arrive at 9 AM to allow lawyers to settle in first</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Arrive 5–10 minutes early.</strong> Punctuality means already at your desk when the workday begins.</div>
+      </div>
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q2.</span>A lawyer says something in a meeting you don't understand. What do you do?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i2q2"/><span>Nod along so you don't look confused</span></label>
+          <label class="opt"><input type="radio" name="i2q2"/><span>Wait until the meeting ends, then look it up online</span></label>
+          <label class="opt"><input type="radio" name="i2q2"/><span>Politely ask them to repeat or explain</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Ask.</strong> Pretending to understand is a fast way to make a mistake later. Asking shows you're paying attention.</div>
+      </div>
+      <div class="q" data-answer="a">
+        <div class="q-prompt"><span class="qnum">Q3.</span>Personal phone use during work hours should be:</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i2q3"/><span>Minimal — on breaks or if genuinely urgent, never scrolling at your desk</span></label>
+          <label class="opt"><input type="radio" name="i2q3"/><span>Fine as long as you're subtle</span></label>
+          <label class="opt"><input type="radio" name="i2q3"/><span>Only allowed during lunch</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Minimal.</strong> Lawyers notice interns on their phones at their desks. It signals disengagement.</div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkQuiz('s2')">Check answers</button>
+        <button class="btn btn-ghost" onclick="resetQuiz('s2')">Reset</button>
+        <div class="quiz-score hidden" id="score-s2"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s3">
+    <div class="eyebrow">Section 3</div>
+    <h1>Taking notes &amp; observing</h1>
+    <p class="lede">Most of your value as an intern comes from paying close attention. What you observe — how lawyers frame arguments, handle judges, respond to opposing counsel — is worth more than any textbook.</p>
+
+    <h3>In court</h3>
+    <ul>
+      <li>Bring a notebook and pen. Not just your phone.</li>
+      <li>Sit at the back of the courtroom unless directed otherwise.</li>
+      <li>Note the case name, court, date, judge, and lawyers appearing.</li>
+      <li>Write down: what each side argued, how the judge responded, what was decided or what happens next.</li>
+      <li>Do not use your phone in court. Ever.</li>
+      <li>Stand up when the judge enters and leaves.</li>
+    </ul>
+
+    <h3>In client meetings (if permitted to observe)</h3>
+    <ul>
+      <li>Only attend if a lawyer has explicitly invited you.</li>
+      <li>Introduce yourself briefly at the start ("Hi, I'm [name], I'm interning here").</li>
+      <li>Take notes but do not interrupt.</li>
+      <li>Do not offer opinions unless asked.</li>
+      <li>Everything said stays confidential (see Section 5).</li>
+    </ul>
+
+    <h3>In internal case discussions</h3>
+    <ul>
+      <li>Listen more than you speak.</li>
+      <li>Write down anything you don't understand — look it up or ask afterwards.</li>
+      <li>If asked for an opinion, give one honestly, briefly. It's fine to say "I don't know enough about this."</li>
+    </ul>
+
+    <h3>What to do with your notes</h3>
+    <ul>
+      <li>Review them at the end of the day.</li>
+      <li>Share the observation notes with your supervising lawyer if useful.</li>
+      <li>Keep a private log of what you learned each day — you'll be surprised how much this adds up.</li>
+    </ul>
+
+    <div class="quiz" data-quiz="s3">
+      <div class="quiz-lbl">Self-test</div>
+      <h3>Check what stuck</h3>
+      <p class="quiz-intro">3 questions.</p>
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q1.</span>You're observing a court hearing. Can you check a WhatsApp message on your phone?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i3q1"/><span>Yes, if you're discreet</span></label>
+          <label class="opt"><input type="radio" name="i3q1"/><span>No, never in court</span></label>
+          <label class="opt"><input type="radio" name="i3q1"/><span>Only during breaks between hearings</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Never in court.</strong> Judges notice. It's disrespectful to the court and reflects on the firm.</div>
+      </div>
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q2.</span>You're sitting in on a client meeting. The client asks a question and pauses. What do you do?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i3q2"/><span>Answer if you know the answer</span></label>
+          <label class="opt"><input type="radio" name="i3q2"/><span>Interject politely with your thoughts</span></label>
+          <label class="opt"><input type="radio" name="i3q2"/><span>Wait for the lawyer to respond — you're observing, not advising</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Wait.</strong> You're not qualified to advise clients. Take notes, listen, learn.</div>
+      </div>
+      <div class="q" data-answer="a">
+        <div class="q-prompt"><span class="qnum">Q3.</span>What's the best thing to do with the notes you take during a court observation?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i3q3"/><span>Review them at the end of the day; share with your supervising lawyer if useful</span></label>
+          <label class="opt"><input type="radio" name="i3q3"/><span>Post the case highlights online for your law school friends</span></label>
+          <label class="opt"><input type="radio" name="i3q3"/><span>Throw them away — the lawyers have their own notes</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Review + share if useful.</strong> Never post case content publicly — that's a confidentiality breach.</div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkQuiz('s3')">Check answers</button>
+        <button class="btn btn-ghost" onclick="resetQuiz('s3')">Reset</button>
+        <div class="quiz-score hidden" id="score-s3"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s4">
+    <div class="eyebrow">Section 4</div>
+    <h1>Basic admin tasks</h1>
+    <p class="lede">You'll be asked to help with straightforward administrative tasks. Do them well and cheerfully — how you handle small tasks tells a firm how you'll handle bigger ones.</p>
+
+    <h3>Photocopying &amp; scanning</h3>
+    <ul>
+      <li>Check every page after copying — no missed pages, no upside-down scans.</li>
+      <li>Keep the original in the exact order you received it.</li>
+      <li>Return originals to the person who gave them to you, not left on a desk.</li>
+      <li>If you jam the copier, tell someone — don't leave it for the next person.</li>
+    </ul>
+
+    <h3>Filing</h3>
+    <ul>
+      <li>Files are usually organised by matter/client name. Always double-check where a document belongs.</li>
+      <li>If unsure, ask before filing.</li>
+      <li>Do not remove anything from a physical file without noting where you took it from.</li>
+    </ul>
+
+    <h3>Court bundle assistance</h3>
+    <p>You may be asked to help a paralegal prepare a court bundle. This means:</p>
+    <ul>
+      <li>Arranging documents in the order given</li>
+      <li>Numbering pages consistently</li>
+      <li>Assembling tab dividers</li>
+      <li>Making copies</li>
+    </ul>
+    <p>You are helping the paralegal — they are responsible for the final bundle. Ask them exactly what they need before starting.</p>
+
+    <h3>Answering the phone (only if asked)</h3>
+    <p>If specifically asked to cover reception or answer a call:</p>
+    <ul>
+      <li>"Good morning / afternoon, Thomas Philip Advocates &amp; Solicitors, how may I help you?"</li>
+      <li>Take a message: caller's name, company, phone number, reason for calling, time of call.</li>
+      <li>Do not give out any information about matters, lawyers' schedules, or anything else. If asked, say "I'll pass your message on and someone will get back to you."</li>
+    </ul>
+
+    <div class="quiz" data-quiz="s4">
+      <div class="quiz-lbl">Self-test</div>
+      <h3>Check what stuck</h3>
+      <p class="quiz-intro">3 questions.</p>
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q1.</span>You're photocopying a 40-page document. Two pages come out blank. What do you do?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i4q1"/><span>Include them anyway — the paralegal will notice</span></label>
+          <label class="opt"><input type="radio" name="i4q1"/><span>Reprint the blank pages so the copy is complete</span></label>
+          <label class="opt"><input type="radio" name="i4q1"/><span>Discard those two pages and hand over the 38-page copy</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Reprint them.</strong> Always check every page after copying. A copy with missing pages can cause serious problems downstream.</div>
+      </div>
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q2.</span>A caller asks whether one of the firm's lawyers is in a meeting or not. What do you say?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i4q2"/><span>"Yes, she's in a meeting until 3 PM"</span></label>
+          <label class="opt"><input type="radio" name="i4q2"/><span>"I don't actually know her schedule"</span></label>
+          <label class="opt"><input type="radio" name="i4q2"/><span>"I'll take a message and someone will get back to you"</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Take a message.</strong> Never share information about lawyers' schedules or client matters over the phone.</div>
+      </div>
+      <div class="q" data-answer="a">
+        <div class="q-prompt"><span class="qnum">Q3.</span>You're helping a paralegal prepare a court bundle. Who's responsible if pages end up out of order?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i4q3"/><span>The paralegal is responsible for the final bundle — but you should ask upfront exactly what they need</span></label>
+          <label class="opt"><input type="radio" name="i4q3"/><span>You are, since you did the assembly</span></label>
+          <label class="opt"><input type="radio" name="i4q3"/><span>The lawyer, since it's their file</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: The paralegal.</strong> They own the final product. But confirming their instructions upfront reduces mistakes.</div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkQuiz('s4')">Check answers</button>
+        <button class="btn btn-ghost" onclick="resetQuiz('s4')">Reset</button>
+        <div class="quiz-score hidden" id="score-s4"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s5">
+    <div class="eyebrow">Section 5</div>
+    <h1>Confidentiality</h1>
+    <p class="lede">This is the one rule you cannot break. Every client trusts the firm with sensitive information. That trust is professional obligation, not preference.</p>
+
+    <div class="callout"><span class="clbl">Absolute rule</span>Nothing you see, hear, or read inside the firm may be shared outside it. Not to family. Not to friends. Not to law school classmates. Not on social media. Not to anyone. Ever.</div>
+
+    <h3>What counts as confidential</h3>
+    <ul>
+      <li>Client names</li>
+      <li>Case details</li>
+      <li>Documents (including drafts)</li>
+      <li>What was said in meetings, calls, or courtrooms</li>
+      <li>The firm's internal strategy or opinions on cases</li>
+      <li>Financial information about clients or the firm</li>
+      <li>Personnel matters</li>
+    </ul>
+
+    <h3>Common ways interns accidentally breach confidentiality</h3>
+    <div class="dd">
+      <div class="dont"><span class="h">Do not</span>
+        <ul>
+          <li>Take photos of documents, screens, or offices</li>
+          <li>Post about "the interesting case I saw today" on Instagram, LinkedIn, or anywhere</li>
+          <li>Discuss cases with your family "as long as no names are used"</li>
+          <li>Leave documents visible on your desk when stepping away</li>
+          <li>Log into personal email or social media on firm computers</li>
+          <li>Forward firm emails to your personal email</li>
+        </ul>
+      </div>
+      <div class="do"><span class="h">Do</span>
+        <ul>
+          <li>Lock your screen when stepping away</li>
+          <li>Shred any printed drafts you're not keeping</li>
+          <li>Ask before removing any document from the office</li>
+          <li>Keep client names out of every conversation outside the firm</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout"><span class="clbl">If in doubt</span>Ask yourself: could someone connect what I'm saying to a real person, matter, or company? If yes, don't share it. Not even with people you trust.</div>
+
+    <div class="quiz" data-quiz="s5">
+      <div class="quiz-lbl">Self-test</div>
+      <h3>Check what stuck</h3>
+      <p class="quiz-intro">3 questions.</p>
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q1.</span>You observed a fascinating court hearing today. Can you tell your law school friends about it?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i5q1"/><span>Yes, as long as you don't name anyone</span></label>
+          <label class="opt"><input type="radio" name="i5q1"/><span>Yes, but only in general terms</span></label>
+          <label class="opt"><input type="radio" name="i5q1"/><span>No — nothing from a matter should be shared outside the firm</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: No.</strong> "General terms" often let people identify a matter. The safe answer is always no.</div>
+      </div>
+      <div class="q" data-answer="a">
+        <div class="q-prompt"><span class="qnum">Q2.</span>You want to post on LinkedIn: "Great day at the office — got to see a major commercial dispute in the High Court today!" Is that OK?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i5q2"/><span>No — even vague posts risk identifying a matter or party</span></label>
+          <label class="opt"><input type="radio" name="i5q2"/><span>Yes — it doesn't name the client</span></label>
+          <label class="opt"><input type="radio" name="i5q2"/><span>Yes, if you check with the firm first</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: No.</strong> "Major commercial dispute in the High Court today" is enough for someone to figure out the matter from public listings. Don't post about firm work.</div>
+      </div>
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q3.</span>You're leaving your desk for lunch. What should you do with your computer?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i5q3"/><span>Nothing — you'll only be gone for an hour</span></label>
+          <label class="opt"><input type="radio" name="i5q3"/><span>Lock the screen</span></label>
+          <label class="opt"><input type="radio" name="i5q3"/><span>Log out fully</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Lock the screen.</strong> Anyone who walks past shouldn't be able to see what's on it. Lock it every single time you step away.</div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkQuiz('s5')">Check answers</button>
+        <button class="btn btn-ghost" onclick="resetQuiz('s5')">Reset</button>
+        <div class="quiz-score hidden" id="score-s5"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s6">
+    <div class="eyebrow">Section 6</div>
+    <h1>Asking questions &amp; learning</h1>
+    <p class="lede">The interns who get the most out of their time here are the ones who ask the right questions at the right times. It's a skill worth developing early.</p>
+
+    <h3>Good questions</h3>
+    <ul>
+      <li><strong>Specific.</strong> "What made you approach that cross-examination that way?" is better than "Was that a good cross-examination?"</li>
+      <li><strong>Well-timed.</strong> Not during a hearing, not when the lawyer is on a deadline. After a hearing on the way back to the office is often perfect.</li>
+      <li><strong>Show you were listening.</strong> "You mentioned the section 45 point earlier — is that always a knock-out argument?" is much better than a generic question.</li>
+    </ul>
+
+    <h3>Bad questions</h3>
+    <ul>
+      <li>Things you can Google in 10 seconds ("What does 'affidavit' mean?")</li>
+      <li>Questions you've already been told the answer to</li>
+      <li>Questions asked when the lawyer is visibly stressed or busy</li>
+    </ul>
+
+    <h3>How to make lawyers want to teach you</h3>
+    <ul>
+      <li><strong>Do the reading.</strong> If a lawyer suggests you read something, actually read it. Come back with a question or observation.</li>
+      <li><strong>Follow up.</strong> "You mentioned that case yesterday — I looked it up and had a question about paragraph 12…" This is gold.</li>
+      <li><strong>Take initiative on small things.</strong> If you see a printer out of paper, refill it. If you notice a lawyer is running late, offer to help set up the meeting room.</li>
+      <li><strong>Be pleasant to everyone.</strong> Not just lawyers. How you treat paralegals, admin staff, receptionists is noticed.</li>
+    </ul>
+
+    <div class="callout"><span class="clbl">A note on questions</span>Every lawyer would rather you ask a "silly" question than make a preventable mistake. If you're unsure, ask. The one exception: don't interrupt an active hearing or a live client call. Wait.</div>
+
+    <div class="quiz" data-quiz="s6">
+      <div class="quiz-lbl">Self-test</div>
+      <h3>Check what stuck</h3>
+      <p class="quiz-intro">3 questions.</p>
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q1.</span>Which of these is a good question to ask a lawyer?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i6q1"/><span>"What does 'affidavit' mean?"</span></label>
+          <label class="opt"><input type="radio" name="i6q1"/><span>"How did you do in law school?"</span></label>
+          <label class="opt"><input type="radio" name="i6q1"/><span>"You mentioned the section 45 point earlier — is that usually a strong argument?"</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: The specific, listening-based question.</strong> It shows you were paying attention and want to understand more. That's the kind of question lawyers enjoy answering.</div>
+      </div>
+      <div class="q" data-answer="a">
+        <div class="q-prompt"><span class="qnum">Q2.</span>A lawyer is visibly rushing to prepare for a hearing in 30 minutes. You have a question. What do you do?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i6q2"/><span>Save it — ask after the hearing when they're free</span></label>
+          <label class="opt"><input type="radio" name="i6q2"/><span>Ask now — better to get it out of the way</span></label>
+          <label class="opt"><input type="radio" name="i6q2"/><span>Slip them a note so they can answer when they have time</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Wait.</strong> Timing matters. Lawyers remember interns who read the room.</div>
+      </div>
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q3.</span>A lawyer recommends you read a case. What's the best follow-up?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i6q3"/><span>Say you read it, without actually reading it</span></label>
+          <label class="opt"><input type="radio" name="i6q3"/><span>Read it, then come back with a specific question or observation</span></label>
+          <label class="opt"><input type="radio" name="i6q3"/><span>Skim the headnote — the full case is too long</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Read it properly and follow up.</strong> This is the single best signal you can send about being serious.</div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkQuiz('s6')">Check answers</button>
+        <button class="btn btn-ghost" onclick="resetQuiz('s6')">Reset</button>
+        <div class="quiz-score hidden" id="score-s6"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="s7">
+    <div class="eyebrow">Section 7</div>
+    <h1>Making the most of it</h1>
+    <p class="lede">Whether this internship leads to a paralegalship or not, it's a chance to build the foundations of a real legal career. What you take away depends entirely on what you put in.</p>
+
+    <h3>Set a personal goal for the internship</h3>
+    <p>Before your first week ends, decide what you want to leave with. Some examples:</p>
+    <ul>
+      <li>"I want to have observed 5 different types of court hearings."</li>
+      <li>"I want to understand what a typical litigation matter looks like from filing to resolution."</li>
+      <li>"I want to build a relationship with at least two lawyers I can approach for advice later."</li>
+      <li>"I want to leave with clear feedback on my strengths and what to work on."</li>
+    </ul>
+
+    <h3>Keep a private learning log</h3>
+    <p>At the end of every day, spend 5 minutes writing down:</p>
+    <ul>
+      <li>One thing you learned</li>
+      <li>One thing you observed that surprised you</li>
+      <li>One question you have</li>
+    </ul>
+    <p>By the end of the internship you'll have a real record of how much you've grown — and useful notes for interviews and applications later.</p>
+
+    <h3>Ask for feedback before you leave</h3>
+    <p>In the last week, ask your supervising lawyer:</p>
+    <ul>
+      <li>"What do you think I did well during my time here?"</li>
+      <li>"What would you tell me to work on if I want to become a lawyer?"</li>
+      <li>"Is there anything about my professional conduct I should be aware of?"</li>
+    </ul>
+    <p>Take the answers seriously. Write them down.</p>
+
+    <h3>The mindset that matters</h3>
+    <ul>
+      <li><strong>Show up as if you already work there.</strong> Not as a visitor. As part of the team.</li>
+      <li><strong>Take small tasks as seriously as big ones.</strong> A well-photocopied bundle says as much about you as a well-drafted paragraph would.</li>
+      <li><strong>Be genuinely interested in the people you meet.</strong> Every lawyer here has a story worth hearing. Ask.</li>
+      <li><strong>Never waste a court visit.</strong> Even boring hearings teach you how the law actually operates in practice.</li>
+    </ul>
+
+    <div class="callout"><span class="clbl">Final thought</span>The interns who leave a strong impression are not usually the ones with the best grades. They're the ones who showed up on time, worked hard on small things, asked good questions, kept confidences, and treated everyone with respect. That's it. That's the whole thing.</div>
+
+    <div class="quiz" data-quiz="s7">
+      <div class="quiz-lbl">Self-test</div>
+      <h3>Check what stuck</h3>
+      <p class="quiz-intro">3 questions.</p>
+      <div class="q" data-answer="b">
+        <div class="q-prompt"><span class="qnum">Q1.</span>What's the most useful thing to do at the end of each day?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i7q1"/><span>Post a summary online for other law students</span></label>
+          <label class="opt"><input type="radio" name="i7q1"/><span>Spend 5 minutes writing down one thing you learned, one that surprised you, one question you have</span></label>
+          <label class="opt"><input type="radio" name="i7q1"/><span>Send a summary email to your supervising lawyer</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: The private learning log.</strong> It compounds. Over a few weeks you'll have a real record of how much you've grown.</div>
+      </div>
+      <div class="q" data-answer="a">
+        <div class="q-prompt"><span class="qnum">Q2.</span>What best describes the interns who leave the strongest impression?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i7q2"/><span>The ones who show up on time, work hard on small things, ask good questions, and treat everyone with respect</span></label>
+          <label class="opt"><input type="radio" name="i7q2"/><span>The ones with the best law school grades</span></label>
+          <label class="opt"><input type="radio" name="i7q2"/><span>The ones who take on the most legal work</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: The first one.</strong> Grades matter less than most students think. Reliability, work ethic, and interpersonal decency matter more than most students realise.</div>
+      </div>
+      <div class="q" data-answer="c">
+        <div class="q-prompt"><span class="qnum">Q3.</span>Before your internship ends, what should you ask your supervising lawyer for?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="i7q3"/><span>A guaranteed offer of a paralegalship</span></label>
+          <label class="opt"><input type="radio" name="i7q3"/><span>Their personal phone number</span></label>
+          <label class="opt"><input type="radio" name="i7q3"/><span>Honest feedback on what you did well and what to work on</span></label>
+        </div>
+        <div class="q-explain"><strong>Correct: Feedback.</strong> Honest, specific feedback in your last week is one of the most valuable things you can leave with.</div>
+      </div>
+      <div class="quiz-actions">
+        <button class="btn btn-primary" onclick="checkQuiz('s7')">Check answers</button>
+        <button class="btn btn-ghost" onclick="resetQuiz('s7')">Reset</button>
+        <div class="quiz-score hidden" id="score-s7"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="pager" id="pager"></div>
+
+  </div>
+</main>
+
+<script>
+const SECTIONS = [
+  {id:'home',title:'Home'},
+  {id:'s1',  title:'What to expect'},
+  {id:'s2',  title:'Office etiquette'},
+  {id:'s3',  title:'Taking notes & observing'},
+  {id:'s4',  title:'Basic admin tasks'},
+  {id:'s5',  title:'Confidentiality'},
+  {id:'s6',  title:'Asking questions & learning'},
+  {id:'s7',  title:'Making the most of it'}
+];
+const visited = new Set();
+
+function go(id){
+  if(!SECTIONS.find(s => s.id === id)) id = 'home';
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.sb-nav a').forEach(a => a.classList.remove('active'));
+  const link = document.querySelector('.sb-nav a[data-section="'+id+'"]');
+  if(link){link.classList.add('active'); link.parentElement.classList.add('visited');}
+  document.getElementById('crumbCur').textContent = SECTIONS.find(s => s.id === id).title;
+  if(id !== 'home') visited.add(id);
+  document.getElementById('progress').textContent = visited.size + ' / 7 read';
+  const idx = SECTIONS.findIndex(s => s.id === id);
+  const prev = SECTIONS[idx - 1], next = SECTIONS[idx + 1];
+  let html = '';
+  if(prev) html += '<a href="#'+prev.id+'"><span class="plbl">← Previous</span><span class="ptitle">'+prev.title+'</span></a>';
+  else html += '<a class="disabled"><span class="plbl">← Previous</span><span class="ptitle">—</span></a>';
+  if(next) html += '<a class="next" href="#'+next.id+'"><span class="plbl">Next →</span><span class="ptitle">'+next.title+'</span></a>';
+  else html += '<a class="next disabled"><span class="plbl">Next →</span><span class="ptitle">—</span></a>';
+  document.getElementById('pager').innerHTML = html;
+  closeMobile();
+  window.scrollTo(0, 0);
+  const s = document.getElementById('search');
+  if(s.value){ s.value=''; clearHighlights(); }
+}
+
+function checkQuiz(id){
+  const quiz = document.querySelector('.quiz[data-quiz="'+id+'"]');
+  const qs = quiz.querySelectorAll('.q');
+  const letters = ['a','b','c','d'];
+  let correct = 0;
+  qs.forEach(q => {
+    const answer = q.dataset.answer;
+    const opts = q.querySelectorAll('.opt');
+    opts.forEach(o => o.classList.add('locked'));
+    let selected = -1;
+    q.querySelectorAll('input').forEach((inp, i) => { if(inp.checked) selected = i; });
+    opts.forEach((opt, i) => {
+      opt.classList.remove('correct','wrong','right-answer');
+      let tag = opt.querySelector('.opt-tag'); if(tag) tag.remove();
+      const letter = letters[i];
+      if(letter === answer){
+        if(selected === i){
+          opt.classList.add('correct');
+          const t = document.createElement('span'); t.className='opt-tag'; t.textContent='Correct'; opt.appendChild(t);
+        } else {
+          opt.classList.add('right-answer');
+          const t = document.createElement('span'); t.className='opt-tag'; t.textContent='Answer'; opt.appendChild(t);
+        }
+      } else if(selected === i){
+        opt.classList.add('wrong');
+        const t = document.createElement('span'); t.className='opt-tag'; t.textContent='Wrong'; opt.appendChild(t);
+      }
+    });
+    if(letters[selected] === answer) correct++;
+    q.querySelector('.q-explain').classList.add('show');
+  });
+  const scoreEl = document.getElementById('score-'+id);
+  scoreEl.textContent = correct + ' / ' + qs.length + ' correct';
+  scoreEl.classList.remove('hidden');
+}
+function resetQuiz(id){
+  const quiz = document.querySelector('.quiz[data-quiz="'+id+'"]');
+  quiz.querySelectorAll('.opt').forEach(o => {
+    o.classList.remove('locked','correct','wrong','right-answer');
+    const tag = o.querySelector('.opt-tag'); if(tag) tag.remove();
+  });
+  quiz.querySelectorAll('input').forEach(i => i.checked = false);
+  quiz.querySelectorAll('.q-explain').forEach(e => e.classList.remove('show'));
+  document.getElementById('score-'+id).classList.add('hidden');
+}
+
+function clearHighlights(){
+  document.querySelectorAll('mark').forEach(m => {
+    const p = m.parentNode; p.replaceChild(document.createTextNode(m.textContent), m); p.normalize();
+  });
+  document.querySelectorAll('.sb-nav li').forEach(l => l.style.display = '');
+}
+function highlightIn(node, term){
+  if(node.nodeType === 3){
+    const t = node.nodeValue, l = t.toLowerCase(), i = l.indexOf(term);
+    if(i === -1) return false;
+    const before = document.createTextNode(t.substring(0, i));
+    const mark = document.createElement('mark'); mark.textContent = t.substring(i, i+term.length);
+    const after = document.createTextNode(t.substring(i+term.length));
+    const p = node.parentNode;
+    p.insertBefore(before, node); p.insertBefore(mark, node); p.insertBefore(after, node); p.removeChild(node);
+    highlightIn(after, term); return true;
+  }
+  if(node.nodeType !== 1) return false;
+  if(['SCRIPT','STYLE','MARK','INPUT'].includes(node.tagName)) return false;
+  let found = false;
+  Array.from(node.childNodes).forEach(c => { if(highlightIn(c, term)) found = true; });
+  return found;
+}
+document.getElementById('search').addEventListener('input', e => {
+  const term = e.target.value.trim().toLowerCase();
+  clearHighlights();
+  if(!term) return;
+  document.querySelectorAll('.section').forEach(sec => {
+    const matched = highlightIn(sec, term);
+    const link = document.querySelector('.sb-nav a[data-section="'+sec.id+'"]');
+    if(link) link.parentElement.style.display = matched ? '' : 'none';
+  });
+});
+
+function closeMobile(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('scrim').classList.remove('open');
+  document.getElementById('menuBtn').classList.remove('open');
+}
+document.getElementById('menuBtn').addEventListener('click', () => {
+  const open = document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('scrim').classList.toggle('open', open);
+  document.getElementById('menuBtn').classList.toggle('open', open);
+});
+document.getElementById('scrim').addEventListener('click', closeMobile);
+
+function fromHash(){ go((location.hash || '#home').slice(1)); }
+window.addEventListener('hashchange', fromHash);
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    if(SECTIONS.find(s => s.id === id)){ e.preventDefault(); location.hash = '#' + id; }
+  });
+});
+fromHash();
+</script>
+</body>
+</html>
