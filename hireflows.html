@@ -6,14 +6,15 @@
 <title>Hireflows — Better legal recruiting exists.</title>
 <style>
   :root {
-    --ink: #0E1116;
-    --cream: #F6F2E9;
-    --paper: #FBF8F1;
-    --gold: #B08A3E;
-    --gold-soft: #C9A65B;
-    --muted: #6b6a63;
-    --line: #E5DFCE;
+    --ink: #1F1B4E;         /* deep midnight purple */
+    --cream: #FEF3E7;       /* warm peach */
+    --paper: #FFF9F0;       /* lighter peach */
+    --gold: #FF5A3D;        /* coral (primary accent, keeping name for compat) */
+    --gold-soft: #FFC947;   /* sunshine yellow */
+    --muted: #6B6371;       /* warm plum-grey */
+    --line: #F5DFC8;        /* peach line */
     --card: #FFFFFF;
+    --lime: #86D96C;        /* fresh mint */
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,7 +47,7 @@
   nav.top {
     position: sticky;
     top: 0;
-    background: rgba(246, 242, 233, 0.92);
+    background: rgba(254, 243, 231, 0.92);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
     z-index: 50;
@@ -78,7 +79,7 @@
     background: var(--ink);
     color: var(--cream);
     padding: 12px 22px;
-    border-radius: 3px;
+    border-radius: 999px;
     font-size: 14px;
     font-weight: 500;
     border: 1px solid var(--ink);
@@ -119,6 +120,20 @@
   .hero h1 em {
     font-style: italic;
     color: var(--gold);
+    position: relative;
+    display: inline-block;
+  }
+  .hero h1 em::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 6px;
+    height: 12px;
+    background: var(--gold-soft);
+    z-index: -1;
+    opacity: 0.6;
+    border-radius: 4px;
   }
   .hero .sub {
     font-size: clamp(16px, 1.7vw, 20px);
@@ -163,8 +178,12 @@
     border-bottom: 1px solid var(--line);
     background: var(--paper);
     transition: 0.2s;
+    position: relative;
   }
   .promise:hover { background: var(--card); }
+  .promise:nth-child(3n+1):hover { background: #FFF5EE; }
+  .promise:nth-child(3n+2):hover { background: #FFF9E5; }
+  .promise:nth-child(3n+3):hover { background: #F0F9EC; }
   .promise .num {
     font-family: Georgia, serif;
     font-size: 14px;
@@ -239,7 +258,9 @@
     border-radius: 50%;
     flex-shrink: 0;
   }
-  .fit .yes li::before { background: var(--gold); }
+  .fit .yes li:nth-child(3n+1)::before { background: var(--gold); }
+  .fit .yes li:nth-child(3n+2)::before { background: var(--gold-soft); }
+  .fit .yes li:nth-child(3n+3)::before { background: var(--lime); }
   .fit .no li::before { background: transparent; border: 1px solid #c9c4b3; }
   .fit .no li { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(107,106,99,0.35); }
   .fit h3 {
@@ -293,11 +314,34 @@
 
   /* CTA */
   .cta {
-    background: var(--ink);
+    background: linear-gradient(135deg, var(--ink) 0%, #3A2D6B 100%);
     color: var(--cream);
     padding: 140px 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
   }
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 260px; height: 260px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0.35;
+    filter: blur(20px);
+  }
+  .cta::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 260px; height: 260px;
+    background: var(--gold-soft);
+    border-radius: 50%;
+    opacity: 0.28;
+    filter: blur(20px);
+  }
+  .cta .container { position: relative; z-index: 2; }
   .cta h2 {
     color: #fff;
     font-size: clamp(40px, 6vw, 72px);
