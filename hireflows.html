@@ -126,56 +126,6 @@
     max-width: 640px;
     margin: 0 auto 40px;
   }
-  .marquee {
-    margin-top: 90px;
-    padding-top: 40px;
-    border-top: 1px solid var(--line);
-    font-size: 12px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  .marquee .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px 60px;
-    margin-top: 26px;
-    color: var(--ink);
-    opacity: 0.55;
-    font-family: Georgia, serif;
-    font-size: 16px;
-    letter-spacing: 0.02em;
-    text-transform: none;
-  }
-
-  /* STATS */
-  .stats {
-    padding: 80px 0;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    background: var(--paper);
-  }
-  .stats .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 60px;
-    text-align: center;
-  }
-  .stats .n {
-    font-family: Georgia, serif;
-    font-size: clamp(48px, 6vw, 76px);
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 10px;
-  }
-  .stats .l {
-    font-size: 14px;
-    color: var(--muted);
-    max-width: 240px;
-    margin: 0 auto;
-    line-height: 1.5;
-  }
 
   /* SECTION */
   section.block { padding: 100px 0; }
@@ -261,52 +211,6 @@
     color: rgba(246,242,233,0.75);
     font-size: 16px;
     line-height: 1.65;
-  }
-
-  /* TESTIMONIALS */
-  .testimonials {
-    background: var(--paper);
-  }
-  .quote-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-top: 60px;
-  }
-  .quote {
-    background: var(--card);
-    border: 1px solid var(--line);
-    padding: 36px 34px;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .quote .mark {
-    font-family: Georgia, serif;
-    font-size: 60px;
-    color: var(--gold);
-    line-height: 0.5;
-    margin-bottom: 20px;
-    height: 20px;
-  }
-  .quote p {
-    font-family: Georgia, serif;
-    font-size: 19px;
-    line-height: 1.5;
-    color: var(--ink);
-    margin-bottom: 28px;
-  }
-  .quote .who {
-    font-size: 13px;
-    color: var(--muted);
-    letter-spacing: 0.02em;
-  }
-  .quote .who strong {
-    color: var(--ink);
-    display: block;
-    font-weight: 500;
-    margin-bottom: 2px;
   }
 
   /* WHO WE WORK WITH */
@@ -454,21 +358,15 @@
     nav.top ul { display: none; }
     nav.top .inner { padding: 14px 20px; }
     .hero { padding: 60px 0 50px; }
-    .stats { padding: 50px 0; }
-    .stats .grid { grid-template-columns: 1fr; gap: 40px; }
     section.block { padding: 60px 0; }
     .promises { grid-template-columns: 1fr; }
     .promise { padding: 30px 24px; }
     .diff { padding: 70px 0; }
     .diff .col { grid-template-columns: 1fr; gap: 0; margin-top: 40px; }
-    .quote-grid { grid-template-columns: 1fr; gap: 20px; }
-    .quote { padding: 28px 24px; }
-    .quote p { font-size: 17px; }
     .fit .lists { grid-template-columns: 1fr; gap: 40px; }
     .cta { padding: 80px 0; }
     footer .grid { grid-template-columns: 1fr 1fr; gap: 30px; }
     footer .bottom { flex-direction: column; gap: 8px; text-align: center; }
-    .marquee .row { gap: 20px 30px; font-size: 14px; }
   }
 </style>
 </head>
@@ -491,41 +389,10 @@
   <div class="container">
     <div class="eyebrow">Legal recruiting · Reimagined</div>
     <h1>Better legal<br>recruiting <em>exists.</em></h1>
-    <p class="sub">We're an AI-native legal recruiting firm placing paralegals, associates, and partners into the firms that shape the future of law.</p>
+    <p class="sub">An AI-native recruiting platform built for law firms placing paralegals, associates, and partners.</p>
     <a href="#book" class="btn gold">Book a Call</a>
-    <div class="marquee">
-      Trusted by
-      <div class="row">
-        <span>Thomas Philip &amp; Co.</span>
-        <span>Skrine</span>
-        <span>Wong &amp; Partners</span>
-        <span>Zul Rafique</span>
-        <span>Christopher &amp; Lee Ong</span>
-        <span>SKRINE</span>
-      </div>
-    </div>
   </div>
 </header>
-
-<!-- STATS -->
-<section class="stats">
-  <div class="container">
-    <div class="grid">
-      <div>
-        <div class="n">4 of 5</div>
-        <div class="l">Candidates we submit get invited to interview</div>
-      </div>
-      <div>
-        <div class="n">2,000+</div>
-        <div class="l">Legal professionals screened by Hireflows every year</div>
-      </div>
-      <div>
-        <div class="n">80%</div>
-        <div class="l">Average offer-to-close rate on candidates delivered</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- PROMISE -->
 <section class="block" id="promise">
@@ -543,22 +410,22 @@
       <div class="promise">
         <div class="num">02</div>
         <h3>We work fast, but we don't rush</h3>
-        <p>Great hires take time. We've seen managing partners push for speed and regret it six months later. We move as quickly as we can without cutting corners.</p>
+        <p>Great hires take time. We move as quickly as we can without cutting corners, because a bad hire costs a firm more than a slow one.</p>
       </div>
       <div class="promise">
         <div class="num">03</div>
         <h3>We take the long view</h3>
-        <p>We assume we'll be working together for years. We won't push a weak candidate to close a fee. We'll tell you to wait on a hire even when it costs us.</p>
+        <p>We assume we'll be working with you for years. We won't push a weak candidate to close a fee, and we'll tell you to wait on a hire even when it costs us.</p>
       </div>
       <div class="promise">
         <div class="num">04</div>
         <h3>We push back</h3>
-        <p>When a job spec is too broad, we'll tell you. When the comp doesn't match market, we'll tell you. We're partners, not order-takers.</p>
+        <p>When a job spec is too broad, we'll say so. When the comp doesn't match the market, we'll say so. Partners, not order-takers.</p>
       </div>
       <div class="promise">
         <div class="num">05</div>
-        <h3>We understand the law</h3>
-        <p>Our team has placed lawyers across litigation, corporate, IP, employment, and in-house. We know the practice areas. We know the pressure.</p>
+        <h3>Structured, not subjective</h3>
+        <p>Every candidate is assessed against the same rubric. Same standard. Same dimensions. Fully auditable for every partner in the room.</p>
       </div>
       <div class="promise">
         <div class="num">06</div>
@@ -567,8 +434,8 @@
       </div>
       <div class="promise">
         <div class="num">07</div>
-        <h3>We use AI so our people go deeper</h3>
-        <p>Our software handles the sifting, sourcing, and follow-up. Our people spend that time on judgement — where it actually counts.</p>
+        <h3>AI does the sifting, humans do the judgement</h3>
+        <p>The system handles the sifting, sourcing, and follow-up. People spend that time where it actually counts — on judgement.</p>
       </div>
       <div class="promise">
         <div class="num">08</div>
@@ -582,58 +449,26 @@
 <!-- HOW WE WORK / DIFFERENTIATORS -->
 <section class="block diff" id="how">
   <div class="container">
-    <div class="section-eyebrow">How We Work</div>
+    <div class="section-eyebrow">How It Works</div>
     <h2 class="section-title">Context is everything.</h2>
-    <p class="section-lede" style="color: rgba(246,242,233,0.75);">A good hire versus a great hire. A CV that looks right versus a candidate who is right. Us versus every other legal recruiter. The difference is always context.</p>
+    <p class="section-lede" style="color: rgba(246,242,233,0.75);">A good hire versus a great hire. A CV that looks right versus a candidate who is right. The difference is always context — and the system is designed around that.</p>
 
     <div class="col">
       <div>
-        <h3>We thirst to understand</h3>
-        <p>Your firm. Your practice. Your partners. Your culture. The matter you're staffing. The client relationship behind it. We don't just listen — we go deeper. It's the only way we can succeed.</p>
+        <h3>We start by understanding</h3>
+        <p>Your firm. Your practice. Your partners. Your culture. The role you're filling and the person you actually need. We don't send anyone until we know all of that.</p>
       </div>
       <div>
-        <h3>We're a tech company that doesn't talk about tech</h3>
-        <p>The best technology disappears. Our custom software helps our team source faster, screen better, and understand context deeper. You'll never see it. What you'll see is the result.</p>
+        <h3>Technology that disappears</h3>
+        <p>The system handles the sifting, sourcing, scoring, and follow-up. What you see is the result: a shortlist worth your time and a decision within a day.</p>
       </div>
       <div>
-        <h3>Every candidate is scored on ten dimensions</h3>
-        <p>Critical thinking, written communication, judgement, attitude, attention to detail, resilience, and more. Every applicant. Same standard. Fully auditable.</p>
+        <h3>Structured scoring on every applicant</h3>
+        <p>Critical thinking, written communication, judgement, attitude, attention to detail, resilience, and more. Ten dimensions. Same standard. Every candidate. Fully auditable.</p>
       </div>
       <div>
-        <h3>We're built for law firms who care</h3>
+        <h3>Built for firms who care</h3>
         <p>Boutique litigators. Mid-market corporate. In-house teams. If you care who represents your firm to candidates as much as we do, we're the right partner.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="block testimonials">
-  <div class="container">
-    <div class="section-eyebrow">What Our Clients Say</div>
-    <h2 class="section-title">"They feel like part of the team."</h2>
-    <p class="section-lede">That's the goal. Our clients pay us — but candidates get the same respect.</p>
-
-    <div class="quote-grid">
-      <div class="quote">
-        <div class="mark">"</div>
-        <p>Hireflows is one of the best legal recruiting firms we've partnered with. They've only brought the highest quality talent across paralegals, associates, and senior roles. I couldn't recommend a better partner.</p>
-        <div class="who"><strong>Managing Partner</strong>Boutique Litigation Firm</div>
-      </div>
-      <div class="quote">
-        <div class="mark">"</div>
-        <p>What has really impressed me about Hireflows is their level of partnership. They're responsive to feedback and consistently deliver excellent candidates. They kept plugging away until we found the perfect fit.</p>
-        <div class="who"><strong>Head of Legal Operations</strong>Corporate Advisory Firm</div>
-      </div>
-      <div class="quote">
-        <div class="mark">"</div>
-        <p>They had a strong understanding of my skills and search criteria, and connected me with firms I was genuinely excited about. They guided me through the process and helped me find the right fit.</p>
-        <div class="who"><strong>Senior Associate</strong>Placed by Hireflows</div>
-      </div>
-      <div class="quote">
-        <div class="mark">"</div>
-        <p>Hireflows sets the standard for what a legal recruiting partnership should be. When talent partners ask who I work with, I always mention them.</p>
-        <div class="who"><strong>Head of Talent</strong>Regional Law Firm</div>
       </div>
     </div>
   </div>
@@ -679,36 +514,32 @@
 
     <div class="faq">
       <details>
-        <summary>What types of legal roles do you recruit for?</summary>
-        <p>Paralegals, associates, senior associates, partners, in-house counsel, legal operations, compliance, and firm leadership. We recruit across litigation, corporate, IP, employment, real estate, tax, and regulatory practice areas.</p>
+        <summary>What types of legal roles is Hireflows built for?</summary>
+        <p>Paralegals to start. The same approach extends to associates, senior associates, in-house counsel, and legal operations roles. Book a call to discuss the role you're hiring for.</p>
       </details>
       <details>
-        <summary>How long does a typical search take?</summary>
-        <p>Paralegal roles: 2–4 weeks from kickoff to signed offer. Associate roles: 4–8 weeks. Partner and senior in-house roles: 8–16 weeks. We prioritise fit over speed, but we won't sit on searches.</p>
+        <summary>How does the assessment work?</summary>
+        <p>Every applicant completes a short structured assessment. The system scores their answers across ten dimensions — critical thinking, written communication, judgement, attitude, attention to detail, and more — and produces a total score with a written rationale.</p>
+      </details>
+      <details>
+        <summary>How fast do candidates hear back?</summary>
+        <p>Within 24 hours of submitting the assessment. A shortlisted candidate can be on a screening call the same week.</p>
+      </details>
+      <details>
+        <summary>Who makes the final decision?</summary>
+        <p>You do. The AI produces a first-pass score; a person at your firm has a 24-hour window to override every decision before any email goes out. Every candidate can be accepted or rejected with a single click.</p>
       </details>
       <details>
         <summary>How does pricing work?</summary>
-        <p>Contingent placements for paralegal and junior roles. Retained search for senior associates, partners, and leadership positions. We're transparent about fees on the first call — no games.</p>
+        <p>Get in touch and we'll walk you through it. We keep it simple and transparent — no games.</p>
       </details>
       <details>
-        <summary>What makes you different from other legal recruiters?</summary>
-        <p>We built AI-native infrastructure so our team can spend their time on judgement, not admin. Every candidate is vetted against a structured rubric. Every conversation is contextualised. We only send candidates worth your partners' time.</p>
+        <summary>What role does AI play?</summary>
+        <p>AI handles the first-pass screening, resume analysis, and structured scoring. People at your firm make every judgement call that matters. Nothing is auto-sent for 24 hours.</p>
       </details>
       <details>
-        <summary>How do you vet candidates?</summary>
-        <p>Every applicant completes a structured assessment scored across ten dimensions — critical thinking, written communication, judgement, attitude, attention to detail, and more. A recruiter then interviews shortlisted candidates before they reach you.</p>
-      </details>
-      <details>
-        <summary>What role does AI play in your process?</summary>
-        <p>AI handles the first-pass screening, resume analysis, and structured scoring. Our people make every judgement call that matters. You'll never receive a candidate we haven't personally spoken to.</p>
-      </details>
-      <details>
-        <summary>Do you work with boutique firms as well as large firms?</summary>
-        <p>Yes. We work with sole practices, boutique litigation firms, mid-market corporate firms, and in-house legal departments. What matters is that you value quality candidates and treat your brand carefully.</p>
-      </details>
-      <details>
-        <summary>Do you offer any guarantees?</summary>
-        <p>Yes. If a placed candidate leaves within the first 90 days for reasons unrelated to firm changes, we replace them at no additional fee. We'd rather never need to.</p>
+        <summary>Where does the data live?</summary>
+        <p>Inside your own Google Workspace. The only content the AI reads is the answers to the assessment questions.</p>
       </details>
     </div>
   </div>
@@ -718,7 +549,7 @@
 <section class="cta" id="book">
   <div class="container">
     <h2>Ready to find your next hire?</h2>
-    <p>Let's talk about how we can help you build your team — the right way.</p>
+    <p>Let's talk about how Hireflows can help you build your team — the right way.</p>
     <a href="#" class="btn gold">Book a Call</a>
   </div>
 </section>
@@ -729,7 +560,7 @@
     <div class="grid">
       <div>
         <div class="logo" style="font-size: 22px;">hire<span>flows</span></div>
-        <p class="tag">AI-native legal recruiting for firms who care who represents them.</p>
+        <p class="tag">AI-native legal recruiting, for firms who care who represents them.</p>
       </div>
       <div>
         <h4>Roles</h4>
