@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paralegal Application — Thomas Philip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A1A; --paper: #F4EFE4; --paper-2: #EBE5D6;
+    --accent: #C15D3C; --muted: #6E665A; --line: #D9D1BE;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Inter', -apple-system, system-ui, sans-serif; font-size: 16px; line-height: 1.55; }
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 400; letter-spacing: -0.015em; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 60px 32px 120px; }
+  .brand { font-family: 'Fraunces', serif; font-size: 20px; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 40px; }
+  .brand::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+  h1 { font-size: clamp(36px, 5vw, 52px); line-height: 1.05; font-weight: 300; margin-bottom: 16px; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .lede { color: var(--muted); font-size: 18px; margin-bottom: 40px; max-width: 620px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 40px; margin-bottom: 20px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  label { display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+  label span.hint { color: var(--muted); font-weight: 400; font-size: 12px; margin-left: 6px; }
+  input[type=text], input[type=email], input[type=tel], textarea, input[type=file] {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px;
+    font-family: 'Inter', sans-serif; font-size: 15px; color: var(--ink); background: #fff;
+    transition: 120ms; margin-bottom: 24px;
+  }
+  input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(193,93,60,0.15); }
+  textarea { min-height: 120px; resize: vertical; font-family: 'Inter', sans-serif; }
+  .q-title { font-family: 'Fraunces', serif; font-size: 22px; margin-bottom: 8px; color: var(--ink); font-weight: 400; }
+  .q-help { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+  .check { display: flex; align-items: flex-start; gap: 12px; padding: 16px; background: var(--paper-2); border-radius: 10px; margin-bottom: 24px; }
+  .check input { margin-top: 4px; }
+  .check label { margin: 0; font-weight: 400; color: var(--ink); font-size: 14px; cursor: pointer; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 999px; border: none; background: var(--ink); color: var(--paper); font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; transition: 150ms; }
+  .btn:hover { transform: translateY(-1px); background: #000; }
+  .btn:disabled { opacity: 0.6; cursor: wait; }
+  .faq { margin-top: 40px; }
+  .faq details { border-top: 1px solid var(--line); padding: 20px 0; }
+  .faq details:last-child { border-bottom: 1px solid var(--line); }
+  .faq summary { cursor: pointer; list-style: none; font-family: 'Fraunces', serif; font-size: 18px; display: flex; justify-content: space-between; align-items: center; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: ''; width: 10px; height: 10px; border-right: 1.5px solid var(--muted); border-bottom: 1.5px solid var(--muted); transform: rotate(45deg); transition: 200ms; }
+  .faq details[open] summary::after { transform: rotate(-135deg); border-color: var(--accent); }
+  .faq details p { margin-top: 12px; color: var(--muted); font-size: 15px; }
+  .status { margin-top: 16px; padding: 14px 18px; border-radius: 8px; font-size: 14px; display: none; }
+  .status.ok { background: #E4EFDF; color: #2F5D2B; display: block; }
+  .status.err { background: #F8DDD5; color: #8B3421; display: block; }
+  @media (max-width: 640px) { .wrap { padding: 40px 20px 80px; } .card { padding: 24px; } .row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Thomas Philip</div>
+  <h1>Paralegal <em>Application</em></h1>
+  <p class="lede">Around 20 minutes. Your answers are read carefully by a person after an initial AI score. You'll hear back within 24 hours.</p>
+
+  <form id="applyForm">
+    <div class="card">
+      <div class="row">
+        <div><label>Full name</label><input name="name" type="text" required></div>
+        <div><label>Email</label><input name="email" type="email" required></div>
+      </div>
+      <label>Phone <span class="hint">optional</span></label>
+      <input name="phone" type="tel">
+    </div>
+
+    <div class="card">
+      <div class="q-title">1. Tell us about yourself and why you are drawn to law.</div>
+      <div class="q-help">A few sentences on your background and what pulled you toward legal work.</div>
+      <textarea name="q1" required></textarea>
+
+      <div class="q-title">2. Describe a time you handled a difficult deadline.</div>
+      <div class="q-help">What was the situation, what did you do, and what was the outcome?</div>
+      <textarea name="q2" required></textarea>
+
+      <div class="q-title">3. You spot a mistake in a partner's draft. What do you do?</div>
+      <div class="q-help">Show us how you approach a delicate professional situation.</div>
+      <textarea name="q3" required></textarea>
+
+      <div class="q-title">4. Summarise a legal news story you have read recently.</div>
+      <div class="q-help">A short paragraph in your own words. Malaysian or international, either works.</div>
+      <textarea name="q4" required></textarea>
+
+      <div class="q-title">5. Which of your qualities will make you a strong paralegal?</div>
+      <textarea name="q5" required></textarea>
+
+      <div class="q-title">6. Describe a mistake you have made and what you learnt.</div>
+      <textarea name="q6" required></textarea>
+
+      <div class="q-title">7. Write a short client email declining a meeting request.</div>
+      <div class="q-help">Write the actual email you would send. No template needed.</div>
+      <textarea name="q7" required></textarea>
+    </div>
+
+    <div class="card">
+      <label>Upload your CV <span class="hint">PDF, max 10MB</span></label>
+      <input name="resume" type="file" accept="application/pdf" required>
+
+      <div class="check">
+        <input type="checkbox" id="crm" name="crm_optin" value="yes">
+        <label for="crm">Keep me on the Thomas Philip CRM to hear about future opportunities, publications, and events.</label>
+      </div>
+
+      <button class="btn" type="submit" id="submitBtn">Submit application →</button>
+      <div id="status" class="status"></div>
+    </div>
+  </form>
+
+  <div class="faq">
+    <h3 style="font-size: 20px; margin-bottom: 8px;">Common questions</h3>
+    <details><summary>How long does it take?</summary><p>Around 20 minutes.</p></details>
+    <details><summary>When will I hear back?</summary><p>Within 24 hours of submitting.</p></details>
+    <details><summary>Who reads my answers?</summary><p>The firm. An AI produces a first-pass score; a person at Thomas Philip makes the final call.</p></details>
+    <details><summary>Is this a real job?</summary><p>Yes. Successful applicants are invited to a 15-minute screening call.</p></details>
+    <details><summary>Where does my data go?</summary><p>Inside Thomas Philip's own Google Workspace. Only the answers to these questions are read by the AI.</p></details>
+  </div>
+</div>
+
+<script>
+  const ENDPOINT = 'PASTE_WEB_APP_URL_HERE';
+
+  const form = document.getElementById('applyForm');
+  const status = document.getElementById('status');
+  const btn = document.getElementById('submitBtn');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.className = 'status';
+    status.textContent = '';
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+
+    const fd = new FormData(form);
+    const file = fd.get('resume');
+    let resumeBase64 = '', resumeFilename = '';
+    if (file && file.size) {
+      resumeFilename = file.name;
+      resumeBase64 = await new Promise((res, rej) => {
+        const reader = new FileReader();
+        reader.onload = () => res(String(reader.result).split(',')[1]);
+        reader.onerror = rej;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    const payload = {
+      name: fd.get('name'), email: fd.get('email'), phone: fd.get('phone'),
+      q1: fd.get('q1'), q2: fd.get('q2'), q3: fd.get('q3'),
+      q4: fd.get('q4'), q5: fd.get('q5'), q6: fd.get('q6'), q7: fd.get('q7'),
+      crm_optin: fd.get('crm_optin') === 'yes',
+      resumeBase64, resumeFilename,
+    };
+
+    try {
+      const resp = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: {'Content-Type': 'text/plain'},
+        body: JSON.stringify(payload),
+      });
+      const data = await resp.json();
+      if (!data.ok) throw new Error(data.error || 'Submission failed');
+      status.classList.add('ok');
+      status.textContent = 'Application received. We\'ll be in touch within 24 hours.';
+      form.reset();
+    } catch (err) {
+      status.classList.add('err');
+      status.textContent = 'Something went wrong: ' + err.message + '. Please try again or email careers@thomasphilip.com.my';
+      btn.disabled = false;
+      btn.textContent = 'Submit application →';
+    }
+  });
+</script>
+</body>
+</html>
